@@ -14,7 +14,7 @@ public class Partie {
 	}
 	
 	public void jouerPartie(){
-		//TODO jouerPartie
+		interfaceGraphique.afficherMonde(moteur);
 	}
 
 }
