@@ -1,3 +1,4 @@
+package jeu;
 public class Pays {
 
 	private Integer richesse;
