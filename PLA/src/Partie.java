@@ -1,9 +1,9 @@
 
 public class Partie {
 	
-	InterfaceUtilisateur  interfaceGraphique ; // Interface du jeu 
+	private InterfaceUtilisateur  interfaceGraphique ; // Interface du jeu 
 	
-	Moteur moteur ; // Moteur de jeu
+	private Moteur moteur ; // Moteur de jeu
 
 	public Partie(InterfaceUtilisateur interfaceGraphique, Moteur moteur) {
 		super();
