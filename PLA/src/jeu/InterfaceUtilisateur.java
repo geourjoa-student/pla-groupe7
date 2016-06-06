@@ -1,8 +1,8 @@
 package jeu;
 
-public interface InterfaceUtilisateur {
+public abstract class InterfaceUtilisateur {
 
-	void afficherMap(int[][] decor);
+	abstract void  afficherMap(int[][] decor);
 	
 
 }

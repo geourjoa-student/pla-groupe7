@@ -1,10 +1,15 @@
 package jeu;
 
-public class InterfaceConsole implements InterfaceUtilisateur {
+public class InterfaceConsole extends InterfaceUtilisateur {
 
 	@Override
 	public void afficherMap(int[][] decor) {
-		// TODO Auto-generated method stub
+		
+		for (int i = 0; i < decor.length; i++) {
+			for (int j = 0; j < decor[i].length; j++) {
+				System.out.print(decor[i][j]);
+			}
+		}
 		
 	}
 
