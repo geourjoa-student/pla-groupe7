@@ -3,11 +3,11 @@ import java.util.List;
 
 public class Automate {
 
-	private Etat initial;
+	private int initial;
 		
-	private List<Etat> etatsFinaux;
+	private int[] etatsFinaux;
 	
-	private List<Etat> etats;
+	private  int[] etats;
 	
 	private int[][] transitions;
 	
@@ -15,22 +15,20 @@ public class Automate {
 	
 	private int courant;
 
-	public Automate(Etat initial, List<Etat> etatsFinaux, List<Etat> etats, int[][] transitions, int[][] actions) {
-		super();
+	public Automate(int initial, int[] etatsFinaux, int[] etats, int[][] transitions, int[][] actions) {
+
 		this.initial = initial;
+		courant=initial;
 		this.etatsFinaux = etatsFinaux;
 		this.etats = etats;
 		this.transitions = transitions;
 		this.actions = actions;
 	}
 	
-	public Etat get_initial(){
-		return(this.initial);
-	}
 	
-	public Etat get_courant(){
-		return(etats[courant]);
-	}
+
+	
+
 
 
 	
