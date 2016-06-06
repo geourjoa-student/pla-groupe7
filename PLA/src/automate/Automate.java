@@ -4,7 +4,7 @@ import java.util.List;
 public class Automate {
 
 	private Etat initial;
-	
+		
 	private List<Etat> etatsFinaux;
 	
 	private List<Etat> etats;
@@ -12,6 +12,8 @@ public class Automate {
 	private int[][] transitions;
 	
 	private int [][] actions;
+	
+	private int courant;
 
 	public Automate(Etat initial, List<Etat> etatsFinaux, List<Etat> etats, int[][] transitions, int[][] actions) {
 		super();
@@ -22,9 +24,14 @@ public class Automate {
 		this.actions = actions;
 	}
 	
+	public Etat get_initial(){
+		return(this.initiale);
+	}
 	
-	
-	
+	public Etat get_courant(){
+		return(etats[courant]);
+	}
 
 
+	
 }
