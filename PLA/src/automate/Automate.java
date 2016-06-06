@@ -25,7 +25,7 @@ public class Automate {
 	}
 	
 	public Etat get_initial(){
-		return(this.initiale);
+		return(this.initial);
 	}
 	
 	public Etat get_courant(){
