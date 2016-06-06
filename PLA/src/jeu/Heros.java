@@ -8,10 +8,6 @@ public class Heros extends Personnage{
 		proprietaire=joueur;
 	}
 
-	@Override
-	public void agir(int nouvelleTransition) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 }
