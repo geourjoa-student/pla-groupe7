@@ -1,7 +1,8 @@
 package jeu;
 
 public interface InterfaceUtilisateur {
+
+	void afficherMap(int[][] decor);
 	
-	public void afficherMonde(Moteur m);
 
 }
