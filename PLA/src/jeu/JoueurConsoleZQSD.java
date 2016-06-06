@@ -13,6 +13,7 @@ public class JoueurConsoleZQSD extends JoueurConsole {
 	}
 
 	@Override
+	// Ne devra pas �tre modulable par l'automate?
 	public Action getNouvelleAction() {
 		Scanner sc = new Scanner(System.in);
 		char codeAction = sc.nextLine().charAt(0); // Récupère le premier caractere

@@ -8,11 +8,13 @@ public abstract class Personnage {
 	
 	protected int positionY;
 	
+	protected int pointsDeVie;
+	
 	protected Joueur proprietaire;
 	
 	protected Automate comportement;
 
-	public Joueur getJoueur() {
+	public Joueur getJoueur() { //DOUBLON
 		return proprietaire;
 	}
 
@@ -24,7 +26,7 @@ public abstract class Personnage {
 		return positionY;
 	}
 
-	public Joueur getProprietaire() {
+	public Joueur getProprietaire() { //DOUBLON
 		return proprietaire;
 	}
 
@@ -33,7 +35,7 @@ public abstract class Personnage {
 		positionY=y;
 	}
 
-	public void allerADroite() {
+	public void allerADroite() { //Tests à faire
 		if(positionX == Partie.LARGEUR-1)
 			positionX=0;
 		else 

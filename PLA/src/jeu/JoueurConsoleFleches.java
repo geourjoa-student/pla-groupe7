@@ -8,7 +8,7 @@ public class JoueurConsoleFleches extends JoueurConsole {
 
 	@Override
 	public Action getNouvelleAction() {
-		// TODO Comment lire une fleche au clavier ?
+		// TODO Comment lire une fleche au clavier ? 
 		return null;
 	}
 
