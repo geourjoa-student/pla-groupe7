@@ -33,8 +33,8 @@ public class Partie {
 
 		personnages = new LinkedList<Personnage>();
 
-		personnages.add(joueur1.getHeros());
-		personnages.add(joueur2.getHeros());
+		personnages.add(new Heros(joueur1));
+		personnages.add(new Heros(joueur2));
 
 		decor = new int[LARGEUR][HAUTEUR];
 
@@ -51,12 +51,12 @@ public class Partie {
 		interfaceUtilisateur.afficherMap(decor);
 
 		for (Iterator<Personnage> iterator = personnages.iterator(); iterator.hasNext();) {
-			Personnage personnage = (Personnage) iterator.next();
+			Personnage personnage =  iterator.next();
 
 			Action actionAfaire = Action.NE_RIEN_FAIRE;
 
 			if (personnage instanceof Heros) {
-
+				
 				actionAfaire = personnage.getJoueur().getNouvelleAction();
 
 			} /*

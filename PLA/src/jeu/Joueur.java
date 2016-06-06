@@ -6,7 +6,6 @@ public abstract class Joueur {
 	
 	protected Heros heros;
 	
-
 	public Personnage getHeros(){
 		return heros;
 	}

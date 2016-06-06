@@ -9,6 +9,7 @@ public class InterfaceConsole extends InterfaceUtilisateur {
 			for (int j = 0; j < decor[i].length; j++) {
 				System.out.print(decor[i][j]);
 			}
+			System.out.println();
 		}
 		
 	}

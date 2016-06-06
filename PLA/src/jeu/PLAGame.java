@@ -4,11 +4,10 @@ public class PLAGame {
 
 	public static void main(String[] args) {
 
-		Partie p = new Partie(new InterfaceConsole(), new JoueurConsoleFleches("Toto"), new JoueurConsoleZQSD("Titi"));
+		Partie p = new Partie(new InterfaceConsole(), new JoueurConsoleZQSD("Toto"), new JoueurConsoleZQSD("Titi"));
 	
-		while(!p.estTermine()){
-			p.jouerTour();
-		}
+		p.jouerTour();
+		
 	}
 
 }

@@ -3,6 +3,10 @@ package jeu;
 import java.util.Scanner;
 
 public class JoueurConsoleZQSD extends JoueurConsole {
+	
+	public JoueurConsoleZQSD() {
+		super.heros=new Heros(this);
+	}
 
 	public JoueurConsoleZQSD(String nom) {
 		this.nom=nom;
@@ -11,7 +15,7 @@ public class JoueurConsoleZQSD extends JoueurConsole {
 	@Override
 	public Action getNouvelleAction() {
 		Scanner sc = new Scanner(System.in);
-		char codeAction = sc.next().charAt(0); // Récupère le premier caractere
+		char codeAction = sc.nextLine().charAt(0); // Récupère le premier caractere
 		sc.close();
 		
 		switch (codeAction) {
