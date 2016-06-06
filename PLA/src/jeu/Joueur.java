@@ -1,9 +1,16 @@
 package jeu;
 
-public interface Joueur {
+public abstract class Joueur {
+	
+	protected String nom;
+	
+	protected Heros heros;
+	
 
-	public Personnage getHeros();
+	public Personnage getHeros(){
+		return heros;
+	}
 
-	public int getNouvelleTransition();
+	public abstract Action getNouvelleAction();
 
 }
