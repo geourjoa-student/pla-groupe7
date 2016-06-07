@@ -37,8 +37,10 @@ public class Partie {
 
 		creerDecor();
 
-		ajouterPersonnage(new Heros(joueur1, decor[0][0]));
-		ajouterPersonnage(new Heros(joueur2, decor[HAUTEUR - 1][LARGEUR - 1]));
+		// TODO verifier si la case est vraiment accessible, pour l'instant on
+		// n'en tiens pas encore compte
+		personnages.add(new Heros(joueur1, decor[0][0]));
+		personnages.add(new Heros(joueur2, decor[HAUTEUR - 1][LARGEUR - 1]));
 
 	}
 
@@ -87,18 +89,12 @@ public class Partie {
 
 	}
 
-	private void ajouterPersonnage(Heros heros) {
-		// TODO verifier si la case est vraiment accessible, pour l'instant on
-		// n'en tiens pas compte
-		personnages.add(heros);
-
-	}
-
 	public void jouerTour() {
 
 		interfaceUtilisateur.afficherMap(decor);
 		interfaceUtilisateur.afficherPersonnages(personnages);
 
+		//On parcourt la liste des personnages et on fait effectuer une action à chacun
 		for (Iterator<Personnage> iterator = personnages.iterator(); iterator.hasNext();) {
 			Personnage personnage = iterator.next();
 
@@ -132,9 +128,9 @@ public class Partie {
 				case ALLER_EN_BAS:
 					personnage.allerEnBas();
 					break;
-
-				// Si on arrive la, soit la commande est mauvaise soit on ne
-				// doit rien faire
+				case RECOLTER:
+					//TODO compléter
+				
 				case NE_RIEN_FAIRE:
 				default:
 

@@ -40,10 +40,20 @@ public class JoueurConsoleZQSD extends JoueurConsole {
 			case 'D':
 			case 'd':
 				return Action.ALLER_A_DROITE;
+				
+			case '1':
+				return Action.RECOLTER;
 
-			default:
+			case ' ':
 				return Action.NE_RIEN_FAIRE;
-		}
+			default:
+				System.out.println("Commande de jeu :");
+				System.out.println("z,q,s,d -> haut, gauche, bas, droite");
+				System.out.println("0 -> ne rien faire");
+				System.out.println("1 -> recolter");
+				System.out.println("? ou n'importe quelles autres touches -> afficher ce manuel puis saisir une action correcte.");
+				return getNouvelleAction();
+			}
 	}
 
 }

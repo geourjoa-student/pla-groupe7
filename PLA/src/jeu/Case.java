@@ -4,8 +4,6 @@ public class Case {
 
 	private Type typeDeLaCase;
 	
-	
-
 	private Case caseADroite;
 	
 	private Case caseAGauche;
@@ -88,6 +86,10 @@ public class Case {
 
 	public int getPositionL() {
 		return positionL;
+	}
+	
+	public boolean joueurPresent(){
+		return (personnagePresent!=null);
 	}
 
 	@Override
