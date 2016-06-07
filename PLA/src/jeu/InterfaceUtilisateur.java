@@ -1,7 +1,5 @@
 package jeu;
 
-import java.awt.List;
-
 public abstract class InterfaceUtilisateur {
 
 	public abstract void demanderNouvelleAction() ;

@@ -4,9 +4,7 @@ import automate.Automate;
 
 public abstract class Personnage {
 	
-	protected int positionH;
-	
-	protected int positionL;
+	protected Case caseSousLeJoueur;
 	
 	protected int pointsDeVie;
 	
@@ -14,54 +12,44 @@ public abstract class Personnage {
 	
 	protected Automate comportement;
 
-	public Joueur getJoueur() { //DOUBLON
+	public Joueur getJoueur() { 
 		return proprietaire;
 	}
 
-	public int getPositionH() {
-		return positionH;
-	}	
-
-	public int getPositionL() {
-		return positionL;
-	}
-
-	public Joueur getProprietaire() { //DOUBLON
+	public Joueur getProprietaire() { 
 		return proprietaire;
 	}
 
 
-	public void allerADroite() { //Tests � faire
-		if(positionL == Partie.LARGEUR-1)
-			positionL=0;
-		else 
-			positionL++;
+	public void allerADroite() { 
+		caseSousLeJoueur.retirerPersonnagePresent();
+		caseSousLeJoueur=caseSousLeJoueur.getCaseADroite();
+		caseSousLeJoueur.placerPersonnage(this);
 		
 	}
 	
 	public void allerAGauche() {
-		if(positionL == 0)
-			positionL=Partie.LARGEUR-1;
-		else 
-			positionL--;
+		caseSousLeJoueur.retirerPersonnagePresent();
+		caseSousLeJoueur=caseSousLeJoueur.getCaseAGauche();
+		caseSousLeJoueur.placerPersonnage(this);
 		
 	}
 	
 	public void allerEnBas() {
-		if(positionH == Partie.HAUTEUR-1)
-			positionH=0;
-		else 
-			positionH++;
+		caseSousLeJoueur.retirerPersonnagePresent();
+		caseSousLeJoueur=caseSousLeJoueur.getCaseEnBas();
+		caseSousLeJoueur.placerPersonnage(this);
 		
 	}
 	
 	public void allerEnHaut() {
-		if(positionH == 0)
-			positionH=Partie.HAUTEUR-1;
-		else 
-			positionH--;
+		caseSousLeJoueur.retirerPersonnagePresent();
+		caseSousLeJoueur=caseSousLeJoueur.getCaseEnHaut();
+		caseSousLeJoueur.placerPersonnage(this);
 		
 	}
+	
+	
 
 	
 

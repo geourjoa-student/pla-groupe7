@@ -1,7 +1,7 @@
 package jeu;
 
 import java.io.IOException;
-import java.util.Scanner;
+
 
 public class JoueurConsoleZQSD extends JoueurConsole {
 

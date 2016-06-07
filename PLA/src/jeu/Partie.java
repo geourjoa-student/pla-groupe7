@@ -35,9 +35,48 @@ public class Partie {
 
 		decor = new Case[HAUTEUR][LARGEUR];
 
-		for (int h = 0; h < decor.length; h++) {
-			for (int l = 0; l < decor[h].length; l++) {
+		creerDecor();
+
+		ajouterPersonnage(new Heros(joueur1, decor[0][0]));
+		ajouterPersonnage(new Heros(joueur2, decor[HAUTEUR - 1][LARGEUR - 1]));
+
+	}
+
+	private void creerDecor() {
+
+		for (int h = 0; h < HAUTEUR; h++) {
+			for (int l = 0; l < LARGEUR; l++) {
 				decor[h][l] = new Case(Type.HERBE);
+			}
+		}
+
+		// Tout le décor est crée, il faut maintenant chainée les cases
+
+		for (int h = 0; h < HAUTEUR; h++) {
+			for (int l = 0; l < LARGEUR; l++) {
+				// Chainage en haut
+				if (h == 0)
+					decor[h][l].setCaseEnHaut(decor[HAUTEUR - 1][l]);
+				else
+					decor[h][l].setCaseEnHaut(decor[h - 1][l]);
+
+				// Chainage en bas
+				if (h == HAUTEUR - 1)
+					decor[h][l].setCaseEnBas(decor[0][l]);
+				else
+					decor[h][l].setCaseEnBas(decor[h + 1][l]);
+
+				// Chainage a gauche
+				if (l == 0)
+					decor[h][l].setCaseAGauche(decor[h][LARGEUR - 1]);
+				else
+					decor[h][l].setCaseAGauche(decor[h][l - 1]);
+
+				// Chainage a droite
+				if (l == LARGEUR - 1)
+					decor[h][l].setCaseADroite(decor[h][0]);
+				else
+					decor[h][l].setCaseADroite(decor[h][l + 1]);
 			}
 		}
 
@@ -45,9 +84,6 @@ public class Partie {
 			decor[h][5].setTypeDeLaCase(Type.ARBRE);
 			decor[h][8].setTypeDeLaCase(Type.CHAMPS);
 		}
-
-		ajouterPersonnage(new Heros(joueur1, 0, 0));
-		ajouterPersonnage(new Heros(joueur2,HAUTEUR-1,LARGEUR-1));
 
 	}
 
@@ -61,9 +97,8 @@ public class Partie {
 	public void jouerTour() {
 
 		System.out.println(personnages.size());
-		
+
 		interfaceUtilisateur.afficherMap(decor, personnages);
-		
 
 		for (Iterator<Personnage> iterator = personnages.iterator(); iterator.hasNext();) {
 			Personnage personnage = iterator.next();
@@ -87,29 +122,16 @@ public class Partie {
 				 */
 			switch (actionAfaire) {
 				case ALLER_A_DROITE:
-					if (estParcourable(personnage.getPositionH() , personnage.getPositionL()+1))
-					{
-						personnage.allerADroite();
-					}
-					
+					personnage.allerADroite();
 					break;
 				case ALLER_A_GAUCHE:
-					if (estParcourable(personnage.getPositionH(), personnage.getPositionL()-1))
-					{
-						personnage.allerAGauche();
-					}
+					personnage.allerAGauche();
 					break;
 				case ALLER_EN_HAUT:
-					if (estParcourable(personnage.getPositionH()-1, personnage.getPositionL()))
-					{				
-						personnage.allerEnHaut();
-					}
+					personnage.allerEnHaut();
 					break;
 				case ALLER_EN_BAS:
-					if (estParcourable(personnage.getPositionH()+1, personnage.getPositionL()))
-					{
-						personnage.allerEnBas();
-					}
+					personnage.allerEnBas();
 					break;
 
 				// Si on arrive la, soit la commande est mauvaise soit on ne
@@ -128,9 +150,4 @@ public class Partie {
 		return false;
 	}
 
-	public boolean estParcourable(int x, int y) {
-		// TODO pour l'instant toute les cases sont parcourables, on peut être à
-		// plusieurs dessus etc..
-		return true;
-	}
 }

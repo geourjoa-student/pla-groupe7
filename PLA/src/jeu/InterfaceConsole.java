@@ -1,9 +1,5 @@
 package jeu;
 
-
-import java.util.Iterator;
-
-
 public class InterfaceConsole extends InterfaceUtilisateur {
 	
 	
@@ -20,21 +16,9 @@ public class InterfaceConsole extends InterfaceUtilisateur {
 			System.out.print("|");
 			for (int j = 0; j < decor[i].length; j++) {
 				
-				char affichagePersonnage = ' ';
 				
-				for (Iterator<Personnage> iterator = personnages.iterator(); iterator.hasNext();) {
-					Personnage personnage = (Personnage) iterator.next();
-					
-					if(personnage.getPositionH()==i && personnage.getPositionL()==j){
-						affichagePersonnage = 'P';
-						break;
-					} 
-					
-				}
-				
-				System.out.print(affichagePersonnage);
 				System.out.print(decor[i][j]);
-				System.out.print(" |");
+				System.out.print("|");
 			}
 		
 			System.out.println();
