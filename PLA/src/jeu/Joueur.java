@@ -4,10 +4,8 @@ public abstract class Joueur {
 	
 	protected String nom;
 	
-	protected Heros heros;
-	
-	public Personnage getHeros(){
-		return heros;
+	public String getNom() {
+		return nom;
 	}
 
 	public abstract Action getNouvelleAction();

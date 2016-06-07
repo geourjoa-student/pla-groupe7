@@ -31,8 +31,8 @@ public class InterfaceConsole extends InterfaceUtilisateur {
 	}
 
 	@Override
-	public void demanderNouvelleAction() {
-		System.out.println("Saisissez l'action a effectuer : ");
+	public void demanderNouvelleAction(String nomJoueur) {
+		System.out.println( nomJoueur + " : saisissez l'action a effectuer : ");
 		
 	}
 

@@ -107,7 +107,7 @@ public class Partie {
 
 			if (personnage instanceof Heros) {
 
-				interfaceUtilisateur.demanderNouvelleAction();
+				interfaceUtilisateur.demanderNouvelleAction(personnage.getJoueur().getNom());
 				actionAfaire = personnage.getJoueur().getNouvelleAction();
 
 			} /*
@@ -146,7 +146,6 @@ public class Partie {
 	}
 
 	public boolean estTermine() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

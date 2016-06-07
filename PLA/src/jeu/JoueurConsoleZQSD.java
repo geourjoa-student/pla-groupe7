@@ -1,11 +1,17 @@
 package jeu;
 
-import java.io.IOException;
+
+import java.util.Scanner;
 
 
 public class JoueurConsoleZQSD extends JoueurConsole {
+	
+	private static Scanner sc;
 
 	public JoueurConsoleZQSD(String nom) {
+		if(sc==null){
+			sc = new Scanner(System.in);
+		}
 		this.nom = nom;
 	}
 
@@ -13,17 +19,8 @@ public class JoueurConsoleZQSD extends JoueurConsole {
 	// Ne devra pas �tre modulable par l'automate?
 	public Action getNouvelleAction() {
 		
-		char codeAction;
-		try {
-			codeAction = (char) System.in.read();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			codeAction=' ';
-			e.printStackTrace();
-		}
-
-	
-
+		char codeAction = sc.nextLine().charAt(0);
+		
 		switch (codeAction) {
 			case '0':
 				return Action.NE_RIEN_FAIRE;
