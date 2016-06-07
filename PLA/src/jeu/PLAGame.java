@@ -6,11 +6,11 @@ public class PLAGame {
 
 		Partie p = new Partie(new InterfaceConsole(), new JoueurConsoleZQSD("Toto"), new JoueurConsoleZQSD("Titi"));
 	
-		p.jouerTour();
-		p.jouerTour();
-		p.jouerTour();
-		p.jouerTour();
-		p.jouerTour();
+		while(!p.estTermine()){
+			p.jouerTour();
+		}
+		
+		
 		
 		
 	}

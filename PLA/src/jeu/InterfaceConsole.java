@@ -25,7 +25,7 @@ public class InterfaceConsole extends InterfaceUtilisateur {
 				for (Iterator<Personnage> iterator = personnages.iterator(); iterator.hasNext();) {
 					Personnage personnage = (Personnage) iterator.next();
 					
-					if(personnage.getPositionX()==i && personnage.getPositionY()==j){
+					if(personnage.getPositionH()==i && personnage.getPositionL()==j){
 						affichagePersonnage = 'P';
 						break;
 					} 

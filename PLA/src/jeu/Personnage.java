@@ -4,9 +4,9 @@ import automate.Automate;
 
 public abstract class Personnage {
 	
-	protected int positionX;
+	protected int positionH;
 	
-	protected int positionY;
+	protected int positionL;
 	
 	protected int pointsDeVie;
 	
@@ -18,52 +18,48 @@ public abstract class Personnage {
 		return proprietaire;
 	}
 
-	public int getPositionX() {
-		return positionX;
+	public int getPositionH() {
+		return positionH;
 	}	
 
-	public int getPositionY() {
-		return positionY;
+	public int getPositionL() {
+		return positionL;
 	}
 
 	public Joueur getProprietaire() { //DOUBLON
 		return proprietaire;
 	}
 
-	public void setPosition(int x, int y){
-		positionX=x;
-		positionY=y;
-	}
 
 	public void allerADroite() { //Tests � faire
-		if(positionX == Partie.LARGEUR-1)
-			positionX=0;
+		if(positionL == Partie.LARGEUR-1)
+			positionL=0;
 		else 
-			positionX++;
+			positionL++;
 		
 	}
 	
 	public void allerAGauche() {
-		if(positionX == 0)
-			positionX=Partie.LARGEUR-1;
+		if(positionL == 0)
+			positionL=Partie.LARGEUR-1;
 		else 
-			positionX--;
+			positionL--;
 		
 	}
 	
 	public void allerEnBas() {
-		if(positionY == Partie.HAUTEUR-1)
-			positionY=0;
+		if(positionH == Partie.HAUTEUR-1)
+			positionH=0;
 		else 
-			positionY++;
+			positionH++;
 		
 	}
 	
 	public void allerEnHaut() {
-		if(positionY == 0)
-			positionY=Partie.HAUTEUR-1;
+		if(positionH == 0)
+			positionH=Partie.HAUTEUR-1;
 		else 
-			positionY--;
+			positionH--;
 		
 	}
 

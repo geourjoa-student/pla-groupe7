@@ -35,15 +35,15 @@ public class Partie {
 
 		decor = new Case[HAUTEUR][LARGEUR];
 
-		for (int i = 0; i < decor.length; i++) {
-			for (int j = 0; j < decor[i].length; j++) {
-				decor[i][j] = new Case(Type.HERBE);
+		for (int h = 0; h < decor.length; h++) {
+			for (int l = 0; l < decor[h].length; l++) {
+				decor[h][l] = new Case(Type.HERBE);
 			}
 		}
 
-		for (int i = 0; i < decor.length; i++) {
-			decor[i][5] = new Case(Type.ARBRE);
-			decor[i][8] = new Case(Type.CHAMPS);
+		for (int h = 0; h < decor.length; h++) {
+			decor[h][5].setTypeDeLaCase(Type.ARBRE);
+			decor[h][8].setTypeDeLaCase(Type.CHAMPS);
 		}
 
 		ajouterPersonnage(new Heros(joueur1, 0, 0));
@@ -87,26 +87,26 @@ public class Partie {
 				 */
 			switch (actionAfaire) {
 				case ALLER_A_DROITE:
-					if (estParcourable((personnage.getPositionX() + 1)%LARGEUR, personnage.getPositionY()))
+					if (estParcourable(personnage.getPositionH() , personnage.getPositionL()+1))
 					{
 						personnage.allerADroite();
 					}
 					
 					break;
 				case ALLER_A_GAUCHE:
-					if (estParcourable((personnage.getPositionX() - 1)%LARGEUR, personnage.getPositionY()))
+					if (estParcourable(personnage.getPositionH(), personnage.getPositionL()-1))
 					{
 						personnage.allerAGauche();
 					}
 					break;
 				case ALLER_EN_HAUT:
-					if (estParcourable(personnage.getPositionX(), (personnage.getPositionY() - 1)%HAUTEUR))
+					if (estParcourable(personnage.getPositionH()-1, personnage.getPositionL()))
 					{				
 						personnage.allerEnHaut();
 					}
 					break;
 				case ALLER_EN_BAS:
-					if (estParcourable(personnage.getPositionX(), (personnage.getPositionY() + 1)%HAUTEUR))
+					if (estParcourable(personnage.getPositionH()+1, personnage.getPositionL()))
 					{
 						personnage.allerEnBas();
 					}
