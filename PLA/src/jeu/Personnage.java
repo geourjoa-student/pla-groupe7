@@ -6,7 +6,7 @@ import automate.Automate;
 
 public abstract class Personnage {
 
-	private static final int NB_TENTATIVE_ATTQUE_MAX = 5;
+	private static final int NB_TENTATIVE_ATTAQUE_MAX = 5;
 
 	protected Case caseSousLeJoueur;
 
@@ -26,8 +26,17 @@ public abstract class Personnage {
 		return proprietaire;
 	}
 
+	/*
+	 * Fonctions de déplacement
+	 * 
+	 * -On teste si la case est accessible (qu'il n'y es pas de personnages dessus ou x autres raisons)
+	 * -Si c'est possible 
+	 * 		- On retire le personnage de la case ou il est actuellement
+	 * 		- On recupere la case de destination
+	 * 		- on modifie la case courante du personnage
+	 * 		- on place notre personnage sur sa nouvelle case
+	 */
 	public void allerADroite() {
-
 		if (!caseSousLeJoueur.getCaseADroite().estAccessible()) {
 			caseSousLeJoueur.retirerPersonnagePresent();
 			caseSousLeJoueur = caseSousLeJoueur.getCaseADroite();
@@ -59,24 +68,26 @@ public abstract class Personnage {
 		}
 	}
 	
-	public void recevoirDegat(int nbDegats){
-		pointsDeVie-=nbDegats;
-	}
 	
-	public boolean estVivant (){
-		return (pointsDeVie>0);
-	}
-	
+	/*
+	 * Fonction qui représente l'attaque. Je me pose la question de l'interet de créer des classes Guerriers, tout ça tout ça vu qu'au final c'est l'automate leur comportement
+	 * 
+	 * La fonction en elle meme permet l'attaque d'une case adjacente. Si il il n'y a pas d'ennemi adjacent, la fonction est sans conséquence sur le personnage et son environment.
+	 * Pour faire ça je ture NB_TENTATIVE_ATTQUE_MAX fois un nombre qui correspond à l'orientation d'attaque (0 en haut, 1 à droite ..). Si il y a effectivement une personne attaquable
+	 * on l'attaque. (Si il reste des tirages, le personnage à attaquer peut changer mais ça restera une personne attaquable)
+	 */
 	public void attaquer(){
 		Random rand = new Random();
 			
 		Personnage personnageAAttaquer=null;
 		
-		for(int numeroEssaiAttaque = 0; numeroEssaiAttaque<NB_TENTATIVE_ATTQUE_MAX ; numeroEssaiAttaque++){
+		for(int numeroEssaiAttaque = 0; numeroEssaiAttaque<NB_TENTATIVE_ATTAQUE_MAX ; numeroEssaiAttaque++){
 			
 			//On choisit l'orientation d'attaque aléatoirement, si il n'y a personne à l'orientation tirée, on recommence
-			switch (rand.nextInt(5)) {
+			//Tirage entre 0 et 4 non compris
+			switch (rand.nextInt(4)) {
 				case 0:
+					//Si il y a personnage sur la case choisis et qu'il n'appartient pas au même joueur, je peux le choisir comme cible
 					if(caseSousLeJoueur.getCaseEnHaut().getPersonnagePresent()!=null && caseSousLeJoueur.getCaseEnHaut().getPersonnagePresent().getJoueur()!=proprietaire)
 						personnageAAttaquer=caseSousLeJoueur.getCaseEnHaut().getPersonnagePresent();
 					break;
@@ -98,9 +109,19 @@ public abstract class Personnage {
 			}
 		}
 		
+		//Si j'ai  trouve quelqu'un a attaquer, je lui défonce sa race
 		if(personnageAAttaquer!=null)
-			personnageAAttaquer.recevoirDegat(force+rand.nextInt(force));
+			personnageAAttaquer.recevoirDegat(force+rand.nextInt(force)); //J'ai ajouter un peu d'aléatoire à cet epique combat
 		
+	}
+	
+	//Fonction associé à l'attaque
+	public void recevoirDegat(int nbDegats){
+		pointsDeVie-=nbDegats;
+	}
+	
+	public boolean estVivant (){
+		return (pointsDeVie>0);
 	}
 
 	@Override

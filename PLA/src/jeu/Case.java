@@ -34,8 +34,6 @@ public class Case {
 		this.typeDeLaCase = typeDeLaCase;
 	}
 	
-	
-
 	public Case getCaseADroite() {
 		return caseADroite;
 	}
