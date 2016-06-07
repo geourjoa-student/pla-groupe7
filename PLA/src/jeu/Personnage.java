@@ -6,7 +6,7 @@ import automate.Automate;
 
 public abstract class Personnage {
 
-	private static final int NB_TENTATIVE_ATTQUE_MAX = 3;
+	private static final int NB_TENTATIVE_ATTQUE_MAX = 5;
 
 	protected Case caseSousLeJoueur;
 

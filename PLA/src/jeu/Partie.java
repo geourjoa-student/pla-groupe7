@@ -93,51 +93,68 @@ public class Partie {
 
 		interfaceUtilisateur.afficherMap(decor);
 		interfaceUtilisateur.afficherPersonnages(personnages);
+		
+		
 
 		//On parcourt la liste des personnages et on fait effectuer une action à chacun
 		for (Iterator<Personnage> iterator = personnages.iterator(); iterator.hasNext();) {
 			Personnage personnage = iterator.next();
+			
+			if(personnage.estVivant()){
 
-			Action actionAfaire = Action.NE_RIEN_FAIRE;
-
-			if (personnage instanceof Heros) {
-
-				interfaceUtilisateur.demanderNouvelleAction(personnage.getJoueur().getNom());
-				actionAfaire = personnage.getJoueur().getNouvelleAction();
-
-			} /*
-				 * else {
-				 * 
-				 * //TODO Choisir la transitiona affecté à un personnage qui
-				 * n'est pas un héros (qui n'est pas jouable) //TODO Récuperer
-				 * l'action à effectuer }
-				 * 
-				 * 
-				 * //TODO Faire executer l'action
-				 */
-			switch (actionAfaire) {
-				case ALLER_A_DROITE:
-					personnage.allerADroite();
-					break;
-				case ALLER_A_GAUCHE:
-					personnage.allerAGauche();
-					break;
-				case ALLER_EN_HAUT:
-					personnage.allerEnHaut();
-					break;
-				case ALLER_EN_BAS:
-					personnage.allerEnBas();
-					break;
-				case ATTAQUER:
-					personnage.attaquer();
-					break;
+				Action actionAfaire = Action.NE_RIEN_FAIRE;
+	
+				if (personnage instanceof Heros) {
+	
+					interfaceUtilisateur.demanderNouvelleAction(personnage.getJoueur().getNom());
+					actionAfaire = personnage.getJoueur().getNouvelleAction();
+	
+				} /*
+					 * else {
+					 * 
+					 * //TODO Choisir la transitiona affecté à un personnage qui
+					 * n'est pas un héros (qui n'est pas jouable) //TODO Récuperer
+					 * l'action à effectuer }
+					 * 
+					 * 
+					 * //TODO Faire executer l'action
+					 */
+				switch (actionAfaire) {
+					case ALLER_A_DROITE:
+						personnage.allerADroite();
+						break;
+					case ALLER_A_GAUCHE:
+						personnage.allerAGauche();
+						break;
+					case ALLER_EN_HAUT:
+						personnage.allerEnHaut();
+						break;
+					case ALLER_EN_BAS:
+						personnage.allerEnBas();
+						break;
+					case ATTAQUER:
+						personnage.attaquer();
+						break;
+					
+					case NE_RIEN_FAIRE:
+					default:
+	
+						break;
+				}
 				
-				case NE_RIEN_FAIRE:
-				default:
-
-					break;
 			}
 		}
+		
+		
+		for (int i = 0; i < personnages.size(); i++) {
+			// TODO Peut buguer, mais fonctionne à priori
+			if(!personnages.get(i).estVivant()){
+				personnages.remove(i);
+			}
+			
+		}
+		
+		
 
 	}
 
