@@ -21,8 +21,7 @@ public class Automate {
 		courant=initial;
 		this.etatsFinaux = etatsFinaux;
 		this.etats = etats;
-		this.transitions =  = new ArrayList<Transition>();
-		this.transitions = transition;
+		this.transitions = transitions;
 		this.actions = actions;
 	}
 	

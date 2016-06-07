@@ -1,5 +1,4 @@
 package automate;
-import java.util.List;
 
 public class Transition {
 	
@@ -7,7 +6,7 @@ public class Transition {
 	
 	private int arrivee;
 	
-	public Transition(int depart,arrivee){
+	public Transition(int depart,int arrivee){
 		this.depart = depart;
 		this.arrivee = arrivee;
 	}
