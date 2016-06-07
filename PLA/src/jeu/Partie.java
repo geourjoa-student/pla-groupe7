@@ -7,9 +7,9 @@ import java.util.List;
 public class Partie {
 
 	// Taille du monde
-	public static final int LARGEUR = 12;
+	public static final int LARGEUR = 10;
 
-	public static final int HAUTEUR = 10;
+	public static final int HAUTEUR = 12;
 
 	private InterfaceUtilisateur interfaceUtilisateur; // Interface du jeu
 
@@ -46,7 +46,7 @@ public class Partie {
 
 		for (int h = 0; h < HAUTEUR; h++) {
 			for (int l = 0; l < LARGEUR; l++) {
-				decor[h][l] = new Case(Type.HERBE);
+				decor[h][l] = new Case(Type.HERBE, h, l);
 			}
 		}
 
@@ -96,9 +96,8 @@ public class Partie {
 
 	public void jouerTour() {
 
-		System.out.println(personnages.size());
-
-		interfaceUtilisateur.afficherMap(decor, personnages);
+		interfaceUtilisateur.afficherMap(decor);
+		interfaceUtilisateur.afficherPersonnages(personnages);
 
 		for (Iterator<Personnage> iterator = personnages.iterator(); iterator.hasNext();) {
 			Personnage personnage = iterator.next();

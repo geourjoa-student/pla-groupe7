@@ -4,6 +4,8 @@ public class Case {
 
 	private Type typeDeLaCase;
 	
+	
+
 	private Case caseADroite;
 	
 	private Case caseAGauche;
@@ -13,10 +15,17 @@ public class Case {
 	private Case caseEnHaut;
 	
 	private Personnage personnagePresent;
+	
+	
+	//Utilisé uniquement pour l'affichage 
+	private int positionH;	
+	private int positionL;
 
-	public Case(Type typeDeLaCase) {
+	public Case(Type typeDeLaCase, int h, int l) {
 		this.setTypeDeLaCase(typeDeLaCase);
 		personnagePresent=null;
+		positionH=h;
+		positionL=l;
 	}
 
 	public Type getTypeDeLaCase() {
@@ -72,6 +81,14 @@ public class Case {
 	public void placerPersonnage(Personnage personnage) {
 		this.personnagePresent = personnage;
 	}
+	
+	public int getPositionH() {
+		return positionH;
+	}
+
+	public int getPositionL() {
+		return positionL;
+	}
 
 	@Override
 	public String toString() {
@@ -79,7 +96,10 @@ public class Case {
 		String s =" ";
 		
 		if(personnagePresent!=null){
-			s="P";
+			if(personnagePresent instanceof Heros)
+				s="H";
+			else 
+				s="P";
 		}
 
 		switch (typeDeLaCase) {
@@ -88,7 +108,7 @@ public class Case {
 			case ARBRE:
 				return s + "| ";
 			case CHAMPS:
-				return s + " #";
+				return s + "# ";
 
 			default:
 				return s + ".";

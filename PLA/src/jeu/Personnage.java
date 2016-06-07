@@ -49,6 +49,12 @@ public abstract class Personnage {
 		
 	}
 	
+	@Override
+	public String toString() {
+		
+		return proprietaire.getNom() + " : " + getClass().getSimpleName() + " : " + pointsDeVie + " : (" + caseSousLeJoueur.getPositionH() + "," + caseSousLeJoueur.getPositionL() + ")";
+	}
+	
 	
 
 	

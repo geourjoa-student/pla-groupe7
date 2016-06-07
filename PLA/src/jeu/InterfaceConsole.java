@@ -1,11 +1,27 @@
 package jeu;
 
+import java.util.Iterator;
+import java.util.List;
+
 public class InterfaceConsole extends InterfaceUtilisateur {
 	
 	
 	
 	@Override
-	public void afficherMap(Case[][] decor, java.util.List<Personnage> personnages) {
+	public void afficherMap(Case[][] decor) {
+		
+		System.out.println("* Map de jeu : *"); 
+		
+		for (int k=0;k<decor[0].length;k++){
+			System.out.print("+---");
+		}
+		System.out.println("+"); 
+		
+		for (int k=0;k<decor[0].length;k++){
+			System.out.print("| " + k + " ");
+		}
+		
+		System.out.println("|"); 
 		
 		for (int k=0;k<decor[0].length;k++){
 			System.out.print("+---");
@@ -21,19 +37,35 @@ public class InterfaceConsole extends InterfaceUtilisateur {
 				System.out.print("|");
 			}
 		
-			System.out.println();
+			System.out.println(" " + i);
 			for (int k=0;k<decor[i].length;k++){
 				System.out.print("+---");
 			}
 			System.out.println("+");   
 		}
 		
+		System.out.println(); 
 	}
 
 	@Override
 	public void demanderNouvelleAction(String nomJoueur) {
 		System.out.println( nomJoueur + " : saisissez l'action a effectuer : ");
 		
+	}
+
+	@Override
+	public void afficherPersonnages(List<Personnage> personnages) {
+		
+		System.out.println("* Liste des personnages : *");
+		System.out.println("Proprietaire : Classe : PV : position (h,l)");
+		
+		for (Iterator<Personnage> iterator = personnages.iterator(); iterator.hasNext();) {
+			Personnage personnage = (Personnage) iterator.next();
+			System.out.println(personnage);
+			
+		}
+		
+		System.out.println();
 	}
 
 	
