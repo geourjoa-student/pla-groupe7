@@ -42,7 +42,7 @@ public class JoueurConsoleZQSD extends JoueurConsole {
 				return Action.ALLER_A_DROITE;
 				
 			case '1':
-				return Action.RECOLTER;
+				return Action.ATTAQUER;
 
 			case ' ':
 				return Action.NE_RIEN_FAIRE;

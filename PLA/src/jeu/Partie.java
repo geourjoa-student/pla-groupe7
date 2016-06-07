@@ -40,7 +40,7 @@ public class Partie {
 		// TODO verifier si la case est vraiment accessible, pour l'instant on
 		// n'en tiens pas encore compte
 		personnages.add(new Heros(joueur1, decor[0][0]));
-		personnages.add(new Heros(joueur2, decor[HAUTEUR - 1][LARGEUR - 1]));
+		personnages.add(new Heros(joueur2, decor[0][1]));
 
 	}
 
@@ -128,8 +128,9 @@ public class Partie {
 				case ALLER_EN_BAS:
 					personnage.allerEnBas();
 					break;
-				case RECOLTER:
-					//TODO compléter
+				case ATTAQUER:
+					personnage.attaquer();
+					break;
 				
 				case NE_RIEN_FAIRE:
 				default:

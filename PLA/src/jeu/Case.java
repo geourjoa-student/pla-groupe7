@@ -88,7 +88,8 @@ public class Case {
 		return positionL;
 	}
 	
-	public boolean joueurPresent(){
+	public boolean estAccessible(){
+		//TODO rajouter cas d'une pierre  par exemple
 		return (personnagePresent!=null);
 	}
 

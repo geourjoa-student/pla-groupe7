@@ -7,6 +7,7 @@ public class Heros extends Personnage{
 		caseSousLeJoueur.placerPersonnage(this);
 		proprietaire=joueur;
 		pointsDeVie = 100;
+		force=20;
 		comportement=null;//TODO automate
 	}
 
