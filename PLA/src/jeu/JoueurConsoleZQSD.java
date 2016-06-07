@@ -13,6 +13,8 @@ public class JoueurConsoleZQSD extends JoueurConsole {
 			sc = new Scanner(System.in);
 		}
 		this.nom = nom;
+		this.richesse=200;
+		this.nombrePersonnage=0;
 	}
 
 	@Override
@@ -22,8 +24,7 @@ public class JoueurConsoleZQSD extends JoueurConsole {
 		char codeAction = sc.nextLine().charAt(0);
 		
 		switch (codeAction) {
-			case '0':
-				return Action.NE_RIEN_FAIRE;
+			
 			
 			case 'Z':
 			case 'z':
@@ -40,6 +41,9 @@ public class JoueurConsoleZQSD extends JoueurConsole {
 			case 'D':
 			case 'd':
 				return Action.ALLER_A_DROITE;
+				
+			case '0':
+				return Action.NE_RIEN_FAIRE;
 				
 			case '1':
 				return Action.ATTAQUER;

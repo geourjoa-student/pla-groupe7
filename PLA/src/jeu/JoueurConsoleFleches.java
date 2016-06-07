@@ -1,6 +1,8 @@
 package jeu;
 
 public class JoueurConsoleFleches extends JoueurConsole {
+	
+	//TODO a implementer
 
 	public JoueurConsoleFleches(String nom) {
 		this.nom=nom;

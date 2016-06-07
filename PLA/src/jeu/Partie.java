@@ -52,7 +52,8 @@ public class Partie {
 			}
 		}
 
-		// Tout le décor est crée, il faut maintenant chainée les cases
+		// Tout le décor est crée, il faut maintenant chainer les cases entre
+		// elles
 
 		for (int h = 0; h < HAUTEUR; h++) {
 			for (int l = 0; l < LARGEUR; l++) {
@@ -91,34 +92,40 @@ public class Partie {
 
 	public void jouerTour() {
 
+		interfaceUtilisateur.afficherJoueur(joueur1, joueur2);
 		interfaceUtilisateur.afficherMap(decor);
 		interfaceUtilisateur.afficherPersonnages(personnages);
-		
-		
 
-		//On parcourt la liste des personnages et on fait effectuer une action à chacun
+		// On parcourt la liste des personnages et on fait effectuer une action
+		// à chacun
 		for (Iterator<Personnage> iterator = personnages.iterator(); iterator.hasNext();) {
 			Personnage personnage = iterator.next();
-			
-			if(personnage.estVivant()){
+
+			// Un personnage ne peut évoluer que si il n'est pas mort, il sera
+			// supprimé à la fin du tour
+			// TODO il reste un cas ou ce fonctionnement n'est pas satisfaisant
+			// : si un joueur est mort, on peut toujour l'attaquer
+			if (personnage.estVivant()) {
 
 				Action actionAfaire = Action.NE_RIEN_FAIRE;
-	
+
 				if (personnage instanceof Heros) {
-	
+
 					interfaceUtilisateur.demanderNouvelleAction(personnage.getJoueur().getNom());
 					actionAfaire = personnage.getJoueur().getNouvelleAction();
-	
+
 				} /*
 					 * else {
 					 * 
 					 * //TODO Choisir la transitiona affecté à un personnage qui
-					 * n'est pas un héros (qui n'est pas jouable) //TODO Récuperer
-					 * l'action à effectuer }
+					 * n'est pas un héros (qui n'est pas jouable) //TODO
+					 * Récuperer l'action à effectuer }
 					 * 
 					 * 
-					 * //TODO Faire executer l'action
+					 * 
 					 */
+
+				// TODO Completer avec toute les actions
 				switch (actionAfaire) {
 					case ALLER_A_DROITE:
 						personnage.allerADroite();
@@ -135,27 +142,24 @@ public class Partie {
 					case ATTAQUER:
 						personnage.attaquer();
 						break;
-					
+
 					case NE_RIEN_FAIRE:
 					default:
-	
+
 						break;
 				}
-				
+
 			}
 		}
-		
-		
+
+		// Je supprime les morts de la liste
 		for (int i = 0; i < personnages.size(); i++) {
 			// TODO Peut buguer, mais fonctionne à priori
-			if(!personnages.get(i).estVivant()){
+			if (!personnages.get(i).estVivant()) {
 				personnages.remove(i);
 			}
-			
-		}
-		
-		
 
+		}
 	}
 
 	public boolean estTermine() {
