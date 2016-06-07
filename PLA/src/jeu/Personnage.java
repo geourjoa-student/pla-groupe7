@@ -35,7 +35,7 @@ public abstract class Personnage {
 		positionY=y;
 	}
 
-	public void allerADroite() { //Tests à faire
+	public void allerADroite() { //Tests ï¿½ faire
 		if(positionX == Partie.LARGEUR-1)
 			positionX=0;
 		else 
@@ -45,7 +45,7 @@ public abstract class Personnage {
 	
 	public void allerAGauche() {
 		if(positionX == 0)
-			positionX=Partie.LARGEUR;
+			positionX=Partie.LARGEUR-1;
 		else 
 			positionX--;
 		
@@ -60,8 +60,8 @@ public abstract class Personnage {
 	}
 	
 	public void allerEnHaut() {
-		if(positionX == 0)
-			positionX=Partie.HAUTEUR;
+		if(positionY == 0)
+			positionY=Partie.HAUTEUR-1;
 		else 
 			positionY--;
 		

@@ -7,7 +7,7 @@ import java.util.List;
 public class Partie {
 
 	// Taille du monde
-	public static final int LARGEUR = 10;
+	public static final int LARGEUR = 12;
 
 	public static final int HAUTEUR = 10;
 
@@ -33,42 +33,46 @@ public class Partie {
 
 		personnages = new LinkedList<Personnage>();
 
-		decor = new Case[LARGEUR][HAUTEUR];
+		decor = new Case[HAUTEUR][LARGEUR];
 
 		for (int i = 0; i < decor.length; i++) {
 			for (int j = 0; j < decor[i].length; j++) {
 				decor[i][j] = new Case(Type.HERBE);
 			}
 		}
-		
+
 		for (int i = 0; i < decor.length; i++) {
 			decor[i][5] = new Case(Type.ARBRE);
-			decor[i][8] = new Case(Type.CHAMPS);	
+			decor[i][8] = new Case(Type.CHAMPS);
 		}
-		
-		ajouterPersonnage(new Heros(joueur1,0,0));
+
+		ajouterPersonnage(new Heros(joueur1, 0, 0));
 		ajouterPersonnage(new Heros(joueur2,HAUTEUR-1,LARGEUR-1));
 
 	}
 
 	private void ajouterPersonnage(Heros heros) {
-		//TODO verifier si la case est vraiment accessible, pour l'instant on n'en tiens pas compte
-		decor[heros.getPositionX()][heros.getPositionY()].setPersonnageSurLaCase(heros);
+		// TODO verifier si la case est vraiment accessible, pour l'instant on
+		// n'en tiens pas compte
 		personnages.add(heros);
-		
+
 	}
 
 	public void jouerTour() {
 
-		interfaceUtilisateur.afficherMap(decor);
+		System.out.println(personnages.size());
+		
+		interfaceUtilisateur.afficherMap(decor, personnages);
+		
 
 		for (Iterator<Personnage> iterator = personnages.iterator(); iterator.hasNext();) {
-			Personnage personnage =  iterator.next();
+			Personnage personnage = iterator.next();
 
 			Action actionAfaire = Action.NE_RIEN_FAIRE;
 
 			if (personnage instanceof Heros) {
-				
+
+				interfaceUtilisateur.demanderNouvelleAction();
 				actionAfaire = personnage.getJoueur().getNouvelleAction();
 
 			} /*
@@ -83,30 +87,36 @@ public class Partie {
 				 */
 			switch (actionAfaire) {
 				case ALLER_A_DROITE:
-					if (estParcourable(personnage.getPositionX() + 1, personnage.getPositionY()))
-						;
-					personnage.allerADroite();
+					if (estParcourable((personnage.getPositionX() + 1)%LARGEUR, personnage.getPositionY()))
+					{
+						personnage.allerADroite();
+					}
+					
 					break;
 				case ALLER_A_GAUCHE:
-					if (estParcourable(personnage.getPositionX() - 1, personnage.getPositionY()))
-						;
-					personnage.allerAGauche();
+					if (estParcourable((personnage.getPositionX() - 1)%LARGEUR, personnage.getPositionY()))
+					{
+						personnage.allerAGauche();
+					}
 					break;
 				case ALLER_EN_HAUT:
-					if (estParcourable(personnage.getPositionX(), personnage.getPositionY() - 1))
-						;
-					personnage.allerEnHaut();
+					if (estParcourable(personnage.getPositionX(), (personnage.getPositionY() - 1)%HAUTEUR))
+					{				
+						personnage.allerEnHaut();
+					}
 					break;
 				case ALLER_EN_BAS:
-					if (estParcourable(personnage.getPositionX(), personnage.getPositionY() + 1))
-						;
-					personnage.allerEnBas();
+					if (estParcourable(personnage.getPositionX(), (personnage.getPositionY() + 1)%HAUTEUR))
+					{
+						personnage.allerEnBas();
+					}
 					break;
-				
-				//Si on arrive la, soit la commande est mauvaise soit on ne doit rien faire
+
+				// Si on arrive la, soit la commande est mauvaise soit on ne
+				// doit rien faire
 				case NE_RIEN_FAIRE:
 				default:
-				
+
 					break;
 			}
 		}
