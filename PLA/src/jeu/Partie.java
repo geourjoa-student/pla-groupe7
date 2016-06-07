@@ -33,9 +33,6 @@ public class Partie {
 
 		personnages = new LinkedList<Personnage>();
 
-		personnages.add(new Heros(joueur1,0,0));
-		personnages.add(new Heros(joueur2,HAUTEUR,LARGEUR));
-
 		decor = new Case[LARGEUR][HAUTEUR];
 
 		for (int i = 0; i < decor.length; i++) {
@@ -46,10 +43,19 @@ public class Partie {
 		
 		for (int i = 0; i < decor.length; i++) {
 			decor[i][5] = new Case(Type.ARBRE);
-			decor[i][8] = new Case(Type.CHAMPS);
-			
+			decor[i][8] = new Case(Type.CHAMPS);	
 		}
+		
+		ajouterPersonnage(new Heros(joueur1,0,0));
+		ajouterPersonnage(new Heros(joueur2,HAUTEUR-1,LARGEUR-1));
 
+	}
+
+	private void ajouterPersonnage(Heros heros) {
+		//TODO verifier si la case est vraiment accessible, pour l'instant on n'en tiens pas compte
+		decor[heros.getPositionX()][heros.getPositionY()].setPersonnageSurLaCase(heros);
+		personnages.add(heros);
+		
 	}
 
 	public void jouerTour() {

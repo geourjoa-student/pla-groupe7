@@ -11,10 +11,10 @@ public class InterfaceConsole extends InterfaceUtilisateur {
 		System.out.println("+"); 
 		
 		for (int i = 0; i < decor.length; i++) {
-			System.out.print("| ");
+			System.out.print("|");
 			for (int j = 0; j < decor[i].length; j++) {
 				System.out.print(decor[i][j]);
-				System.out.print(" | ");
+				System.out.print("|");
 			}
 		
 			System.out.println();
