@@ -4,19 +4,16 @@ import java.util.Scanner;
 
 public class JoueurConsoleZQSD extends JoueurConsole {
 	
-	public JoueurConsoleZQSD() {
-		super.heros=new Heros(this);
-	}
 
 	public JoueurConsoleZQSD(String nom) {
 		this.nom=nom;
 	}
 
 	@Override
-	// Ne devra pas �tre modulable par l'automate?
+	// Ne devra pas �tre modulable par l'automate?
 	public Action getNouvelleAction() {
 		Scanner sc = new Scanner(System.in);
-		char codeAction = sc.nextLine().charAt(0); // Récupère le premier caractere
+		char codeAction = sc.next().charAt(0); // Récupère le premier caractere
 		sc.close();
 		
 		switch (codeAction) {

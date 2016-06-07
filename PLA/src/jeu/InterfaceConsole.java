@@ -3,20 +3,25 @@ package jeu;
 public class InterfaceConsole extends InterfaceUtilisateur {
 	
 	@Override
-	public void afficherMap(int[][] decor) {
+	public void afficherMap(Case[][] decor) {
+		
+		for (int k=0;k<decor[0].length;k++){
+			System.out.print("+---");
+		}
+		System.out.println("+"); 
 		
 		for (int i = 0; i < decor.length; i++) {
+			System.out.print("| ");
 			for (int j = 0; j < decor[i].length; j++) {
-				System.out.print("|");
-				System.out.format("%3d",decor[i][j]);
+				System.out.print(decor[i][j]);
+				System.out.print(" | ");
 			}
-			System.out.print("|");
+		
 			System.out.println();
-			System.out.print("+");
-			for (k=0;k<j;k++){
+			for (int k=0;k<decor[i].length;k++){
 				System.out.print("+---");
 			}
-			System.out.print("+");   
+			System.out.println("+");   
 		}
 		
 	}

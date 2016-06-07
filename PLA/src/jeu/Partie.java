@@ -24,7 +24,7 @@ public class Partie {
 	 * 0,0------------------largeur,0 ------------------------------
 	 * hauteur,0------hauteur,largeur
 	 */
-	private int decor[][];
+	private Case decor[][];
 
 	public Partie(InterfaceUtilisateur interfaceUtilisateur, Joueur joueur1, Joueur joueur2) {
 		this.interfaceUtilisateur = interfaceUtilisateur;
@@ -33,15 +33,21 @@ public class Partie {
 
 		personnages = new LinkedList<Personnage>();
 
-		personnages.add(new Heros(joueur1));
-		personnages.add(new Heros(joueur2));
+		personnages.add(new Heros(joueur1,0,0));
+		personnages.add(new Heros(joueur2,HAUTEUR,LARGEUR));
 
-		decor = new int[LARGEUR][HAUTEUR];
+		decor = new Case[LARGEUR][HAUTEUR];
 
 		for (int i = 0; i < decor.length; i++) {
 			for (int j = 0; j < decor[i].length; j++) {
-				decor[i][j] = 0; // On rempli la map de 0
+				decor[i][j] = new Case(Type.HERBE);
 			}
+		}
+		
+		for (int i = 0; i < decor.length; i++) {
+			decor[i][5] = new Case(Type.ARBRE);
+			decor[i][8] = new Case(Type.CHAMPS);
+			
 		}
 
 	}
