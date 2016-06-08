@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<partie>
+   <automate id="1">
+      <transition>
+         <depart>100</depart>
+         <condition>2</condition>
+         <priorite>5</priorite>
+         <action>3</action>
+         <arrivee>2</arrivee>
+      </transition>
+      <transition>
+         <depart>2</depart>
+         <condition>3</condition>
+         <priorite>5</priorite>
+         <action>4</action>
+         <arrivee>5</arrivee>
+      </transition>
+      <transition>
+         <depart>200</depart>
+         <condition>3</condition>
+         <priorite>5</priorite>
+         <action>4</action>
+         <arrivee>5</arrivee>
+      </transition>
+    </automate>
+       <automate id="1">
+      <transition>
+         <depart>1</depart>
+         <condition>2</condition>
+         <priorite>5</priorite>
+         <action>3</action>
+         <arrivee>2</arrivee>
+      </transition>
+      <transition>
+         <depart>2</depart>
+         <condition>3</condition>
+         <priorite>5</priorite>
+         <action>4</action>
+         <arrivee>5</arrivee>
+      </transition>
+    </automate>
+ </partie>
+      
+   
