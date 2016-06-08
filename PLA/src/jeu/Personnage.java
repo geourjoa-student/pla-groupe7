@@ -121,6 +121,8 @@ public abstract class Personnage {
 	}
 	
 	public boolean estVivant (){
+		if(pointsDeVie <= 0)
+			caseSousLeJoueur.retirerPersonnagePresent();
 		return (pointsDeVie>0);
 	}
 

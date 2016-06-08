@@ -11,12 +11,7 @@ public class InterfaceConsole extends InterfaceUtilisateur {
 	public void afficherMap(Case[][] decor) {
 		
 		System.out.println("* Map de jeu : *"); 
-		
-		for (int k=0;k<decor[0].length;k++){
-			System.out.print("+---");
-		}
-		System.out.println("+"); 
-		
+		System.out.println();
 		for (int k=0;k<decor[0].length;k++){
 			System.out.print("| " + k + " ");
 		}
@@ -26,7 +21,8 @@ public class InterfaceConsole extends InterfaceUtilisateur {
 		for (int k=0;k<decor[0].length;k++){
 			System.out.print("+---");
 		}
-		System.out.println("+"); 
+		System.out.print("+"); 
+		System.out.println(" --");
 		
 		for (int i = 0; i < decor.length; i++) {
 			System.out.print("|");
@@ -41,7 +37,8 @@ public class InterfaceConsole extends InterfaceUtilisateur {
 			for (int k=0;k<decor[i].length;k++){
 				System.out.print("+---");
 			}
-			System.out.println("+");   
+			System.out.print("+");   
+			System.out.println(" --");
 		}
 		
 		System.out.println(); 
