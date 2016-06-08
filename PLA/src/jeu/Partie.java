@@ -4,6 +4,9 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import automate.Automate;
+import automate.Transition;
+
 public class Partie {
 
 	// Taille du monde
@@ -41,7 +44,8 @@ public class Partie {
 		// n'en tiens pas encore compte
 		personnages.add(new Heros(joueur1, decor[0][0]));
 		personnages.add(new Heros(joueur2, decor[3][8]));
-
+		
+	
 	}
 
 	private void creerDecor() {
