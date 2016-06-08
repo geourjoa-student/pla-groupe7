@@ -68,7 +68,7 @@ public class InterfaceConsole extends InterfaceUtilisateur {
 	@Override
 	public void afficherJoueur(Joueur joueur1, Joueur joueur2) {
 		System.out.println("* Etats des joueurs : *");
-		System.out.println("Nom : Classe : Richesse ");
+		System.out.println("Nom : Classe : Nourriture : Bois ");
 		
 		System.out.println(joueur1);
 		System.out.println(joueur2);

@@ -40,7 +40,7 @@ public class Partie {
 		// TODO verifier si la case est vraiment accessible, pour l'instant on
 		// n'en tiens pas encore compte
 		personnages.add(new Heros(joueur1, decor[0][0]));
-		personnages.add(new Heros(joueur2, decor[0][1]));
+		personnages.add(new Heros(joueur2, decor[3][8]));
 
 	}
 
@@ -82,19 +82,23 @@ public class Partie {
 					decor[h][l].setCaseADroite(decor[h][l + 1]);
 			}
 		}
+		
+		//Je modifie le décor pour qu'il soit un peu intéressant
 
 		for (int h = 0; h < decor.length; h++) {
 			decor[h][5].setTypeDeLaCase(Type.ARBRE);
 			decor[h][8].setTypeDeLaCase(Type.CHAMPS);
+		}
+		
+		for(int l =4; l< 7; l++){
+			decor[3][l].setTypeDeLaCase(Type.ROCHER);	
+			decor[5][l].setTypeDeLaCase(Type.ROCHER);
 		}
 
 	}
 
 	public void jouerTour() {
 
-		interfaceUtilisateur.afficherJoueur(joueur1, joueur2);
-		interfaceUtilisateur.afficherMap(decor);
-		interfaceUtilisateur.afficherPersonnages(personnages);
 
 		// On parcourt la liste des personnages et on fait effectuer une action
 		// à chacun
@@ -110,6 +114,10 @@ public class Partie {
 				Action actionAfaire = Action.NE_RIEN_FAIRE;
 
 				if (personnage instanceof Heros) {
+					
+					interfaceUtilisateur.afficherJoueur(joueur1, joueur2);
+					interfaceUtilisateur.afficherMap(decor);
+					interfaceUtilisateur.afficherPersonnages(personnages);
 
 					interfaceUtilisateur.demanderNouvelleAction(personnage.getJoueur().getNom());
 					actionAfaire = personnage.getJoueur().getNouvelleAction();
@@ -141,6 +149,10 @@ public class Partie {
 						break;
 					case ATTAQUER:
 						personnage.attaquer();
+						break;
+						
+					case RECOLTER:
+						personnage.recolter();
 						break;
 
 					case NE_RIEN_FAIRE:

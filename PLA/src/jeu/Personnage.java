@@ -37,7 +37,7 @@ public abstract class Personnage {
 	 * 		- on place notre personnage sur sa nouvelle case
 	 */
 	public void allerADroite() {
-		if (!caseSousLeJoueur.getCaseADroite().estAccessible()) {
+		if (caseSousLeJoueur.getCaseADroite().estAccessible()) {
 			caseSousLeJoueur.retirerPersonnagePresent();
 			caseSousLeJoueur = caseSousLeJoueur.getCaseADroite();
 			caseSousLeJoueur.placerPersonnage(this);
@@ -45,7 +45,7 @@ public abstract class Personnage {
 	}
 
 	public void allerAGauche() {
-		if (!caseSousLeJoueur.getCaseAGauche().estAccessible()) {
+		if (caseSousLeJoueur.getCaseAGauche().estAccessible()) {
 			caseSousLeJoueur.retirerPersonnagePresent();
 			caseSousLeJoueur = caseSousLeJoueur.getCaseAGauche();
 			caseSousLeJoueur.placerPersonnage(this);
@@ -53,7 +53,7 @@ public abstract class Personnage {
 	}
 
 	public void allerEnBas() {
-		if (!caseSousLeJoueur.getCaseEnBas().estAccessible()) {
+		if (caseSousLeJoueur.getCaseEnBas().estAccessible()) {
 			caseSousLeJoueur.retirerPersonnagePresent();
 			caseSousLeJoueur = caseSousLeJoueur.getCaseEnBas();
 			caseSousLeJoueur.placerPersonnage(this);
@@ -61,7 +61,7 @@ public abstract class Personnage {
 	}
 
 	public void allerEnHaut() {
-		if (!caseSousLeJoueur.getCaseEnHaut().estAccessible()) {
+		if (caseSousLeJoueur.getCaseEnHaut().estAccessible()) {
 			caseSousLeJoueur.retirerPersonnagePresent();
 			caseSousLeJoueur = caseSousLeJoueur.getCaseEnHaut();
 			caseSousLeJoueur.placerPersonnage(this);
@@ -124,6 +124,15 @@ public abstract class Personnage {
 		if(pointsDeVie <= 0)
 			caseSousLeJoueur.retirerPersonnagePresent();
 		return (pointsDeVie>0);
+	}
+	
+	public void recolter(){
+		System.out.println("JE recolte");
+		if(caseSousLeJoueur.getTypeDeLaCase()==Type.CHAMPS){
+			proprietaire.ajouterNourriture(caseSousLeJoueur.recolter());
+		} else if(caseSousLeJoueur.getTypeDeLaCase()==Type.ARBRE){
+			proprietaire.ajouterBois(caseSousLeJoueur.recolter());
+		}  
 	}
 
 	@Override

@@ -13,7 +13,8 @@ public class JoueurConsoleZQSD extends JoueurConsole {
 			sc = new Scanner(System.in);
 		}
 		this.nom = nom;
-		this.richesse=200;
+		this.bois=200;
+		this.nourriture=200;
 		this.nombrePersonnage=0;
 	}
 
@@ -21,7 +22,13 @@ public class JoueurConsoleZQSD extends JoueurConsole {
 	// Ne devra pas �tre modulable par l'automate?
 	public Action getNouvelleAction() {
 		
-		char codeAction = sc.nextLine().charAt(0);
+		char codeAction = '0';
+		try{
+			codeAction = sc.nextLine().charAt(0);
+		} catch (Exception e){
+			
+		}
+		
 		
 		switch (codeAction) {
 			
@@ -48,6 +55,9 @@ public class JoueurConsoleZQSD extends JoueurConsole {
 			case '1':
 				return Action.ATTAQUER;
 
+			case '2':
+				return Action.RECOLTER;
+				
 			case ' ':
 				return Action.NE_RIEN_FAIRE;
 			default:

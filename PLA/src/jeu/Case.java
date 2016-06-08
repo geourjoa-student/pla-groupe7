@@ -1,6 +1,12 @@
 package jeu;
 
+import java.util.Random;
+
 public class Case {
+	
+	private static final int CAPACITE_RECOLTE = 20;
+
+	private int niveauDeResssource;
 
 	private Type typeDeLaCase;
 	
@@ -14,7 +20,6 @@ public class Case {
 	
 	private Personnage personnagePresent;
 	
-	
 	//Utilisé uniquement pour l'affichage 
 	private int positionH;	
 	private int positionL;
@@ -24,6 +29,12 @@ public class Case {
 		personnagePresent=null;
 		positionH=h;
 		positionL=l;
+		
+		if(this.typeDeLaCase==Type.ARBRE || this.typeDeLaCase==Type.CHAMPS){
+			niveauDeResssource=50;
+		} else {
+			niveauDeResssource=0;
+		}
 	}
 
 	public Type getTypeDeLaCase() {
@@ -32,6 +43,9 @@ public class Case {
 
 	public void setTypeDeLaCase(Type typeDeLaCase) {
 		this.typeDeLaCase = typeDeLaCase;
+		if(this.typeDeLaCase==Type.ARBRE || this.typeDeLaCase==Type.CHAMPS){
+			niveauDeResssource=50;
+		}
 	}
 	
 	public Case getCaseADroite() {
@@ -88,7 +102,7 @@ public class Case {
 	
 	public boolean estAccessible(){
 		//TODO rajouter cas d'une pierre  par exemple
-		return (personnagePresent!=null);
+		return (typeDeLaCase!= Type.ROCHER &&  personnagePresent==null);
 	}
 
 	@Override
@@ -110,10 +124,50 @@ public class Case {
 				return s + "| ";
 			case CHAMPS:
 				return s + "# ";
+			case ROCHER :
+				return s + "o ";
 
 			default:
-				return s + ".";
+				return s + ". ";
+				
 		}
+	}
+
+	public int getNiveauDeResssource() {
+		return niveauDeResssource;
+	}
+
+	public int recolter() {
+		Random rand = new Random();
+		
+		int recolte = CAPACITE_RECOLTE + rand.nextInt(CAPACITE_RECOLTE);
+		
+		if(typeDeLaCase==Type.CHAMPS){
+			if(recolte>niveauDeResssource){
+				recolte=niveauDeResssource;
+				niveauDeResssource=0;
+				typeDeLaCase=Type.HERBE;		
+			} else {
+				niveauDeResssource-=recolte;
+			}
+			
+			return recolte;
+		}
+		
+		if(typeDeLaCase==Type.ARBRE){
+			if(recolte>niveauDeResssource){
+				recolte=niveauDeResssource;
+				niveauDeResssource=0;
+				typeDeLaCase=Type.HERBE;		
+			} else {
+				niveauDeResssource-=recolte;
+			}
+			
+			return recolte;
+		}
+		
+		return 0;
+		
 	}
 
 	

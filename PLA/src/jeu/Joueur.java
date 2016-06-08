@@ -4,14 +4,28 @@ public abstract class Joueur {
 	
 	protected String nom;
 	
-	protected int richesse;
+	protected int bois;
+	
+	protected int nourriture;
 	
 	protected int nombrePersonnage;
 	
-	public int getRichesse(){
-		return richesse;
+	public int getBois() {
+		return bois;
+	}
+
+	public int getNourriture() {
+		return nourriture;
 	}
 	
+	public void ajouterBois(int quantite){
+		bois+=quantite;
+	}
+	
+	public void ajouterNourriture(int quantite){
+		nourriture+=quantite;
+	}
+
 	public String getNom() {
 		return nom;
 	}
@@ -20,7 +34,7 @@ public abstract class Joueur {
 	
 	@Override
 	public String toString() {
-		return nom + " : " + getClass().getSimpleName() + " : " + richesse;
+		return nom + " : " + getClass().getSimpleName() + " : " + nourriture + " : " + bois;
 	}
 
 }
