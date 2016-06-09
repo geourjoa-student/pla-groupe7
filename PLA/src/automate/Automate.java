@@ -11,8 +11,6 @@ public class Automate {
 	private static final int PAS_DE_TRANSIITON = -1;
 
 	private static final int PAS_DE_PRIORITE = -1;
-		
-	//private int[] etatsFinaux;
 	
 	private  int[] etats;
 	
@@ -65,10 +63,13 @@ public class Automate {
 		int conditionRetenue=0; //Initialisation inutile mais sinon il y a un warning
 		
 		for (int i = 0; i < conditions.length; i++) {
-			if(priorite[conditions[i].getCodeCondition()][courant]>PAS_DE_PRIORITE){
+			if(priorite[conditions[i].getCodeCondition()][courant]>=PAS_DE_PRIORITE){
+				if(priorite[conditions[i].getCodeCondition()][courant]>=PAS_DE_PRIORITE){
+					//TODO améliorer (si on a des priorité equivalentes on gardera toujours la premiere lue
+				}
 				prioriteCourante=priorite[conditions[i].getCodeCondition()][courant];
 				conditionRetenue=conditions[i].getCodeCondition();
-			}
+			} 
 			
 		}
 		
