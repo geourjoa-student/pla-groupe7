@@ -2,7 +2,7 @@ package jeu;
 
 public enum Type {
 	
-	ARBRE,
+	ARBRE ,
 	CHAMPS,
 	HERBE,
 	ROCHER;

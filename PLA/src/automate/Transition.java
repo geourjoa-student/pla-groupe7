@@ -1,5 +1,8 @@
 package automate;
 
+import jeu.Action;
+import jeu.Condition;
+
 public class Transition {
 	
 	public static final int RESSOURCE = 0;
@@ -34,19 +37,25 @@ public class Transition {
 		return this.arrivee;
 	}
 
-	public int getCondition() {
+	public int getCodeCondition() {
 		return condition;
+	}
+	
+	public Condition getCondition() {
+		return Condition.codeToCondition(condition);
 	}
 
 	public int getPriorite() {
 		return priorite;
 	}
 
-	public int getAction() {
+	public int getCodeAction() {
 		return action;
 	}
 
 	
-	
+	public Action getAction() {
+		return Action.codeToAction(action);
+	}
 
 }
