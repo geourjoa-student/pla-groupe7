@@ -22,6 +22,7 @@
          <action>4</action>
          <arrivee>5</arrivee>
       </transition>
+      <initial>110</initial>
     </automate>
        <automate id="1">
       <transition>
@@ -38,6 +39,7 @@
          <action>4</action>
          <arrivee>5</arrivee>
       </transition>
+      <initial>10</initial>
     </automate>
  </partie>
       

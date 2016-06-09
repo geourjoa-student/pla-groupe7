@@ -10,7 +10,7 @@ public class Automate {
 
 	private int initial;
 		
-	private int[] etatsFinaux;
+	//private int[] etatsFinaux;
 	
 	private  int[] etats;
 	
@@ -18,11 +18,11 @@ public class Automate {
 	
 	private int courant;
 
-	public Automate(int initial, int[] etatsFinaux, int[] etats, List<Transition> transitions) {
+	public Automate(int initial, int[] etats, List<Transition> transitions) {
 
 		this.initial = initial;
 		courant=initial;
-		this.etatsFinaux = etatsFinaux;
+		//this.etatsFinaux = etatsFinaux;
 		this.etats = etats;
 		this.transitions = transitions;
 	}
