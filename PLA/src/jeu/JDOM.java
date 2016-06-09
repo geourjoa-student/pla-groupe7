@@ -12,9 +12,19 @@ public class JDOM
    static org.jdom2.Document document;
    static Element racine;
 
+   private static int[] convertIntegers(List<Integer> integers)
+   {
+       int[] ret = new int[integers.size()];
+       Iterator<Integer> iterator = integers.iterator();
+       for (int i = 0; i < ret.length; i++)
+       {
+           ret[i] = iterator.next().intValue();
+       }
+       return ret;
+   }
+   
    static ArrayList<Automate> afficheALL()
    {
-      //On crée une List contenant tous les noeuds "etudiant" de l'Element racine
 	  ArrayList<Automate> listeAuto = new ArrayList<Automate>();
       List listAutomates = racine.getChildren("automate");
       Iterator i = listAutomates.iterator();
@@ -27,8 +37,10 @@ public class JDOM
       while(courant != null)
       {
     	 // Automate courantAuto = new Automate();
+    	  ArrayList<Integer> etats = new ArrayList<Integer>();
     	  ArrayList<Transition> allTransitions = new ArrayList<Transition>();
     	  listTransitions = courant.getChildren("transition");
+    	  courantInitial = Integer.parseInt(courant.getChild("initial").getText());
     	  j = listTransitions.iterator();
     	  courant = (Element)j.next();
     	  while(courant != null)
@@ -39,12 +51,13 @@ public class JDOM
     		  courantAction = Integer.parseInt(courant.getChild("action").getText());
     		  courantArrivee = Integer.parseInt(courant.getChild("arrivee").getText());
     		  courantTransition = new Transition(courantDepart,courantArrivee,courantCondition,courantPriorite,courantAction);
+    		  if(!(etats.contains(courantDepart))){
+    			  etats.add(courantDepart);
+    		  }
+    		  if(!(etats.contains(courantArrivee))){
+    			  etats.add(courantArrivee);
+    		  }
     		  allTransitions.add(courantTransition);
-    		  System.out.println(courant.getChild("depart").getText());
-    		  System.out.println(courant.getChild("condition").getText());
-    		  System.out.println(courant.getChild("priorite").getText());
-    		  System.out.println(courant.getChild("action").getText());
-    		  System.out.println(courant.getChild("arrivee").getText());
     		  if(j.hasNext()) {
     			  courant = (Element)j.next();
     		  }
@@ -52,8 +65,10 @@ public class JDOM
     			  courant = null;
     		  }
     	  }
-    	  // Constructeur à faire, il faut faire quelque chose pour Initial (pas encore géré) et pour états
-    	  //courantAutomate = new Automate()
+    	  int[] etatsArray = new int[etats.size()];
+    	  etatsArray = convertIntegers(etats);
+    	  courantAutomate = new Automate(courantInitial,etatsArray,allTransitions);
+    	  listeAuto.add(courantAutomate);
 		  if(i.hasNext()) {
 			  courant = (Element)i.next();
 		  }
