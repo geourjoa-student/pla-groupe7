@@ -7,9 +7,9 @@ import java.util.List;
 public class Partie {
 
 	// Taille du monde
-	public static final int LARGEUR = 10;
+	public static final int LARGEUR = 15;
 
-	public static final int HAUTEUR = 12;
+	public static final int HAUTEUR = 17;
 
 	private InterfaceUtilisateur interfaceUtilisateur; // Interface du jeu
 

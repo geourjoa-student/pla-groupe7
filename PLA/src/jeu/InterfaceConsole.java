@@ -13,7 +13,8 @@ public class InterfaceConsole extends InterfaceUtilisateur {
 		System.out.println("* Map de jeu : *"); 
 		System.out.println();
 		for (int k=0;k<decor[0].length;k++){
-			System.out.print("| " + k + " ");
+			System.out.print("|");
+			System.out.format("%3d",k);
 		}
 		
 		System.out.println("|"); 
