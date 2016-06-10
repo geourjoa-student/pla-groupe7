@@ -8,7 +8,7 @@ public class JoueurConsoleZQSD extends JoueurConsole {
 	
 	private static Scanner sc;
 
-	public JoueurConsoleZQSD(String nom) {
+	public JoueurConsoleZQSD(String nom, String nomFichierAutomate) {
 		if(sc==null){
 			sc = new Scanner(System.in);
 		}
@@ -16,6 +16,7 @@ public class JoueurConsoleZQSD extends JoueurConsole {
 		this.bois=200;
 		this.nourriture=200;
 		this.nombrePersonnage=0;
+		this.nomFichierAutomate=nomFichierAutomate;
 	}
 
 	@Override
