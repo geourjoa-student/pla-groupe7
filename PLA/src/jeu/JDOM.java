@@ -82,7 +82,7 @@ public class JDOM
       return listeAuto;
    }
 
-   public ArrayList<Automate> xmlMain()
+   public ArrayList<Automate> xmlMain(String nomFichierJoueur)
    {
       //On crée une instance de SAXBuilder
       SAXBuilder sxb = new SAXBuilder();
@@ -90,7 +90,7 @@ public class JDOM
       {
          //On crée un nouveau document JDOM avec en argument le fichier XML
          //Le parsing est terminé ;)
-         document = sxb.build(new File("test.xml"));
+         document = sxb.build(new File(nomFichierJoueur));
       }
       catch(Exception e){}
 
