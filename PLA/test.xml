@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <partie>
-   <automate type="1">
+   <automate role="1" initial="0">
       <transition>
          <depart>0</depart>
          <condition>2</condition>
@@ -24,7 +24,7 @@
       </transition>
       <initial>0</initial>
     </automate>
-       <automate type="2">
+       <automate role="2">
       <transition>
          <depart>0</depart>
          <condition>2</condition>

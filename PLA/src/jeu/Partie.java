@@ -56,7 +56,7 @@ public class Partie {
 			// Si on � un guerrier
 			if(autoTempo.getRole() == 1) {
 				for(int j=0;j<tableauTempo.length;j++){
-					for(int k=0;k<tableauTempo[j].length;j++){
+					for(int k=0;k<tableauTempo[j].length;k++){
 						caseTempo = tableauTempo[j][k];
 						// Le premier automate s'affiche 2 cases � droite du h�ros
 						decor[j+2][(int)((LARGEUR-1)/2)+3+k] = caseTempo;						
@@ -66,7 +66,7 @@ public class Partie {
 			// Si on � un moine
 			if(autoTempo.getRole() == 2) {
 				for(int j=0;j<tableauTempo.length;j++){
-					for(int k=0;k<tableauTempo[j].length;j++){
+					for(int k=0;k<tableauTempo[j].length;k++){
 						caseTempo = tableauTempo[j][k];
 						// Le premier automate s'affiche (largeur de l'auto +1) cases � gauche du h�ros
 						decor[j+2][(int)((LARGEUR-1)/2)-(tableauTempo[j].length+1)+k] = caseTempo;						
@@ -76,7 +76,7 @@ public class Partie {
 			// Si on � un paysan
 			if(autoTempo.getRole() == 3) {
 				for(int j=0;j<tableauTempo.length;j++){
-					for(int k=0;k<tableauTempo[j].length;j++){
+					for(int k=0;k<tableauTempo[j].length;k++){
 						caseTempo = tableauTempo[j][k];
 						// Le premier automate s'affiche � la moiti� de la map - la moiti� de la hauteur du auto, et tout � gauche +1
 						decor[((int)((HAUTEUR-1)/2)-((int)tableauTempo.length/2))+j][k+1] = caseTempo;						
