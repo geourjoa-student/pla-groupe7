@@ -39,7 +39,7 @@ public class Partie {
 
 		// TODO verifier si la case est vraiment accessible, pour l'instant on
 		// n'en tiens pas encore compte
-		personnages.add(new Heros(joueur1, decor[0][0]));
+		personnages.add(new Heros(joueur1, decor[1][0]));
 		personnages.add(new Heros(joueur2, decor[3][8]));
 
 	}
@@ -93,6 +93,10 @@ public class Partie {
 		for(int l =4; l< 7; l++){
 			decor[3][l].setTypeDeLaCase(Type.ROCHER);	
 			decor[5][l].setTypeDeLaCase(Type.ROCHER);
+		}
+		for(int x=0;x<LARGEUR;x++){
+			decor[0][x].setTypeDeLaCase(Type.ROCHER);
+			decor[HAUTEUR-1][x].setTypeDeLaCase(Type.ROCHER);
 		}
 
 	}
