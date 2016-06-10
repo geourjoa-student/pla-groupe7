@@ -4,7 +4,8 @@ import automate.Automate;
 
 public class Homme extends Personnage{
 	
-	public Homme(Joueur joueur, Case caseSousLeJoueur, Automate comportement) {
+	public Homme(Joueur joueur, Case caseSousLeJoueur, Automate comportement, int role) {
+		this.role =  role; 
 		this.caseSousLeJoueur=caseSousLeJoueur;
 		caseSousLeJoueur.placerPersonnage(this);
 		proprietaire=joueur;	

@@ -34,10 +34,10 @@ public class JDOM
       int courantDepart,courantCondition,courantPriorite,courantAction,courantArrivee,courantInitial;
       Transition courantTransition;
       Automate courantAutomate;
-      int type;
+      int role;
       while(courant != null)
       {
-    	  type = Integer.parseInt(courant.getAttributeValue("type"));
+    	  role = Integer.parseInt(courant.getAttributeValue("role"));
     	  // Automate courantAuto = new Automate();
     	  ArrayList<Integer> etats = new ArrayList<Integer>();
     	  ArrayList<Transition> allTransitions = new ArrayList<Transition>();
@@ -69,7 +69,7 @@ public class JDOM
     	  }
     	  int[] etatsArray = new int[etats.size()];
     	  etatsArray = convertIntegers(etats);
-    	  courantAutomate = new Automate(courantInitial,etatsArray,allTransitions,type);
+    	  courantAutomate = new Automate(courantInitial,etatsArray,allTransitions,role);
     	  listeAuto.add(courantAutomate);
 		  if(i.hasNext()) {
 			  courant = (Element)i.next();

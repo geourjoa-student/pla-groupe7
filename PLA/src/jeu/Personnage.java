@@ -9,6 +9,8 @@ public abstract class Personnage {
 	private static final int NB_TENTATIVE_ATTAQUE_MAX = 5;
 
 	protected Case caseSousLeJoueur;
+	
+	protected int role;
 
 	protected int pointsDeVie;
 	
