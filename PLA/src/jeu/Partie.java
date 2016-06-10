@@ -48,14 +48,39 @@ public class Partie {
 	
 	private void inclureAutomates(ArrayList<Automate> autoJ1,ArrayList<Automate> autoJ2){
 		Case caseTempo;
+		Automate autoTempo;
+		Case[][] tableauTempo;
 		for(int i=0;i<autoJ1.size();i++){
-			Case[][] tableauTempo = autoJ1.get(i).getDecor();
-			for(int j=0;j<tableauTempo.length;j++){
-				for(int k=0;k<tableauTempo[j].length;j++){
-					if(autoJ1.role)
-					caseTempo = tableauTempo[j][k];
-					// Le premier automate s'affiche 2 cases à droite du héros
-					decor[j+2][(int)((LARGEUR-1)/2)+3+k] = caseTempo;
+			autoTempo = autoJ1.get(i);
+			tableauTempo = autoTempo.getDecor();
+			// Si on à un guerrier
+			if(autoTempo.getRole() == 1) {
+				for(int j=0;j<tableauTempo.length;j++){
+					for(int k=0;k<tableauTempo[j].length;j++){
+						caseTempo = tableauTempo[j][k];
+						// Le premier automate s'affiche 2 cases à droite du héros
+						decor[j+2][(int)((LARGEUR-1)/2)+3+k] = caseTempo;						
+					}
+				}
+			}
+			// Si on à un moine
+			if(autoTempo.getRole() == 2) {
+				for(int j=0;j<tableauTempo.length;j++){
+					for(int k=0;k<tableauTempo[j].length;j++){
+						caseTempo = tableauTempo[j][k];
+						// Le premier automate s'affiche (largeur de l'auto +1) cases à gauche du héros
+						decor[j+2][(int)((LARGEUR-1)/2)-(tableauTempo[j].length+1)+k] = caseTempo;						
+					}
+				}
+			}
+			// Si on à un paysan
+			if(autoTempo.getRole() == 3) {
+				for(int j=0;j<tableauTempo.length;j++){
+					for(int k=0;k<tableauTempo[j].length;j++){
+						caseTempo = tableauTempo[j][k];
+						// Le premier automate s'affiche à la moitié de la map - la moitié de la hauteur du auto, et tout à gauche +1
+						decor[((int)((HAUTEUR-1)/2)-((int)tableauTempo.length/2))+j][k+1] = caseTempo;						
+					}
 				}
 			}
 		}
