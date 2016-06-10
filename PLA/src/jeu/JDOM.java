@@ -34,9 +34,11 @@ public class JDOM
       int courantDepart,courantCondition,courantPriorite,courantAction,courantArrivee,courantInitial;
       Transition courantTransition;
       Automate courantAutomate;
+      int type;
       while(courant != null)
       {
-    	 // Automate courantAuto = new Automate();
+    	  type = Integer.parseInt(courant.getAttributeValue("type"));
+    	  // Automate courantAuto = new Automate();
     	  ArrayList<Integer> etats = new ArrayList<Integer>();
     	  ArrayList<Transition> allTransitions = new ArrayList<Transition>();
     	  listTransitions = courant.getChildren("transition");
@@ -67,7 +69,7 @@ public class JDOM
     	  }
     	  int[] etatsArray = new int[etats.size()];
     	  etatsArray = convertIntegers(etats);
-    	  courantAutomate = new Automate(courantInitial,etatsArray,allTransitions);
+    	  courantAutomate = new Automate(courantInitial,etatsArray,allTransitions,type);
     	  listeAuto.add(courantAutomate);
 		  if(i.hasNext()) {
 			  courant = (Element)i.next();
@@ -76,6 +78,7 @@ public class JDOM
 			  courant = null;
 		  }
       }
+      
       return listeAuto;
    }
 

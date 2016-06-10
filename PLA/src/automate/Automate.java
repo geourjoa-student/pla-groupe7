@@ -14,6 +14,8 @@ public class Automate {
 	
 	private  int[] etats;
 	
+	private int type;
+	
 	private int[][] transitions;
 	
 	private int[][] priorite;
@@ -22,11 +24,11 @@ public class Automate {
 	
 	private int courant;
 
-	public Automate(int initial, int[] etats, List<Transition> transitionsAutomate) {
+	public Automate(int initial, int[] etats, List<Transition> transitionsAutomate, int type) {
 
 		courant=initial;
 		this.etats = etats;
-		
+		this.type = type;
 		priorite=new int[Condition.values().length][etats.length];
 		transitions=new int[Condition.values().length][etats.length];
 		actions=new Case[Condition.values().length][etats.length];
