@@ -37,7 +37,7 @@ public class Partie {
 
 		decor = new Case[HAUTEUR][LARGEUR];
 
-		creerDecor();
+		creerDecor(joueur1.getNomFichierAutomate(), joueur2.getNomFichierAutomate());
 
 		// TODO verifier si la case est vraiment accessible, pour l'instant on
 		// n'en tiens pas encore compte
@@ -86,7 +86,7 @@ public class Partie {
 		}
 	}
 
-	private void creerDecor() {
+	private void creerDecor(String nomFichierAutomates1, String nomFichierAutomates2) {
 
 		//On rempli le décror d'herbe et de ligne de champs, d'arbre, 
 		for (int h = 0; h < HAUTEUR; h++) {
@@ -110,7 +110,8 @@ public class Partie {
 		}
 
 		//TODO completer
-		inclureAutomates(null, null);
+		JDOM jdom = new JDOM();
+		inclureAutomates(jdom.xmlMain(nomFichierAutomates1), jdom.xmlMain(nomFichierAutomates2));
 		
 		// Tout le décor est crée, il faut maintenant chainer les cases entre
 		// elles
