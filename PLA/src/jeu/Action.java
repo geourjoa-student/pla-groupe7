@@ -9,8 +9,8 @@ public enum Action {
 	ALLER_EN_HAUT (3, Type.HERBE),
 	ALLER_EN_BAS (4, Type.HERBE),
 	SE_DEPLACER (5, Type.HERBE),
-	ATTAQUER (6, Type.HERBE),
-	RECOLTER (7, Type.HERBE),
+	ATTAQUER (6, Type.ARBRE),
+	RECOLTER (7, Type.SOUCHE),
 	SOIGNER (9, Type.HERBE),
 	CONVERTIR (10, Type.HERBE),
 	CREER_UNITE (11, Type.HERBE);

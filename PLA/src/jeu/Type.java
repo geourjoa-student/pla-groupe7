@@ -5,6 +5,7 @@ public enum Type {
 	ARBRE ,
 	CHAMPS,
 	HERBE,
-	ROCHER;
+	ROCHER,
+	SOUCHE;
 
 }

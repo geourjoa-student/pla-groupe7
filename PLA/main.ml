@@ -224,21 +224,19 @@ let automate_to_xml automate fichier = match automate with
   	output_string fichier "</automate>";;
 
 
-let fic = open_out "automates.xml";;
+let fic1 = open_out "automates1.xml";;
+output_string fic1 "<partie>";
+automate_to_xml guerrier_joueur1 fic1;
+automate_to_xml moine_joueur1 fic1;
+automate_to_xml paysan_joueur1 fic1;
+output_string fic1 "</partie>";
+close_out fic1;;
 
-output_string fic "<partie>";
-
-output_string fic "<joueur id = \"1\" >";
-automate_to_xml guerrier_joueur1 fic;
-automate_to_xml moine_joueur1 fic;
-automate_to_xml paysan_joueur1 fic;
-output_string fic "</joueur>";
-
-output_string fic "<joueur id = \"2\" >";
-automate_to_xml guerrier_joueur2 fic;
-automate_to_xml moine_joueur2 fic;
-automate_to_xml paysan_joueur2 fic;
-output_string fic "</joueur>";
-
-output_string fic "</partie>";;
+let fic2 = open_out "automates2.xml";;
+output_string fic2 "<partie>";
+automate_to_xml guerrier_joueur2 fic2;
+automate_to_xml moine_joueur2 fic2;
+automate_to_xml paysan_joueur2 fic2;
+output_string fic2 "</partie>";
+close_out fic2;;
   

@@ -10,6 +10,8 @@ public abstract class Joueur {
 	
 	protected int nombrePersonnage;
 	
+	protected String nomFichierAutomate;
+	
 	public int getBois() {
 		return bois;
 	}
@@ -37,4 +39,7 @@ public abstract class Joueur {
 		return nom + " : " + getClass().getSimpleName() + " : " + nourriture + " : " + bois;
 	}
 
+	public String getNomFichierAutomate(){
+		return nomFichierAutomate;
+	}
 }

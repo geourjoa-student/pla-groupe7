@@ -53,32 +53,32 @@ public class Partie {
 		for(int i=0;i<autoJ1.size();i++){
 			autoTempo = autoJ1.get(i);
 			tableauTempo = autoTempo.getDecor();
-			// Si on à un guerrier
+			// Si on ï¿½ un guerrier
 			if(autoTempo.getRole() == 1) {
 				for(int j=0;j<tableauTempo.length;j++){
 					for(int k=0;k<tableauTempo[j].length;j++){
 						caseTempo = tableauTempo[j][k];
-						// Le premier automate s'affiche 2 cases à droite du héros
+						// Le premier automate s'affiche 2 cases ï¿½ droite du hï¿½ros
 						decor[j+2][(int)((LARGEUR-1)/2)+3+k] = caseTempo;						
 					}
 				}
 			}
-			// Si on à un moine
+			// Si on ï¿½ un moine
 			if(autoTempo.getRole() == 2) {
 				for(int j=0;j<tableauTempo.length;j++){
 					for(int k=0;k<tableauTempo[j].length;j++){
 						caseTempo = tableauTempo[j][k];
-						// Le premier automate s'affiche (largeur de l'auto +1) cases à gauche du héros
+						// Le premier automate s'affiche (largeur de l'auto +1) cases ï¿½ gauche du hï¿½ros
 						decor[j+2][(int)((LARGEUR-1)/2)-(tableauTempo[j].length+1)+k] = caseTempo;						
 					}
 				}
 			}
-			// Si on à un paysan
+			// Si on ï¿½ un paysan
 			if(autoTempo.getRole() == 3) {
 				for(int j=0;j<tableauTempo.length;j++){
 					for(int k=0;k<tableauTempo[j].length;j++){
 						caseTempo = tableauTempo[j][k];
-						// Le premier automate s'affiche à la moitié de la map - la moitié de la hauteur du auto, et tout à gauche +1
+						// Le premier automate s'affiche ï¿½ la moitiï¿½ de la map - la moitiï¿½ de la hauteur du auto, et tout ï¿½ gauche +1
 						decor[((int)((HAUTEUR-1)/2)-((int)tableauTempo.length/2))+j][k+1] = caseTempo;						
 					}
 				}
@@ -88,12 +88,30 @@ public class Partie {
 
 	private void creerDecor() {
 
+		//On rempli le dÃ©cror d'herbe et de ligne de champs, d'arbre, 
 		for (int h = 0; h < HAUTEUR; h++) {
 			for (int l = 0; l < LARGEUR; l++) {
 				decor[h][l] = new Case(Type.HERBE, h, l);
 			}
 		}
+		
+		for (int h = 0; h < decor.length; h++) {
+			decor[h][5].setTypeDeLaCase(Type.ARBRE);
+			decor[h][8].setTypeDeLaCase(Type.CHAMPS);
+		}
+		
+		for(int l =4; l< 7; l++){
+			decor[3][l].setTypeDeLaCase(Type.ROCHER);	
+			decor[5][l].setTypeDeLaCase(Type.ROCHER);
+		}
+		for(int x=0;x<LARGEUR;x++){
+			decor[0][x].setTypeDeLaCase(Type.ROCHER);
+			decor[HAUTEUR-1][x].setTypeDeLaCase(Type.ROCHER);
+		}
 
+		//TODO completer
+		inclureAutomates(null, null);
+		
 		// Tout le dÃ©cor est crÃ©e, il faut maintenant chainer les cases entre
 		// elles
 
@@ -127,19 +145,7 @@ public class Partie {
 		
 		//Je modifie le dÃ©cor pour qu'il soit un peu intÃ©ressant
 
-		for (int h = 0; h < decor.length; h++) {
-			decor[h][5].setTypeDeLaCase(Type.ARBRE);
-			decor[h][8].setTypeDeLaCase(Type.CHAMPS);
-		}
 		
-		for(int l =4; l< 7; l++){
-			decor[3][l].setTypeDeLaCase(Type.ROCHER);	
-			decor[5][l].setTypeDeLaCase(Type.ROCHER);
-		}
-		for(int x=0;x<LARGEUR;x++){
-			decor[0][x].setTypeDeLaCase(Type.ROCHER);
-			decor[HAUTEUR-1][x].setTypeDeLaCase(Type.ROCHER);
-		}
 
 	}
 
