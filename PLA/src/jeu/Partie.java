@@ -47,8 +47,17 @@ public class Partie {
 	}
 	
 	private void inclureAutomates(ArrayList<Automate> autoJ1,ArrayList<Automate> autoJ2){
+		Case caseTempo;
 		for(int i=0;i<autoJ1.size();i++){
-			autoJ1[i]
+			Case[][] tableauTempo = autoJ1.get(i).getDecor();
+			for(int j=0;j<tableauTempo.length;j++){
+				for(int k=0;k<tableauTempo[j].length;j++){
+					if(autoJ1.role)
+					caseTempo = tableauTempo[j][k];
+					// Le premier automate s'affiche 2 cases à droite du héros
+					decor[j+2][(int)((LARGEUR-1)/2)+3+k] = caseTempo;
+				}
+			}
 		}
 	}
 

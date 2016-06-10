@@ -14,7 +14,7 @@ public class Automate {
 	
 	private  int[] etats;
 	
-	private int type;
+	private int role;
 	
 	private int[][] transitions;
 	
@@ -28,7 +28,7 @@ public class Automate {
 
 		courant=initial;
 		this.etats = etats;
-		this.type = type;
+		this.role = type;
 		priorite=new int[Condition.values().length][etats.length];
 		transitions=new int[Condition.values().length][etats.length];
 		actions=new Case[Condition.values().length][etats.length];
@@ -89,7 +89,9 @@ public class Automate {
 		
 	}
 	
-	
+	public int getRole(){
+		return role;
+	}
 	
 	public Case[][] getDecor(){
 		return actions;

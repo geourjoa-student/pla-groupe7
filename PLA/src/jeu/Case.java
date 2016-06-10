@@ -3,8 +3,6 @@ package jeu;
 import java.util.Random;
 
 public class Case {
-	
-	private static final int CAPACITE_RECOLTE = 20;
 
 	private int niveauDeResssource;
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <partie>
+<joueur id="1">
    <automate type="1">
       <transition>
          <depart>0</depart>
@@ -48,6 +49,9 @@
       </transition>
       <initial>0</initial>
     </automate>
+ </joueur>
+ <joueur id="2">
+ </joueur>
  </partie>
       
    
