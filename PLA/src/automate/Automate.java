@@ -23,12 +23,15 @@ public class Automate {
 	private Case[][] actions;
 	
 	private int courant;
+	
+	private int initial;
 
-	public Automate(int initial, int[] etats, List<Transition> transitionsAutomate, int type) {
+	public Automate(int initial, int[] etats, List<Transition> transitionsAutomate, int role) {
 
+		this.initial=initial;
 		courant=initial;
 		this.etats = etats;
-		this.role = type;
+		this.role = role;
 		priorite=new int[Condition.values().length][etats.length];
 		transitions=new int[Condition.values().length][etats.length];
 		actions=new Case[Condition.values().length][etats.length];
@@ -97,5 +100,23 @@ public class Automate {
 		return actions;
 	}
 
+	
+	
+	
+	private Automate(int initial, int[] etats, int role, int[][] transitions, int[][] priorite, Case[][] actions) {
+		this.etats = etats;
+		this.role = role;
+		this.transitions = transitions;
+		this.priorite = priorite;
+		this.actions = actions;
+		this.courant = initial;
+		this.initial = initial;
+	}
+
+
+	public Automate clone(){
+		return new Automate(initial,etats, role, transitions, priorite, actions);
+	
+	}
 	
 }
