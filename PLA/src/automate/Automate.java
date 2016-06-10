@@ -91,7 +91,9 @@ public class Automate {
 	
 	
 	
-
+	public Case[][] getDecor(){
+		return actions;
+	}
 
 	
 }
