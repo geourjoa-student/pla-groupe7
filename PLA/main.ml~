@@ -217,7 +217,7 @@ let rec transitions_to_xml liste_transitions fichier = match liste_transitions w
 
 let automate_to_xml automate fichier = match automate with
   |(joueur, role, transitions, etat) -> 
-  	output_string fichier "<automate role=\"";
+  	output_string fichier "<automate type=\"";
   	output_string fichier (string_of_int (role_to_int role));
   	output_string fichier "\">";
   	(transitions_to_xml (transitions_to_ints transitions) fichier);
