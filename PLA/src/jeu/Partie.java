@@ -1,15 +1,17 @@
 package jeu;
 
+import automate.*;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ArrayList;
 
 public class Partie {
 
-	// Taille du monde
-	public static final int LARGEUR = 15;
+	// Taille du monde, une largeur impaire c'est mieux pour centrer
+	public static final int LARGEUR = 19;
 
-	public static final int HAUTEUR = 17;
+	public static final int HAUTEUR = 22;
 
 	private InterfaceUtilisateur interfaceUtilisateur; // Interface du jeu
 
@@ -39,9 +41,15 @@ public class Partie {
 
 		// TODO verifier si la case est vraiment accessible, pour l'instant on
 		// n'en tiens pas encore compte
-		personnages.add(new Heros(joueur1, decor[1][0]));
-		personnages.add(new Heros(joueur2, decor[3][8]));
+		personnages.add(new Heros(joueur1, decor[2][(int)((LARGEUR-1)/2)]));
+		personnages.add(new Heros(joueur2, decor[HAUTEUR-3][(int)((LARGEUR-1)/2)]));
 
+	}
+	
+	private void inclureAutomates(ArrayList<Automate> autoJ1,ArrayList<Automate> autoJ2){
+		for(int i=0;i<autoJ1.size();i++){
+			autoJ1[i]
+		}
 	}
 
 	private void creerDecor() {
