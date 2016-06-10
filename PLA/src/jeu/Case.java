@@ -137,10 +137,10 @@ public class Case {
 		return niveauDeResssource;
 	}
 
-	public int recolter() {
+	public int recolter(int capaRecolte) {
 		Random rand = new Random();
 		
-		int recolte = CAPACITE_RECOLTE + rand.nextInt(CAPACITE_RECOLTE);
+		int recolte = capaRecolte + rand.nextInt(capaRecolte);
 		
 		if(typeDeLaCase==Type.CHAMPS){
 			if(recolte>niveauDeResssource){

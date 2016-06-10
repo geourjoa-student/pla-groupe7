@@ -11,10 +11,16 @@ public abstract class Personnage {
 	protected Case caseSousLeJoueur;
 	
 	protected int role;
+	
+	protected int recolte;
 
 	protected int pointsDeVie;
 	
 	protected int force;
+	
+	protected int soin;
+	
+	protected int convertir;
 
 	protected Joueur proprietaire;
 
@@ -129,11 +135,11 @@ public abstract class Personnage {
 	}
 	
 	public void recolter(){
-		System.out.println("JE recolte");
+		Random rand = new Random();
 		if(caseSousLeJoueur.getTypeDeLaCase()==Type.CHAMPS){
-			proprietaire.ajouterNourriture(caseSousLeJoueur.recolter());
+			proprietaire.ajouterNourriture(caseSousLeJoueur.recolter(recolte+rand.nextInt(recolte)));
 		} else if(caseSousLeJoueur.getTypeDeLaCase()==Type.ARBRE){
-			proprietaire.ajouterBois(caseSousLeJoueur.recolter());
+			proprietaire.ajouterBois(caseSousLeJoueur.recolter(recolte+rand.nextInt(recolte)));
 		}  
 	}
 

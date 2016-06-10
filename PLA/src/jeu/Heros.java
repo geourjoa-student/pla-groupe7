@@ -6,8 +6,11 @@ public class Heros extends Personnage{
 		this.caseSousLeJoueur=caseSousLeJoueur;
 		caseSousLeJoueur.placerPersonnage(this);
 		proprietaire=joueur;	
-		pointsDeVie = 100; // TODO Valeurs arbitraires
-		force=20;
+		pointsDeVie = 250; // TODO Valeurs arbitraires
+		force=30;
+		recolte = 20;
+		soin = 50;
+		convertir = 20;
 		comportement=null;//TODO automate
 	}
 
