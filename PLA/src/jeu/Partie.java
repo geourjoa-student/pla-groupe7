@@ -80,7 +80,7 @@ public class Partie {
 					for(int k=0;k<tableauTempo[j].length;k++){
 						caseTempo = tableauTempo[j][k];
 						// Le premier automate s'affiche � la moiti� de la map - la moiti� de la hauteur du auto, et tout � gauche +1
-						decor[((int)((HAUTEUR-1)/2)-((int)tableauTempo.length/2))+j][k+1] = caseTempo;						
+						decor[((int)((HAUTEUR-1)/2)-((int)tableauTempo.length/2))+j][k] = caseTempo;						
 					}
 				}
 			}
