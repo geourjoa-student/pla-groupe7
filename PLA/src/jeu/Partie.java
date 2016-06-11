@@ -11,7 +11,7 @@ public class Partie {
 	// Taille du monde, une largeur impaire c'est mieux pour centrer
 	public static final int LARGEUR = 19;
 
-	public static final int HAUTEUR = 22;
+	public static final int HAUTEUR = 24;
 
 	private InterfaceUtilisateur interfaceUtilisateur; // Interface du jeu
 
@@ -50,6 +50,7 @@ public class Partie {
 		Case caseTempo;
 		Automate autoTempo;
 		Case[][] tableauTempo;
+		// JOUEUR 1 
 		for(int i=0;i<autoJ1.size();i++){
 			autoTempo = autoJ1.get(i);
 			tableauTempo = autoTempo.getDecor();
@@ -59,7 +60,7 @@ public class Partie {
 					for(int k=0;k<tableauTempo[j].length;k++){
 						caseTempo = tableauTempo[j][k];
 						// Le premier automate s'affiche 2 cases � droite du h�ros
-						decor[j+2][(int)((LARGEUR-1)/2)+3+k] = caseTempo;						
+						decor[j+2][(int)((LARGEUR-1)/2)+2+k] = caseTempo;						
 					}
 				}
 			}
@@ -80,6 +81,41 @@ public class Partie {
 						caseTempo = tableauTempo[j][k];
 						// Le premier automate s'affiche � la moiti� de la map - la moiti� de la hauteur du auto, et tout � gauche +1
 						decor[((int)((HAUTEUR-1)/2)-((int)tableauTempo.length/2))+j][k+1] = caseTempo;						
+					}
+				}
+			}
+		}
+		//JOUEUR 2
+		for(int i=0;i<autoJ1.size();i++){
+			autoTempo = autoJ1.get(i);
+			tableauTempo = autoTempo.getDecor();
+			// Si on � un guerrier
+			if(autoTempo.getRole() == 1) {
+				for(int j=0;j<tableauTempo.length;j++){
+					for(int k=0;k<tableauTempo[j].length;k++){
+						caseTempo = tableauTempo[j][k];
+						// Le premier automate s'affiche 2 cases � droite du h�ros
+						decor[HAUTEUR-3-j][(int)((LARGEUR-1)/2)-2-k] = caseTempo;						
+					}
+				}
+			}
+			// Si on � un moine
+			if(autoTempo.getRole() == 2) {
+				for(int j=0;j<tableauTempo.length;j++){
+					for(int k=0;k<tableauTempo[j].length;k++){
+						caseTempo = tableauTempo[j][k];
+						// Le premier automate s'affiche (largeur de l'auto +1) cases � gauche du h�ros
+						decor[HAUTEUR-3-j][(int)((LARGEUR-1)/2)+(tableauTempo[j].length+1)-k] = caseTempo;						
+					}
+				}
+			}
+			// Si on � un paysan
+			if(autoTempo.getRole() == 3) {
+				for(int j=0;j<tableauTempo.length;j++){
+					for(int k=0;k<tableauTempo[j].length;k++){
+						caseTempo = tableauTempo[j][k];
+						// Le premier automate s'affiche � la moiti� de la map - la moiti� de la hauteur du auto, et tout � gauche +1
+						decor[((int)((HAUTEUR-1)/2)+((int)tableauTempo.length/2))-j][LARGEUR-k-1] = caseTempo;						
 					}
 				}
 			}
