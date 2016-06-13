@@ -4,6 +4,12 @@ import automate.Automate;
 
 public abstract class Joueur {
 	
+	private static final int COUT_GUERRIER = 80;
+
+	private static final int COUT_MOINE = 60;
+
+	private static final int COUT_PAYSAN = 40;
+
 	protected String nom;
 	
 	protected int bois;
@@ -93,6 +99,34 @@ public abstract class Joueur {
 
 	public void setBase(Case base) {
 		this.base = base;
+	}
+
+
+	public Personnage creerGuerrier(Case caseInsertion) {
+		if(nourriture>=COUT_GUERRIER){
+			nourriture-=COUT_GUERRIER;
+			nombrePersonnage++;
+			return new Guerrier(this, caseInsertion, automateGuerrier);
+		}
+		return null;
+	}
+	
+	public Personnage creerMoine(Case caseInsertion) {
+		if(nourriture>=COUT_MOINE){
+			nourriture-=COUT_MOINE;
+			nombrePersonnage++;
+			return new Moine(this, caseInsertion, automateMoine);
+		}
+		return null;
+	}
+	
+	public Personnage creerPaysan(Case caseInsertion) {
+		if(nourriture>=COUT_PAYSAN){
+			nourriture-=COUT_PAYSAN;
+			nombrePersonnage++;
+			return new Paysan(this, caseInsertion, automatePaysan);
+		}
+		return null;
 	}
 	
 	

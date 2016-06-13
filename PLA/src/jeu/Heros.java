@@ -9,6 +9,7 @@ public class Heros extends Personnage{
 	private static final int CAPACITE_SOIN_STANDARD = 50;
 	private static final int TAUX_DE_REUSSITE_DE_CONVERSION_STANDARD = 20;
 
+
 	public Heros(Joueur joueur, Case caseSousLeJoueur) {
 		this.caseSousLePersonnage=caseSousLeJoueur;
 		caseSousLeJoueur.placerPersonnage(this);
@@ -21,7 +22,7 @@ public class Heros extends Personnage{
 	}
 	
 	public Personnage creerUnite(){
-		//TODO prendre en compte le cout de création et retiré ce prix aux joueurs
+		Personnage p=null;
 		
 		if (caseSousLePersonnage.estBatiment() && caseSousLePersonnage.caseAllie(proprietaire)) {
 			Case caseInsertion = null;;
@@ -36,18 +37,17 @@ public class Heros extends Personnage{
 			}
 			
 			if(caseInsertion!=null){
-				Personnage p=null;
+				
 				if(caseSousLePersonnage.getTypeDeLaCase()==Type.CASERNE){
-					p = new Guerrier(proprietaire, caseInsertion, proprietaire.getAutomateGuerrier());
+					p=proprietaire.creerGuerrier(caseInsertion);
 				} 
 				if(caseSousLePersonnage.getTypeDeLaCase()==Type.POLYTECH){
-					p = new Paysan(proprietaire, caseInsertion, proprietaire.getAutomatePaysan());
+					p=proprietaire.creerPaysan(caseInsertion);
 				}
 				if(caseSousLePersonnage.getTypeDeLaCase()==Type.EGLISE){
-					p = new Moine(proprietaire, caseInsertion, proprietaire.getAutomateMoine());
+					p=proprietaire.creerMoine(caseInsertion);
 				}
-				
-				return p;
+			
 			}
 			
 			
@@ -55,7 +55,7 @@ public class Heros extends Personnage{
 				
 		}
 		
-		return null;
+		return p;
 		
 	}
 
