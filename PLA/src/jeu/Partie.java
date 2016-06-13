@@ -186,7 +186,39 @@ public class Partie {
 			decor[(int)((HAUTEUR-1)/2)+2+k][5].setTypeDeLaCase(Type.ROCHER);
 			decor[(int)((HAUTEUR-1)/2)-2-k][LARGEUR-6].setTypeDeLaCase(Type.ROCHER);
 		}
+		for(int k=6;k<LARGEUR-6;k++){
+			decor[1][k].setTypeDeLaCase(Type.ARBRE);
+			decor[HAUTEUR-2][k].setTypeDeLaCase(Type.ARBRE);
+		}
+		for(int l=2;l<HAUTEUR-2;l++){
+			decor[l][6].setTypeDeLaCase(Type.ARBRE);
+			decor[l][12].setTypeDeLaCase(Type.ARBRE);
+			decor[l][14].setTypeDeLaCase(Type.ARBRE);
+			decor[l][20].setTypeDeLaCase(Type.ARBRE);
+			if( (l == 11) || (l == 12)){
+				decor[l][12].setTypeDeLaCase(Type.HERBE);
+				decor[l][14].setTypeDeLaCase(Type.HERBE);
+			}
+			if ( (l == 10) || (l == 13)){
+				decor[l][12].setTypeDeLaCase(Type.HERBE);
+				decor[l][14].setTypeDeLaCase(Type.HERBE);				
+			}
+		}
+		for(int l=7;l<13;l++){
+			decor[l][5].setTypeDeLaCase(Type.ARBRE);
+			decor[l+3][21].setTypeDeLaCase(Type.ARBRE);
+		}
+		for(int k=7;k<20;k++){
+			decor[11][k].setTypeDeLaCase(Type.ARBRE);
+			decor[12][k].setTypeDeLaCase(Type.ARBRE);
+			if(k>10 && k<16){
+				decor[11][k].setTypeDeLaCase(Type.HERBE);
+				decor[12][k].setTypeDeLaCase(Type.HERBE);
+			}
+		}
 		
+		decor[1][(int)((LARGEUR-1)/2)].setTypeDeLaCase(Type.POLYTECH);
+		decor[HAUTEUR-2][(int)((LARGEUR-1)/2)].setTypeDeLaCase(Type.POLYTECH);
 		//TODO completer
 		JDOM jdom = new JDOM();
 		inclureAutomates(jdom.xmlMain(nomFichierAutomates1), jdom.xmlMain(nomFichierAutomates2));
