@@ -131,15 +131,21 @@ public class Partie {
 			}
 		}
 		
-		for (int h = 0; h < decor.length; h++) {
-			decor[h][5].setTypeDeLaCase(Type.ARBRE);
-			decor[h][8].setTypeDeLaCase(Type.CHAMPS);
+		for (int h = 0; h < 7; h++) {
+			for (int l = 0; l < 6; l++) {
+				if (h != 6)
+					decor[h][l].setTypeDeLaCase(Type.CHAMPS);
+				else
+					decor[h][l].setTypeDeLaCase(Type.ROCHER);
+			}
 		}
 		
+		decor[6][2].setTypeDeLaCase(Type.HERBE);
+		decor[6][3].setTypeDeLaCase(Type.HERBE);
 		for(int l =4; l< 7; l++){
-			decor[3][l].setTypeDeLaCase(Type.ROCHER);	
 			decor[5][l].setTypeDeLaCase(Type.ROCHER);
 		}
+		decor[4][5].setTypeDeLaCase(Type.ROCHER);
 		for(int x=0;x<LARGEUR;x++){
 			decor[0][x].setTypeDeLaCase(Type.ROCHER);
 			decor[HAUTEUR-1][x].setTypeDeLaCase(Type.ROCHER);
