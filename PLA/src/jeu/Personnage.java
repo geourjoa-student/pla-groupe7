@@ -8,6 +8,8 @@ public abstract class Personnage {
 
 	private static final int NB_TENTATIVE_ATTAQUE_MAX = 5;
 
+	private static final int NB_TENTATIVE_SOIN_MAX = 5;
+
 	protected Case caseSousLeJoueur;
 	
 	protected int role;
@@ -26,13 +28,10 @@ public abstract class Personnage {
 
 	protected Automate comportement;
 
-	public Joueur getJoueur() {
-		return proprietaire;
-	}
-
 	public Joueur getProprietaire() {
 		return proprietaire;
 	}
+
 
 	/*
 	 * Fonctions de déplacement
@@ -96,19 +95,19 @@ public abstract class Personnage {
 			switch (rand.nextInt(4)) {
 				case 0:
 					//Si il y a personnage sur la case choisis et qu'il n'appartient pas au même joueur, je peux le choisir comme cible
-					if(caseSousLeJoueur.getCaseEnHaut().getPersonnagePresent()!=null && caseSousLeJoueur.getCaseEnHaut().getPersonnagePresent().getJoueur()!=proprietaire)
+					if(caseSousLeJoueur.getCaseEnHaut().getPersonnagePresent()!=null && caseSousLeJoueur.getCaseEnHaut().getPersonnagePresent().getProprietaire()!=proprietaire)
 						personnageAAttaquer=caseSousLeJoueur.getCaseEnHaut().getPersonnagePresent();
 					break;
 				case 1:
-					if(caseSousLeJoueur.getCaseADroite().getPersonnagePresent()!=null && caseSousLeJoueur.getCaseADroite().getPersonnagePresent().getJoueur()!=proprietaire)
+					if(caseSousLeJoueur.getCaseADroite().getPersonnagePresent()!=null && caseSousLeJoueur.getCaseADroite().getPersonnagePresent().getProprietaire()!=proprietaire)
 						personnageAAttaquer=caseSousLeJoueur.getCaseADroite().getPersonnagePresent();
 					break;
 				case 2:
-					if(caseSousLeJoueur.getCaseEnBas().getPersonnagePresent()!=null && caseSousLeJoueur.getCaseEnBas().getPersonnagePresent().getJoueur()!=proprietaire)
+					if(caseSousLeJoueur.getCaseEnBas().getPersonnagePresent()!=null && caseSousLeJoueur.getCaseEnBas().getPersonnagePresent().getProprietaire()!=proprietaire)
 						personnageAAttaquer=caseSousLeJoueur.getCaseEnBas().getPersonnagePresent();
 					break;	
 				case 3:
-					if(caseSousLeJoueur.getCaseAGauche().getPersonnagePresent()!=null && caseSousLeJoueur.getCaseAGauche().getPersonnagePresent().getJoueur()!=proprietaire)
+					if(caseSousLeJoueur.getCaseAGauche().getPersonnagePresent()!=null && caseSousLeJoueur.getCaseAGauche().getPersonnagePresent().getProprietaire()!=proprietaire)
 						personnageAAttaquer=caseSousLeJoueur.getCaseAGauche().getPersonnagePresent();
 					break;	
 
@@ -123,9 +122,52 @@ public abstract class Personnage {
 		
 	}
 	
+	public void soigner(){
+		Random rand = new Random();
+			
+		Personnage personnageASoigner=null;
+		
+		for(int numeroEssaiSoin = 0; numeroEssaiSoin<NB_TENTATIVE_SOIN_MAX ; numeroEssaiSoin++){
+			
+			//On choisit l'orientation d'attaque aléatoirement, si il n'y a personne à l'orientation tirée, on recommence
+			//Tirage entre 0 et 4 non compris
+			switch (rand.nextInt(4)) {
+				case 0:
+					//Si il y a personnage sur la case choisis et qu'il n'appartient pas au même joueur, je peux le choisir comme cible
+					if(caseSousLeJoueur.getCaseEnHaut().getPersonnagePresent()!=null && allie(caseSousLeJoueur.getCaseEnHaut().getPersonnagePresent()))
+						personnageASoigner=caseSousLeJoueur.getCaseEnHaut().getPersonnagePresent();
+					break;
+				case 1:
+					if(caseSousLeJoueur.getCaseADroite().getPersonnagePresent()!=null && allie(caseSousLeJoueur.getCaseADroite().getPersonnagePresent()))
+						personnageASoigner=caseSousLeJoueur.getCaseADroite().getPersonnagePresent();
+					break;
+				case 2:
+					if(caseSousLeJoueur.getCaseEnBas().getPersonnagePresent()!=null && allie(caseSousLeJoueur.getCaseEnBas().getPersonnagePresent()))
+						personnageASoigner=caseSousLeJoueur.getCaseEnBas().getPersonnagePresent();
+					break;	
+				case 3:
+					if(caseSousLeJoueur.getCaseAGauche().getPersonnagePresent()!=null && allie(caseSousLeJoueur.getCaseAGauche().getPersonnagePresent()))
+						personnageASoigner=caseSousLeJoueur.getCaseAGauche().getPersonnagePresent();
+					break;	
+
+				default:
+					break;
+			}
+		}
+		
+		//Si j'ai  trouve quelqu'un a attaquer, je lui défonce sa race
+		if(personnageASoigner!=null)
+			personnageASoigner.recevoirSoin(soin+rand.nextInt(soin)); //J'ai ajouter un peu d'aléatoire à cet epique combat
+		
+	}
+	
 	//Fonction associé à l'attaque
 	public void recevoirDegat(int nbDegats){
 		pointsDeVie-=nbDegats;
+	}
+	
+	public void recevoirSoin(int nbSoin){
+		pointsDeVie+=nbSoin;
 	}
 	
 	public boolean estVivant (){
@@ -141,6 +183,10 @@ public abstract class Personnage {
 		} else if(caseSousLeJoueur.getTypeDeLaCase()==Type.ARBRE){
 			proprietaire.ajouterBois(caseSousLeJoueur.recolter(recolte+rand.nextInt(recolte)));
 		}  
+	}
+	
+	public boolean allie(Personnage p){
+		return (this.proprietaire==p.proprietaire);
 	}
 
 	@Override

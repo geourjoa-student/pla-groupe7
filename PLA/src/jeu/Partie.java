@@ -214,8 +214,8 @@ public class Partie {
 					interfaceUtilisateur.afficherMap(decor);
 					interfaceUtilisateur.afficherPersonnages(personnages);
 
-					interfaceUtilisateur.demanderNouvelleAction(personnage.getJoueur().getNom());
-					actionAfaire = personnage.getJoueur().getNouvelleAction();
+					interfaceUtilisateur.demanderNouvelleAction(personnage.getProprietaire().getNom());
+					actionAfaire = personnage.getProprietaire().getNouvelleAction();
 
 				} /*
 					 * else {
