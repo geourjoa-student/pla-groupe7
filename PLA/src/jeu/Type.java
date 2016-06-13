@@ -6,6 +6,11 @@ public enum Type {
 	CHAMPS,
 	HERBE,
 	ROCHER,
-	SOUCHE;
+	SOUCHE,
+	CASERNE,
+	FERME,
+	POLYTECH,
+	EGLISE,
+	HOPITAL;
 
 }

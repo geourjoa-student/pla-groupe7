@@ -124,6 +124,18 @@ public class Case {
 				return s + "# ";
 			case ROCHER :
 				return s + "o ";
+			case SOUCHE :
+				return s + "_ ";
+			case CASERNE :
+				return s + "C ";
+			case POLYTECH :
+				return s + "P ";
+			case FERME :
+				return s + "F ";
+			case EGLISE :
+				return s + "E ";
+			case HOPITAL :
+				return s + "H ";
 
 			default:
 				return s + ". ";

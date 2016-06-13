@@ -86,8 +86,8 @@ public class Partie {
 			}
 		}
 		//JOUEUR 2
-		for(int i=0;i<autoJ1.size();i++){
-			autoTempo = autoJ1.get(i);
+		for(int i=0;i<autoJ2.size();i++){
+			autoTempo = autoJ2.get(i);
 			tableauTempo = autoTempo.getDecor();
 			// Si on � un guerrier
 			if(autoTempo.getRole() == 1) {
