@@ -142,7 +142,7 @@ public class Partie {
 		
 		decor[6][2].setTypeDeLaCase(Type.HERBE);
 		decor[6][3].setTypeDeLaCase(Type.HERBE);
-		for(int l =4; l< 7; l++){
+		for(int l = 4; l < 6; l++){
 			decor[5][l].setTypeDeLaCase(Type.ROCHER);
 		}
 		decor[4][5].setTypeDeLaCase(Type.ROCHER);
@@ -166,7 +166,27 @@ public class Partie {
 			decor[0][x].setTypeDeLaCase(Type.ROCHER);
 			decor[HAUTEUR-1][x].setTypeDeLaCase(Type.ROCHER);
 		}
-
+		for (int h = HAUTEUR - 8; h < HAUTEUR - 1; h++) {
+			for (int l = 0; l < 6; l++) {
+				if (h != HAUTEUR - 8)
+					decor[h][l].setTypeDeLaCase(Type.CHAMPS);
+				else
+					decor[h][l].setTypeDeLaCase(Type.ROCHER);
+			}
+		}
+		for (int h = 1; h < 7; h++) {
+			for (int l = LARGEUR-6; l < LARGEUR; l++) {
+				if (h != 6)
+					decor[h][l].setTypeDeLaCase(Type.CHAMPS);
+				else
+					decor[h][l].setTypeDeLaCase(Type.ROCHER);
+			}
+		}
+		for(int k=0;k<3;k++){
+			decor[(int)((HAUTEUR-1)/2)+2+k][5].setTypeDeLaCase(Type.ROCHER);
+			decor[(int)((HAUTEUR-1)/2)-2-k][LARGEUR-6].setTypeDeLaCase(Type.ROCHER);
+		}
+		
 		//TODO completer
 		JDOM jdom = new JDOM();
 		inclureAutomates(jdom.xmlMain(nomFichierAutomates1), jdom.xmlMain(nomFichierAutomates2));
