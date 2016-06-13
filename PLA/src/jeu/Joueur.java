@@ -1,5 +1,7 @@
 package jeu;
 
+import automate.Automate;
+
 public abstract class Joueur {
 	
 	protected String nom;
@@ -11,6 +13,12 @@ public abstract class Joueur {
 	protected int nombrePersonnage;
 	
 	protected String nomFichierAutomate;
+	
+	protected Automate automateGuerrier;
+	
+	protected Automate automateMoine;
+	
+	protected Automate automatePaysan;
 	
 	public int getBois() {
 		return bois;
@@ -42,4 +50,30 @@ public abstract class Joueur {
 	public String getNomFichierAutomate(){
 		return nomFichierAutomate;
 	}
+
+	public Automate getAutomateGuerrier() {
+		return automateGuerrier;
+	}
+
+	public void setAutomateGuerrier(Automate automateGuerrier) {
+		this.automateGuerrier = automateGuerrier;
+	}
+
+	public Automate getAutomateMoine() {
+		return automateMoine;
+	}
+
+	public void setAutomateMoine(Automate automateMoine) {
+		this.automateMoine = automateMoine;
+	}
+
+	public Automate getAutomatePaysan() {
+		return automatePaysan;
+	}
+
+	public void setAutomatePaysan(Automate automatePaysan) {
+		this.automatePaysan = automatePaysan;
+	}
+	
+	
 }

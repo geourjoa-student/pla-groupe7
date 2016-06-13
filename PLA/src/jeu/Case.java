@@ -185,6 +185,10 @@ public class Case {
 	public boolean caseAllie(Joueur j) {
 		return (j==proprietaire);
 	}
+	
+	public boolean estBatiment() {
+		return (typeDeLaCase==Type.POLYTECH || typeDeLaCase==Type.CASERNE || typeDeLaCase==Type.EGLISE || typeDeLaCase==Type.FERME);
+	}
 
 	
 	

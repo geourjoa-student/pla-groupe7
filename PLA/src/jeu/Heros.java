@@ -18,20 +18,21 @@ public class Heros extends Personnage{
 	
 	public void creerUnite(){
 		
-		if (caseSousLeJoueur.getTypeDeLaCase()==Type.CASERNE && caseSousLeJoueur.caseAllie(proprietaire)) {
-			boolean insere=false;
-			Random rand = new Random();
-			
-			while(!insere){
-				switch (rand.nextInt(4)){
-					case 0 :
-						if(caseSousLeJoueur.getCaseEnHaut().getPersonnagePresent()==null){
-							
-						}
-				}
+		
+		if (caseSousLeJoueur.estBatiment() && caseSousLeJoueur.caseAllie(proprietaire)) {
+			Case caseInsertion = null;;
+			if(caseSousLeJoueur.getCaseADroite().getPersonnagePresent()==null){
+				caseInsertion=caseSousLeJoueur.getCaseADroite();
+			} else if(caseSousLeJoueur.getCaseAGauche().getPersonnagePresent()==null){
+				caseInsertion=caseSousLeJoueur.getCaseAGauche();
+			} else if(caseSousLeJoueur.getCaseEnBas().getPersonnagePresent()==null){
+				caseInsertion=caseSousLeJoueur.getCaseEnBas();
+			} else if(caseSousLeJoueur.getCaseEnHaut().getPersonnagePresent()==null){
+				caseInsertion=caseSousLeJoueur.getCaseEnHaut();
 			}
+			
 				
-				
+			Personnage p = new Guerrier(proprietaire, caseSousLeJoueur.getCaseADroite(), proprietaire.getAutomateGuerrier());	
 		}
 		
 	}
