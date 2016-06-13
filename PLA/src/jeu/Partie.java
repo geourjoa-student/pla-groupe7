@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class Partie {
 
 	// Taille du monde, une largeur impaire c'est mieux pour centrer
-	public static final int LARGEUR = 19;
+	public static final int LARGEUR = 27;
 
 	public static final int HAUTEUR = 24;
 
