@@ -46,8 +46,11 @@ public class Partie {
 		// n'en tiens pas encore compte
 		personnages.add(new Heros(joueur1, decor[2][(int)((LARGEUR-1)/2)]));
 		personnages.add(new Heros(joueur2, decor[HAUTEUR-3][(int)((LARGEUR-1)/2)]));
-
+		
+		decor[2][(int)((LARGEUR-1)/2)].setProprietaire(joueur1);
+		decor[HAUTEUR-3][(int)((LARGEUR-1)/2)].setProprietaire(joueur2);
 	}
+	
 	
 	private void inclureAutomates(ArrayList<Automate> autoJ1,ArrayList<Automate> autoJ2){
 		Case caseTempo;
@@ -327,6 +330,9 @@ public class Partie {
 						break;
 					case SE_DEPLACER:
 						personnage.seDeplacer();
+						break;
+					case CREER_UNITE:
+						((Heros) personnage).creerUnite();
 						break;
 
 					case NE_RIEN_FAIRE:

@@ -196,7 +196,9 @@ public class Case {
 		return (typeDeLaCase==Type.CHAMPS || typeDeLaCase==Type.ARBRE);
 	}
 
-	
+	public void setProprietaire(Joueur j){
+		proprietaire=j;
+	}
 	
 
 }

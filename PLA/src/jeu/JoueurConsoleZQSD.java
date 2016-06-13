@@ -60,13 +60,26 @@ public class JoueurConsoleZQSD extends JoueurConsole {
 			case '2':
 				return Action.RECOLTER;
 				
+			case '3':
+				return Action.SOIGNER;
+				
+			case '4':
+				return Action.CONVERTIR;
+				
+			case '5':
+				return Action.CREER_UNITE;
+				
 			case ' ':
 				return Action.NE_RIEN_FAIRE;
 			default:
 				System.out.println("Commande de jeu :");
 				System.out.println("z,q,s,d -> haut, gauche, bas, droite");
 				System.out.println("0 -> ne rien faire");
-				System.out.println("1 -> recolter");
+				System.out.println("1 -> attaquer");
+				System.out.println("2 -> attaquer");
+				System.out.println("3 -> attaquer");
+				System.out.println("4 -> attaquer");
+				System.out.println("5 -> créer unité");
 				System.out.println("? ou n'importe quelles autres touches -> afficher ce manuel puis saisir une action correcte.");
 				return getNouvelleAction();
 			}
