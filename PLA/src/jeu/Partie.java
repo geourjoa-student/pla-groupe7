@@ -64,9 +64,9 @@ public class Partie {
 				joueur1.setAutomateGuerrier(autoTempo);
 				for(int j=0;j<tableauTempo.length;j++){
 					for(int k=0;k<tableauTempo[j].length;k++){
-						caseTempo = tableauTempo[j][k];
+						tableauTempo[j][k].setProprietaire(joueur1);
 						// Le premier automate s'affiche 2 cases � droite du h�ros
-						decor[j+2][(int)((LARGEUR-1)/2)+2+k] = caseTempo;						
+						decor[j+2][(int)((LARGEUR-1)/2)+2+k] = tableauTempo[j][k];					
 					}
 				}
 			}
@@ -75,9 +75,9 @@ public class Partie {
 				joueur1.setAutomateMoine(autoTempo);
 				for(int j=0;j<tableauTempo.length;j++){
 					for(int k=0;k<tableauTempo[j].length;k++){
-						caseTempo = tableauTempo[j][k];
+						tableauTempo[j][k].setProprietaire(joueur1);
 						// Le premier automate s'affiche (largeur de l'auto +1) cases � gauche du h�ros
-						decor[j+2][(int)((LARGEUR-1)/2)-(tableauTempo[j].length+1)+k] = caseTempo;						
+						decor[j+2][(int)((LARGEUR-1)/2)-(tableauTempo[j].length+1)+k] = tableauTempo[j][k];						
 					}
 				}
 			}
@@ -86,9 +86,9 @@ public class Partie {
 				joueur1.setAutomatePaysan(autoTempo);
 				for(int j=0;j<tableauTempo.length;j++){
 					for(int k=0;k<tableauTempo[j].length;k++){
-						caseTempo = tableauTempo[j][k];
+						tableauTempo[j][k].setProprietaire(joueur1);
 						// Le premier automate s'affiche � la moiti� de la map - la moiti� de la hauteur du auto, et tout � gauche +1
-						decor[((int)((HAUTEUR-1)/2)-((int)tableauTempo.length/2))+j][k] = caseTempo;						
+						decor[((int)((HAUTEUR-1)/2)-((int)tableauTempo.length/2))+j][k] = tableauTempo[j][k];						
 					}
 				}
 			}
@@ -102,9 +102,9 @@ public class Partie {
 				joueur2.setAutomateGuerrier(autoTempo);
 				for(int j=0;j<tableauTempo.length;j++){
 					for(int k=0;k<tableauTempo[j].length;k++){
-						caseTempo = tableauTempo[j][k];
+						tableauTempo[j][k].setProprietaire(joueur2);
 						// Le premier automate s'affiche 2 cases � droite du h�ros
-						decor[HAUTEUR-3-j][(int)((LARGEUR-1)/2)-2-k] = caseTempo;						
+						decor[HAUTEUR-3-j][(int)((LARGEUR-1)/2)-2-k] = tableauTempo[j][k];						
 					}
 				}
 			}
@@ -113,9 +113,9 @@ public class Partie {
 				joueur2.setAutomateMoine(autoTempo);
 				for(int j=0;j<tableauTempo.length;j++){
 					for(int k=0;k<tableauTempo[j].length;k++){
-						caseTempo = tableauTempo[j][k];
+						tableauTempo[j][k].setProprietaire(joueur2);
 						// Le premier automate s'affiche (largeur de l'auto +1) cases � gauche du h�ros
-						decor[HAUTEUR-3-j][(int)((LARGEUR-1)/2)+(tableauTempo[j].length+1)-k] = caseTempo;						
+						decor[HAUTEUR-3-j][(int)((LARGEUR-1)/2)+(tableauTempo[j].length+1)-k] = tableauTempo[j][k];								
 					}
 				}
 			}
@@ -124,9 +124,9 @@ public class Partie {
 				joueur2.setAutomatePaysan(autoTempo);
 				for(int j=0;j<tableauTempo.length;j++){
 					for(int k=0;k<tableauTempo[j].length;k++){
-						caseTempo = tableauTempo[j][k];
+						tableauTempo[j][k].setProprietaire(joueur2);
 						// Le premier automate s'affiche � la moiti� de la map - la moiti� de la hauteur du auto, et tout � gauche +1
-						decor[((int)((HAUTEUR-1)/2)+((int)tableauTempo.length/2))-j][LARGEUR-k-1] = caseTempo;						
+						decor[((int)((HAUTEUR-1)/2)+((int)tableauTempo.length/2))-j][LARGEUR-k-1] = tableauTempo[j][k];								
 					}
 				}
 			}
