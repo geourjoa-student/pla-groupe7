@@ -22,6 +22,8 @@ public abstract class Joueur {
 
 	protected Partie partie;
 	
+	protected Case base;
+	
 	public int getBois() {
 		return bois;
 	}
@@ -84,6 +86,15 @@ public abstract class Joueur {
 	public void setPartie(Partie p) {
 		partie=p;;
 	}
+
+	public Case getBase() {
+		return base;
+	}
+
+	public void setBase(Case base) {
+		this.base = base;
+	}
+	
 	
 	
 }

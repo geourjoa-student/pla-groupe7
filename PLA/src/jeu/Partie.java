@@ -13,6 +13,12 @@ public class Partie {
 
 	public static final int HAUTEUR = 24;
 
+	public static final int EGALITE = 0;
+
+	public static final int JOUEUR_1_GAGNE = 1;
+
+	public static final int JOUEUR_2_GAGNE = 2;
+
 	private InterfaceUtilisateur interfaceUtilisateur; // Interface du jeu
 
 	private Joueur joueur1;
@@ -229,6 +235,9 @@ public class Partie {
 		decor[1][(int)((LARGEUR-1)/2)].setTypeDeLaCase(Type.POLYTECH);
 		decor[HAUTEUR-2][(int)((LARGEUR-1)/2)].setTypeDeLaCase(Type.POLYTECH);
 		
+		joueur1.setBase(decor[1][(int)((LARGEUR-1)/2)]);
+		joueur2.setBase(decor[HAUTEUR-2][(int)((LARGEUR-1)/2)]);
+		
 		decor[1][(int)((LARGEUR-1)/2)].setProprietaire(joueur1);
 		decor[HAUTEUR-2][(int)((LARGEUR-1)/2)].setProprietaire(joueur2);
 		
@@ -366,6 +375,30 @@ public class Partie {
 	}
 
 	public boolean estTermine() {
+		if(joueur1.getBase().getTypeDeLaCase()==Type.RUINES && joueur2.getBase().getTypeDeLaCase()==Type.RUINES){
+			interfaceUtilisateur.afficherJoueur(joueur1, joueur2);
+			interfaceUtilisateur.afficherMap(decor);
+			interfaceUtilisateur.afficherPersonnages(personnages);
+			interfaceUtilisateur.afficherFinDePartie(joueur1, joueur2, EGALITE);
+			return true;
+		}
+		if(joueur2.getBase().getTypeDeLaCase()==Type.RUINES ){
+			interfaceUtilisateur.afficherJoueur(joueur1, joueur2);
+			interfaceUtilisateur.afficherMap(decor);
+			interfaceUtilisateur.afficherPersonnages(personnages);
+			interfaceUtilisateur.afficherFinDePartie(joueur1, joueur2, JOUEUR_1_GAGNE);
+			return true;
+		}
+		if(joueur1.getBase().getTypeDeLaCase()==Type.RUINES ){
+			interfaceUtilisateur.afficherJoueur(joueur1, joueur2);
+			interfaceUtilisateur.afficherMap(decor);
+			interfaceUtilisateur.afficherPersonnages(personnages);
+			interfaceUtilisateur.afficherFinDePartie(joueur1, joueur2, JOUEUR_2_GAGNE);
+			return true;
+		}
+	
+		
+		
 		return false;
 	}
 	

@@ -21,7 +21,7 @@ public class Heros extends Personnage{
 	}
 	
 	public Personnage creerUnite(){
-		//TODO Clément : prendre en compte le cout de création et retiré ce prix aux joueurs
+		//TODO prendre en compte le cout de création et retiré ce prix aux joueurs
 		
 		if (caseSousLePersonnage.estBatiment() && caseSousLePersonnage.caseAllie(proprietaire)) {
 			Case caseInsertion = null;;

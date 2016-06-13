@@ -78,6 +78,27 @@ public class InterfaceConsole extends InterfaceUtilisateur {
 		
 	}
 
+	@Override
+	public void afficherFinDePartie(Joueur joueur1, Joueur joueur2, int resultat) {
+		System.out.println("* Partie terminée ! *");
+		switch (resultat) {
+			case Partie.EGALITE:
+				System.out.println("Partie nulle.");
+				break;
+			case Partie.JOUEUR_1_GAGNE:
+				System.out.println(joueur1.getNom() + " a défoncé la race à " + joueur2.getNom() + ".");
+				break;
+			case Partie.JOUEUR_2_GAGNE:
+				System.out.println(joueur2.getNom() + " a zlatané " + joueur1.getNom() + ".");
+				break;
+			default:
+				break;
+		}
+		
+	}
+
+	
+
 	
 
 }

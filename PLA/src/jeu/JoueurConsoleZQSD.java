@@ -15,7 +15,7 @@ public class JoueurConsoleZQSD extends JoueurConsole {
 		this.nom = nom;
 		this.bois=200;
 		this.nourriture=200;
-		this.nombrePersonnage=0;
+		this.nombrePersonnage=1;
 		this.nomFichierAutomate=nomFichierAutomate;
 		this.partie=null;
 	}
@@ -80,9 +80,9 @@ public class JoueurConsoleZQSD extends JoueurConsole {
 				System.out.println("z,q,s,d -> haut, gauche, bas, droite");
 				System.out.println("0 -> ne rien faire");
 				System.out.println("1 -> attaquer");
-				System.out.println("2 -> attaquer");
-				System.out.println("3 -> attaquer");
-				System.out.println("4 -> attaquer");
+				System.out.println("2 -> récolter");
+				System.out.println("3 -> soigner");
+				System.out.println("4 -> convertir");
 				System.out.println("5 -> créer unité");
 				System.out.println("6 -> attaquer batiment");
 				System.out.println("? ou n'importe quelles autres touches -> afficher ce manuel puis saisir une action correcte.");
