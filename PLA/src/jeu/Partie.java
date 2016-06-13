@@ -282,10 +282,8 @@ public class Partie {
 
 	public void jouerTour() {
 
-		System.out.println(personnages.size());
-
 		List<Personnage> tempo = new ArrayList<>();
-		for (Iterator<Personnage> iterator = personnages.iterator(); iterator.hasNext();) {
+		for (Iterator<Personnage> iterator = ordonnanceur().iterator(); iterator.hasNext();) {
 			Personnage personnage = iterator.next();
 
 			// Un personnage ne peut évoluer que si il n'est pas mort, il sera
@@ -372,6 +370,12 @@ public class Partie {
 			
 		}
 	}
+
+	private List<Personnage> ordonnanceur() {
+		//Ordonnanceur simpliste, on peut l'améliorer ici
+		return personnages;
+	}
+
 
 	public boolean estTermine() {
 		if(joueur1.getBase().getTypeDeLaCase()==Type.RUINES && joueur2.getBase().getTypeDeLaCase()==Type.RUINES){
