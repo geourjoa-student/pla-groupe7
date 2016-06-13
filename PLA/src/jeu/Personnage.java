@@ -10,6 +10,8 @@ public abstract class Personnage {
 
 	private static final int NB_TENTATIVE_SOIN_MAX = 5;
 
+	private static final int NB_TENTATIVE_CONVERSION_MAX = 5;
+
 	protected Case caseSousLeJoueur;
 	
 	protected int role;
@@ -155,9 +157,8 @@ public abstract class Personnage {
 			}
 		}
 		
-		//Si j'ai  trouve quelqu'un a attaquer, je lui défonce sa race
 		if(personnageASoigner!=null)
-			personnageASoigner.recevoirSoin(soin+rand.nextInt(soin)); //J'ai ajouter un peu d'aléatoire à cet epique combat
+			personnageASoigner.recevoirSoin(soin+rand.nextInt(soin)); 
 		
 	}
 	
@@ -189,6 +190,50 @@ public abstract class Personnage {
 		return (this.proprietaire==p.proprietaire);
 	}
 
+	public void etreConvertie(Joueur j){
+		this.proprietaire=j;
+	}
+	
+	public void convertir(){
+		Random rand = new Random();
+			
+		Personnage personnageAAConvertir=null;
+		
+		for(int numeroEssaiConversion = 0; numeroEssaiConversion<NB_TENTATIVE_CONVERSION_MAX ; numeroEssaiConversion++){
+			
+			//On choisit l'orientation d'attaque aléatoirement, si il n'y a personne à l'orientation tirée, on recommence
+			//Tirage entre 0 et 4 non compris
+			switch (rand.nextInt(4)) {
+				case 0:
+					//Si il y a personnage sur la case choisis et qu'il n'appartient pas au même joueur, je peux le choisir comme cible
+					if(caseSousLeJoueur.getCaseEnHaut().getPersonnagePresent()!=null && !allie(caseSousLeJoueur.getCaseEnHaut().getPersonnagePresent()))
+						personnageAAConvertir=caseSousLeJoueur.getCaseEnHaut().getPersonnagePresent();
+					break;
+				case 1:
+					if(caseSousLeJoueur.getCaseADroite().getPersonnagePresent()!=null && !allie(caseSousLeJoueur.getCaseADroite().getPersonnagePresent()))
+						personnageAAConvertir=caseSousLeJoueur.getCaseADroite().getPersonnagePresent();
+					break;
+				case 2:
+					if(caseSousLeJoueur.getCaseEnBas().getPersonnagePresent()!=null && !allie(caseSousLeJoueur.getCaseEnBas().getPersonnagePresent()))
+						personnageAAConvertir=caseSousLeJoueur.getCaseEnBas().getPersonnagePresent();
+					break;	
+				case 3:
+					if(caseSousLeJoueur.getCaseAGauche().getPersonnagePresent()!=null && !allie(caseSousLeJoueur.getCaseAGauche().getPersonnagePresent()))
+						personnageAAConvertir=caseSousLeJoueur.getCaseAGauche().getPersonnagePresent();
+					break;	
+
+				default:
+					break;
+			}
+		}
+		
+		if(personnageAAConvertir!=null && convertir >= rand.nextInt(100))
+			personnageAAConvertir.etreConvertie(proprietaire);
+		
+	}
+	
+	
+	
 	@Override
 	public String toString() {
 
