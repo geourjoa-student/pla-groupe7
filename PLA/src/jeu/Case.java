@@ -187,7 +187,7 @@ public class Case {
 	}
 	
 	public boolean estBatiment() {
-		return (typeDeLaCase==Type.POLYTECH || typeDeLaCase==Type.CASERNE || typeDeLaCase==Type.EGLISE || typeDeLaCase==Type.FERME);
+		return (typeDeLaCase==Type.POLYTECH || typeDeLaCase==Type.CASERNE || typeDeLaCase==Type.EGLISE || typeDeLaCase==Type.FERME || typeDeLaCase==Type.HOPITAL);
 	}
 
 	

@@ -1,7 +1,5 @@
 package jeu;
 
-import java.util.Random;
-
 public class Heros extends Personnage{
 
 	public Heros(Joueur joueur, Case caseSousLeJoueur) {
@@ -31,8 +29,26 @@ public class Heros extends Personnage{
 				caseInsertion=caseSousLeJoueur.getCaseEnHaut();
 			}
 			
+			if(caseInsertion!=null){
+				Personnage p=null;
+				if(caseSousLeJoueur.getTypeDeLaCase()==Type.CASERNE){
+					p = new Guerrier(proprietaire, caseInsertion, proprietaire.getAutomateGuerrier());
+				} 
+				if(caseSousLeJoueur.getTypeDeLaCase()==Type.POLYTECH){
+					p = new Guerrier(proprietaire, caseInsertion, proprietaire.getAutomateGuerrier());
+				}
+				if(caseSousLeJoueur.getTypeDeLaCase()==Type.EGLISE){
+					p = new Guerrier(proprietaire, caseInsertion, proprietaire.getAutomateGuerrier());
+				}
 				
-			Personnage p = new Guerrier(proprietaire, caseSousLeJoueur.getCaseADroite(), proprietaire.getAutomateGuerrier());	
+				if(p!=null){
+					proprietaire.getPartie().ajouterPersonnage(p);
+				}
+			}
+			
+			
+				
+				
 		}
 		
 	}

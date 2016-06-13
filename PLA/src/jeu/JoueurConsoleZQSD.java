@@ -17,6 +17,7 @@ public class JoueurConsoleZQSD extends JoueurConsole {
 		this.nourriture=200;
 		this.nombrePersonnage=0;
 		this.nomFichierAutomate=nomFichierAutomate;
+		this.partie=null;
 	}
 
 	@Override

@@ -32,6 +32,9 @@ public class Partie {
 		this.interfaceUtilisateur = interfaceUtilisateur;
 		this.joueur1 = joueur1;
 		this.joueur2 = joueur2;
+		
+		joueur1.setPartie(this);
+		joueur2.setPartie(this);
 
 		personnages = new LinkedList<Personnage>();
 
@@ -285,16 +288,10 @@ public class Partie {
 					interfaceUtilisateur.demanderNouvelleAction(personnage.getProprietaire().getNom());
 					actionAfaire = personnage.getProprietaire().getNouvelleAction();
 
-				} /*
-					 * else {
-					 * 
-					 * //TODO Choisir la transitiona affecté à un personnage qui
-					 * n'est pas un héros (qui n'est pas jouable) //TODO
-					 * Récuperer l'action à effectuer }
-					 * 
-					 * 
-					 * 
-					 */
+				} else {
+					((Homme) personnage).getAction();
+				}
+					 
 
 				// TODO Completer avec toute les actions
 				switch (actionAfaire) {
@@ -312,10 +309,18 @@ public class Partie {
 						break;
 					case ATTAQUER:
 						personnage.attaquer();
-						break;
-						
+						break;	
 					case RECOLTER:
 						personnage.recolter();
+						break;
+					case SOIGNER:
+						personnage.soigner();
+						break;
+					case CONVERTIR:
+						personnage.soigner();
+						break;
+					case SE_DEPLACER:
+						personnage.seDeplacer();
 						break;
 
 					case NE_RIEN_FAIRE:

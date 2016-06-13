@@ -19,6 +19,8 @@ public abstract class Joueur {
 	protected Automate automateMoine;
 	
 	protected Automate automatePaysan;
+
+	protected Partie partie;
 	
 	public int getBois() {
 		return bois;
@@ -73,6 +75,14 @@ public abstract class Joueur {
 
 	public void setAutomatePaysan(Automate automatePaysan) {
 		this.automatePaysan = automatePaysan;
+	}
+
+	public Partie getPartie() {
+		return partie;
+	}
+	
+	public void setPartie(Partie p) {
+		partie=p;;
 	}
 	
 	

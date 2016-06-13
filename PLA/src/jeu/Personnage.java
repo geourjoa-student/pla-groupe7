@@ -242,4 +242,23 @@ public abstract class Personnage {
 				+ caseSousLeJoueur.getPositionH() + "," + caseSousLeJoueur.getPositionL() + ")";
 	}
 
+
+	public void seDeplacer() {
+		switch (new Random().nextInt(4)) {
+			case 0:
+				allerEnHaut();
+				break;
+			case 1:
+				allerEnBas();
+				break;
+			case 2:
+				allerADroite();
+			case 3:
+				allerAGauche();
+			default:
+				break;
+		}
+		
+	}
+
 }
