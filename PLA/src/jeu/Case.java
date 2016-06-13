@@ -4,6 +4,10 @@ import java.util.Random;
 
 public class Case {
 
+	private static final int CAPACITE_VIE_STANDARD = 50;
+
+	private static final int CAPACITE_RESSOURCE_STANDARD = 50;
+
 	private int niveauDeResssource;
 	
 	private Joueur proprietaire;
@@ -24,6 +28,8 @@ public class Case {
 	private int positionH;	
 	private int positionL;
 
+	private int vie;
+
 	public Case(Type typeDeLaCase, int h, int l) {
 		this.setTypeDeLaCase(typeDeLaCase);
 		personnagePresent=null;
@@ -31,9 +37,15 @@ public class Case {
 		positionL=l;
 		
 		if(this.typeDeLaCase==Type.ARBRE || this.typeDeLaCase==Type.CHAMPS){
-			niveauDeResssource=50;
+			niveauDeResssource=CAPACITE_RESSOURCE_STANDARD;
 		} else {
 			niveauDeResssource=0;
+		}
+		
+		if(estBatiment()){
+			vie=CAPACITE_VIE_STANDARD;
+		} else {
+			vie=0;
 		}
 	}
 
@@ -202,6 +214,18 @@ public class Case {
 
 	public void setProprietaire(Joueur j){
 		proprietaire=j;
+	}
+
+	public void recevoirDegat(int degat) {
+		
+	
+			vie-=degat;
+			
+			if(vie<=0){
+				vie=0;
+				typeDeLaCase=Type.RUINES;
+			}
+		
 	}
 	
 

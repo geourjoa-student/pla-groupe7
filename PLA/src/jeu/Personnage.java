@@ -260,5 +260,43 @@ public abstract class Personnage {
 		}
 		
 	}
+	
+	public void attaquerBatiment(){
+		Random rand = new Random();
+			
+		Case caseAAttaquer=null;
+		
+		for(int numeroEssaiAttaque = 0; numeroEssaiAttaque<NB_TENTATIVE_ATTAQUE_MAX ; numeroEssaiAttaque++){
+			
+			//On choisit l'orientation d'attaque aléatoirement, si il n'y a personne à l'orientation tirée, on recommence
+			//Tirage entre 0 et 4 non compris
+			switch (rand.nextInt(4)) {
+				case 0:
+					if(caseSousLePersonnage.getCaseEnHaut().estBatiment() &&  !caseSousLePersonnage.getCaseEnHaut().caseAllie(proprietaire))
+						caseAAttaquer=caseSousLePersonnage.getCaseEnHaut();
+					break;
+				case 1:
+					if(caseSousLePersonnage.getCaseEnBas().estBatiment() &&  !caseSousLePersonnage.getCaseEnBas().caseAllie(proprietaire))
+						caseAAttaquer=caseSousLePersonnage.getCaseEnBas();
+					break;
+				case 2:
+					if(caseSousLePersonnage.getCaseAGauche().estBatiment() &&  !caseSousLePersonnage.getCaseAGauche().caseAllie(proprietaire))
+						caseAAttaquer=caseSousLePersonnage.getCaseEnHaut();
+					break;
+				case 3:
+					if(caseSousLePersonnage.getCaseADroite().estBatiment() &&  !caseSousLePersonnage.getCaseADroite().caseAllie(proprietaire))
+						caseAAttaquer=caseSousLePersonnage.getCaseADroite();
+					break;
+
+				default:
+					break;
+			}
+		}
+		
+	
+		if(caseAAttaquer!=null)
+			caseAAttaquer.recevoirDegat(force+rand.nextInt(force)); //J'ai ajouter un peu d'aléatoire à cet epique combat
+		
+	}
 
 }

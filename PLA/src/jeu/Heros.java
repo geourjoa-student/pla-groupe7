@@ -2,15 +2,22 @@ package jeu;
 
 public class Heros extends Personnage{
 
+	//TODO C'est ici que l'on peut paramètrer les capacités de bases
+	private static final int FORCE_HEROS_STANDARD = 30;
+	private static final int VIE_HEROS_STANDARD = 200;
+	private static final int CAPACITE_RECOLTE_STANDARD = 20;
+	private static final int CAPACITE_SOIN_STANDARD = 50;
+	private static final int TAUX_DE_REUSSITE_DE_CONVERSION_STANDARD = 20;
+
 	public Heros(Joueur joueur, Case caseSousLeJoueur) {
 		this.caseSousLePersonnage=caseSousLeJoueur;
 		caseSousLeJoueur.placerPersonnage(this);
 		proprietaire=joueur;	
-		pointsDeVie = 250; // TODO Valeurs arbitraires
-		force=30;
-		recolte = 20;
-		soin = 50;
-		convertir = 20;
+		pointsDeVie = VIE_HEROS_STANDARD;
+		force=FORCE_HEROS_STANDARD;
+		recolte = CAPACITE_RECOLTE_STANDARD;
+		soin = CAPACITE_SOIN_STANDARD;
+		convertir = TAUX_DE_REUSSITE_DE_CONVERSION_STANDARD;
 	}
 	
 	public Personnage creerUnite(){

@@ -13,7 +13,8 @@ public enum Action {
 	RECOLTER (7, Type.FERME),
 	SOIGNER (9, Type.HOPITAL),
 	CONVERTIR (10, Type.EGLISE),
-	CREER_UNITE (11, Type.CHAMPS);
+	CREER_UNITE (11, Type.CHAMPS),
+	ATTAQUER_BATIMENT (12, Type.CASERNE),;
 	
 	private int codeAction;
 	

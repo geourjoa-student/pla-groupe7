@@ -331,6 +331,9 @@ public class Partie {
 					case SE_DEPLACER:
 						personnage.seDeplacer();
 						break;
+					case ATTAQUER_BATIMENT:
+						personnage.attaquerBatiment();
+						break;
 					case CREER_UNITE:
 						//On ne peut ajouter les personnages qu'après la fin de l'itération : err java.util.ConcurrentModificationException
 						Personnage p =((Heros) personnage).creerUnite();
