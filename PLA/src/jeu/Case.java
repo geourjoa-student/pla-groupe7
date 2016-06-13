@@ -5,6 +5,8 @@ import java.util.Random;
 public class Case {
 
 	private int niveauDeResssource;
+	
+	private Joueur proprietaire;
 
 	private Type typeDeLaCase;
 	
@@ -179,6 +181,12 @@ public class Case {
 		return 0;
 		
 	}
+
+	public boolean caseAllie(Joueur j) {
+		return (j==proprietaire);
+	}
+
+	
 	
 
 }

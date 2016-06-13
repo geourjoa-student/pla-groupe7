@@ -340,5 +340,9 @@ public class Partie {
 	public boolean estTermine() {
 		return false;
 	}
+	
+	public void ajouterPersonnage(Personnage p){
+		personnages.add(p);
+	}
 
 }
