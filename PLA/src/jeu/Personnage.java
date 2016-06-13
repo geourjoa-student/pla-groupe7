@@ -234,6 +234,7 @@ public abstract class Personnage {
 	
 	
 	
+	
 	@Override
 	public String toString() {
 
