@@ -59,6 +59,7 @@ public class Partie {
 			tableauTempo = autoTempo.getDecor();
 			// Si on � un guerrier
 			if(autoTempo.getRole() == 1) {
+				joueur1.setAutomateGuerrier(autoTempo);
 				for(int j=0;j<tableauTempo.length;j++){
 					for(int k=0;k<tableauTempo[j].length;k++){
 						caseTempo = tableauTempo[j][k];
@@ -69,6 +70,7 @@ public class Partie {
 			}
 			// Si on � un moine
 			if(autoTempo.getRole() == 2) {
+				joueur1.setAutomateMoine(autoTempo);
 				for(int j=0;j<tableauTempo.length;j++){
 					for(int k=0;k<tableauTempo[j].length;k++){
 						caseTempo = tableauTempo[j][k];
@@ -79,6 +81,7 @@ public class Partie {
 			}
 			// Si on � un paysan
 			if(autoTempo.getRole() == 3) {
+				joueur1.setAutomatePaysan(autoTempo);
 				for(int j=0;j<tableauTempo.length;j++){
 					for(int k=0;k<tableauTempo[j].length;k++){
 						caseTempo = tableauTempo[j][k];
@@ -94,6 +97,7 @@ public class Partie {
 			tableauTempo = autoTempo.getDecor();
 			// Si on � un guerrier
 			if(autoTempo.getRole() == 1) {
+				joueur2.setAutomateGuerrier(autoTempo);
 				for(int j=0;j<tableauTempo.length;j++){
 					for(int k=0;k<tableauTempo[j].length;k++){
 						caseTempo = tableauTempo[j][k];
@@ -104,6 +108,7 @@ public class Partie {
 			}
 			// Si on � un moine
 			if(autoTempo.getRole() == 2) {
+				joueur2.setAutomateMoine(autoTempo);
 				for(int j=0;j<tableauTempo.length;j++){
 					for(int k=0;k<tableauTempo[j].length;k++){
 						caseTempo = tableauTempo[j][k];
@@ -114,6 +119,7 @@ public class Partie {
 			}
 			// Si on � un paysan
 			if(autoTempo.getRole() == 3) {
+				joueur2.setAutomatePaysan(autoTempo);
 				for(int j=0;j<tableauTempo.length;j++){
 					for(int k=0;k<tableauTempo[j].length;k++){
 						caseTempo = tableauTempo[j][k];
