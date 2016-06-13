@@ -56,7 +56,6 @@ public class Partie {
 	
 	
 	private void inclureAutomates(ArrayList<Automate> autoJ1,ArrayList<Automate> autoJ2){
-		Case caseTempo;
 		Automate autoTempo;
 		Case[][] tableauTempo;
 		// JOUEUR 1 

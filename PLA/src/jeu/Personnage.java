@@ -2,7 +2,6 @@ package jeu;
 
 import java.util.Random;
 
-import automate.Automate;
 
 public abstract class Personnage {
 
