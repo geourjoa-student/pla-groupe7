@@ -11,6 +11,7 @@ public enum Type {
 	FERME,
 	POLYTECH,
 	EGLISE,
-	HOPITAL;
+	HOPITAL,
+	RUINES;
 
 }
