@@ -3,18 +3,17 @@ package jeu;
 public enum Action {
 
 
-	NE_RIEN_FAIRE (0, Type.CHAMPS), 
-	ALLER_A_GAUCHE (1, Type.CHAMPS),
-	ALLER_A_DROITE (2, Type.CHAMPS),
+	NE_RIEN_FAIRE (0, Type.ROCHER), 
+	ALLER_A_GAUCHE (1, Type.ARBRE),
+	ALLER_A_DROITE (2, Type.SOUCHE),
 	ALLER_EN_HAUT (3, Type.CHAMPS),
-	ALLER_EN_BAS (4, Type.CHAMPS),
-	SE_DEPLACER (5, Type.CHAMPS),
-	ATTAQUER (6, Type.CHAMPS),
-	RECOLTER (7, Type.CHAMPS),
-	SOIGNER (9, Type.CHAMPS),
-	CONVERTIR (10, Type.CHAMPS),
+	ALLER_EN_BAS (4, Type.HERBE),
+	SE_DEPLACER (5, Type.RUINES),
+	ATTAQUER (6, Type.CASERNE),
+	RECOLTER (7, Type.FERME),
+	SOIGNER (9, Type.HOPITAL),
+	CONVERTIR (10, Type.EGLISE),
 	CREER_UNITE (11, Type.CHAMPS);
-	
 	
 	private int codeAction;
 	
