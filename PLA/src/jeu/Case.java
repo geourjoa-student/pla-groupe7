@@ -138,7 +138,8 @@ public class Case {
 				return s + "E ";
 			case HOPITAL :
 				return s + "H ";
-
+			case RUINES :
+				return s + "R ";
 			default:
 				return s + ". ";
 				

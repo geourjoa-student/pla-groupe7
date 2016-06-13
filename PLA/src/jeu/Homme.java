@@ -15,8 +15,8 @@ public abstract class Homme extends Personnage{
 		this.comportement=comportement;//TODO automate
 	}
 
-	public void getAction() {
-		// TODO Auto-generated method stub
+	public Action getAction() {
+		Condition
 		
 	}
 

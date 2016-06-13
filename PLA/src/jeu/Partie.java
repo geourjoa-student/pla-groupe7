@@ -295,7 +295,7 @@ public class Partie {
 					actionAfaire = personnage.getProprietaire().getNouvelleAction();
 
 				} else {
-					((Homme) personnage).getAction();
+					actionAfaire =((Homme) personnage).getAction();
 				}
 					 
 
