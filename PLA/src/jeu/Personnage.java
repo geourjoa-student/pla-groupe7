@@ -12,7 +12,7 @@ public abstract class Personnage {
 
 	private static final int NB_TENTATIVE_CONVERSION_MAX = 5;
 
-	protected Case caseSousLeJoueur;
+	protected Case caseSousLePersonnage;
 	
 	protected int role;
 	
@@ -46,34 +46,34 @@ public abstract class Personnage {
 	 * 		- on place notre personnage sur sa nouvelle case
 	 */
 	public void allerADroite() {
-		if (caseSousLeJoueur.getCaseADroite().estAccessible()) {
-			caseSousLeJoueur.retirerPersonnagePresent();
-			caseSousLeJoueur = caseSousLeJoueur.getCaseADroite();
-			caseSousLeJoueur.placerPersonnage(this);
+		if (caseSousLePersonnage.getCaseADroite().estAccessible()) {
+			caseSousLePersonnage.retirerPersonnagePresent();
+			caseSousLePersonnage = caseSousLePersonnage.getCaseADroite();
+			caseSousLePersonnage.placerPersonnage(this);
 		}
 	}
 
 	public void allerAGauche() {
-		if (caseSousLeJoueur.getCaseAGauche().estAccessible()) {
-			caseSousLeJoueur.retirerPersonnagePresent();
-			caseSousLeJoueur = caseSousLeJoueur.getCaseAGauche();
-			caseSousLeJoueur.placerPersonnage(this);
+		if (caseSousLePersonnage.getCaseAGauche().estAccessible()) {
+			caseSousLePersonnage.retirerPersonnagePresent();
+			caseSousLePersonnage = caseSousLePersonnage.getCaseAGauche();
+			caseSousLePersonnage.placerPersonnage(this);
 		}
 	}
 
 	public void allerEnBas() {
-		if (caseSousLeJoueur.getCaseEnBas().estAccessible()) {
-			caseSousLeJoueur.retirerPersonnagePresent();
-			caseSousLeJoueur = caseSousLeJoueur.getCaseEnBas();
-			caseSousLeJoueur.placerPersonnage(this);
+		if (caseSousLePersonnage.getCaseEnBas().estAccessible()) {
+			caseSousLePersonnage.retirerPersonnagePresent();
+			caseSousLePersonnage = caseSousLePersonnage.getCaseEnBas();
+			caseSousLePersonnage.placerPersonnage(this);
 		}
 	}
 
 	public void allerEnHaut() {
-		if (caseSousLeJoueur.getCaseEnHaut().estAccessible()) {
-			caseSousLeJoueur.retirerPersonnagePresent();
-			caseSousLeJoueur = caseSousLeJoueur.getCaseEnHaut();
-			caseSousLeJoueur.placerPersonnage(this);
+		if (caseSousLePersonnage.getCaseEnHaut().estAccessible()) {
+			caseSousLePersonnage.retirerPersonnagePresent();
+			caseSousLePersonnage = caseSousLePersonnage.getCaseEnHaut();
+			caseSousLePersonnage.placerPersonnage(this);
 		}
 	}
 	
@@ -97,20 +97,20 @@ public abstract class Personnage {
 			switch (rand.nextInt(4)) {
 				case 0:
 					//Si il y a personnage sur la case choisis et qu'il n'appartient pas au même joueur, je peux le choisir comme cible
-					if(caseSousLeJoueur.getCaseEnHaut().getPersonnagePresent()!=null && caseSousLeJoueur.getCaseEnHaut().getPersonnagePresent().getProprietaire()!=proprietaire)
-						personnageAAttaquer=caseSousLeJoueur.getCaseEnHaut().getPersonnagePresent();
+					if(caseSousLePersonnage.getCaseEnHaut().getPersonnagePresent()!=null && caseSousLePersonnage.getCaseEnHaut().getPersonnagePresent().getProprietaire()!=proprietaire)
+						personnageAAttaquer=caseSousLePersonnage.getCaseEnHaut().getPersonnagePresent();
 					break;
 				case 1:
-					if(caseSousLeJoueur.getCaseADroite().getPersonnagePresent()!=null && caseSousLeJoueur.getCaseADroite().getPersonnagePresent().getProprietaire()!=proprietaire)
-						personnageAAttaquer=caseSousLeJoueur.getCaseADroite().getPersonnagePresent();
+					if(caseSousLePersonnage.getCaseADroite().getPersonnagePresent()!=null && caseSousLePersonnage.getCaseADroite().getPersonnagePresent().getProprietaire()!=proprietaire)
+						personnageAAttaquer=caseSousLePersonnage.getCaseADroite().getPersonnagePresent();
 					break;
 				case 2:
-					if(caseSousLeJoueur.getCaseEnBas().getPersonnagePresent()!=null && caseSousLeJoueur.getCaseEnBas().getPersonnagePresent().getProprietaire()!=proprietaire)
-						personnageAAttaquer=caseSousLeJoueur.getCaseEnBas().getPersonnagePresent();
+					if(caseSousLePersonnage.getCaseEnBas().getPersonnagePresent()!=null && caseSousLePersonnage.getCaseEnBas().getPersonnagePresent().getProprietaire()!=proprietaire)
+						personnageAAttaquer=caseSousLePersonnage.getCaseEnBas().getPersonnagePresent();
 					break;	
 				case 3:
-					if(caseSousLeJoueur.getCaseAGauche().getPersonnagePresent()!=null && caseSousLeJoueur.getCaseAGauche().getPersonnagePresent().getProprietaire()!=proprietaire)
-						personnageAAttaquer=caseSousLeJoueur.getCaseAGauche().getPersonnagePresent();
+					if(caseSousLePersonnage.getCaseAGauche().getPersonnagePresent()!=null && caseSousLePersonnage.getCaseAGauche().getPersonnagePresent().getProprietaire()!=proprietaire)
+						personnageAAttaquer=caseSousLePersonnage.getCaseAGauche().getPersonnagePresent();
 					break;	
 
 				default:
@@ -136,20 +136,20 @@ public abstract class Personnage {
 			switch (rand.nextInt(4)) {
 				case 0:
 					//Si il y a personnage sur la case choisis et qu'il n'appartient pas au même joueur, je peux le choisir comme cible
-					if(caseSousLeJoueur.getCaseEnHaut().getPersonnagePresent()!=null && allie(caseSousLeJoueur.getCaseEnHaut().getPersonnagePresent()))
-						personnageASoigner=caseSousLeJoueur.getCaseEnHaut().getPersonnagePresent();
+					if(caseSousLePersonnage.getCaseEnHaut().getPersonnagePresent()!=null && allie(caseSousLePersonnage.getCaseEnHaut().getPersonnagePresent()))
+						personnageASoigner=caseSousLePersonnage.getCaseEnHaut().getPersonnagePresent();
 					break;
 				case 1:
-					if(caseSousLeJoueur.getCaseADroite().getPersonnagePresent()!=null && allie(caseSousLeJoueur.getCaseADroite().getPersonnagePresent()))
-						personnageASoigner=caseSousLeJoueur.getCaseADroite().getPersonnagePresent();
+					if(caseSousLePersonnage.getCaseADroite().getPersonnagePresent()!=null && allie(caseSousLePersonnage.getCaseADroite().getPersonnagePresent()))
+						personnageASoigner=caseSousLePersonnage.getCaseADroite().getPersonnagePresent();
 					break;
 				case 2:
-					if(caseSousLeJoueur.getCaseEnBas().getPersonnagePresent()!=null && allie(caseSousLeJoueur.getCaseEnBas().getPersonnagePresent()))
-						personnageASoigner=caseSousLeJoueur.getCaseEnBas().getPersonnagePresent();
+					if(caseSousLePersonnage.getCaseEnBas().getPersonnagePresent()!=null && allie(caseSousLePersonnage.getCaseEnBas().getPersonnagePresent()))
+						personnageASoigner=caseSousLePersonnage.getCaseEnBas().getPersonnagePresent();
 					break;	
 				case 3:
-					if(caseSousLeJoueur.getCaseAGauche().getPersonnagePresent()!=null && allie(caseSousLeJoueur.getCaseAGauche().getPersonnagePresent()))
-						personnageASoigner=caseSousLeJoueur.getCaseAGauche().getPersonnagePresent();
+					if(caseSousLePersonnage.getCaseAGauche().getPersonnagePresent()!=null && allie(caseSousLePersonnage.getCaseAGauche().getPersonnagePresent()))
+						personnageASoigner=caseSousLePersonnage.getCaseAGauche().getPersonnagePresent();
 					break;	
 
 				default:
@@ -173,16 +173,16 @@ public abstract class Personnage {
 	
 	public boolean estVivant (){
 		if(pointsDeVie <= 0)
-			caseSousLeJoueur.retirerPersonnagePresent();
+			caseSousLePersonnage.retirerPersonnagePresent();
 		return (pointsDeVie>0);
 	}
 	
 	public void recolter(){
 		Random rand = new Random();
-		if(caseSousLeJoueur.getTypeDeLaCase()==Type.CHAMPS){
-			proprietaire.ajouterNourriture(caseSousLeJoueur.recolter(recolte+rand.nextInt(recolte)));
-		} else if(caseSousLeJoueur.getTypeDeLaCase()==Type.ARBRE){
-			proprietaire.ajouterBois(caseSousLeJoueur.recolter(recolte+rand.nextInt(recolte)));
+		if(caseSousLePersonnage.getTypeDeLaCase()==Type.CHAMPS){
+			proprietaire.ajouterNourriture(caseSousLePersonnage.recolter(recolte+rand.nextInt(recolte)));
+		} else if(caseSousLePersonnage.getTypeDeLaCase()==Type.ARBRE){
+			proprietaire.ajouterBois(caseSousLePersonnage.recolter(recolte+rand.nextInt(recolte)));
 		}  
 	}
 	
@@ -206,20 +206,20 @@ public abstract class Personnage {
 			switch (rand.nextInt(4)) {
 				case 0:
 					//Si il y a personnage sur la case choisis et qu'il n'appartient pas au même joueur, je peux le choisir comme cible
-					if(caseSousLeJoueur.getCaseEnHaut().getPersonnagePresent()!=null && !allie(caseSousLeJoueur.getCaseEnHaut().getPersonnagePresent()))
-						personnageAAConvertir=caseSousLeJoueur.getCaseEnHaut().getPersonnagePresent();
+					if(caseSousLePersonnage.getCaseEnHaut().getPersonnagePresent()!=null && !allie(caseSousLePersonnage.getCaseEnHaut().getPersonnagePresent()))
+						personnageAAConvertir=caseSousLePersonnage.getCaseEnHaut().getPersonnagePresent();
 					break;
 				case 1:
-					if(caseSousLeJoueur.getCaseADroite().getPersonnagePresent()!=null && !allie(caseSousLeJoueur.getCaseADroite().getPersonnagePresent()))
-						personnageAAConvertir=caseSousLeJoueur.getCaseADroite().getPersonnagePresent();
+					if(caseSousLePersonnage.getCaseADroite().getPersonnagePresent()!=null && !allie(caseSousLePersonnage.getCaseADroite().getPersonnagePresent()))
+						personnageAAConvertir=caseSousLePersonnage.getCaseADroite().getPersonnagePresent();
 					break;
 				case 2:
-					if(caseSousLeJoueur.getCaseEnBas().getPersonnagePresent()!=null && !allie(caseSousLeJoueur.getCaseEnBas().getPersonnagePresent()))
-						personnageAAConvertir=caseSousLeJoueur.getCaseEnBas().getPersonnagePresent();
+					if(caseSousLePersonnage.getCaseEnBas().getPersonnagePresent()!=null && !allie(caseSousLePersonnage.getCaseEnBas().getPersonnagePresent()))
+						personnageAAConvertir=caseSousLePersonnage.getCaseEnBas().getPersonnagePresent();
 					break;	
 				case 3:
-					if(caseSousLeJoueur.getCaseAGauche().getPersonnagePresent()!=null && !allie(caseSousLeJoueur.getCaseAGauche().getPersonnagePresent()))
-						personnageAAConvertir=caseSousLeJoueur.getCaseAGauche().getPersonnagePresent();
+					if(caseSousLePersonnage.getCaseAGauche().getPersonnagePresent()!=null && !allie(caseSousLePersonnage.getCaseAGauche().getPersonnagePresent()))
+						personnageAAConvertir=caseSousLePersonnage.getCaseAGauche().getPersonnagePresent();
 					break;	
 
 				default:
@@ -239,7 +239,7 @@ public abstract class Personnage {
 	public String toString() {
 
 		return proprietaire.getNom() + " : " + getClass().getSimpleName() + " : " + pointsDeVie + " : ("
-				+ caseSousLeJoueur.getPositionH() + "," + caseSousLeJoueur.getPositionL() + ")";
+				+ caseSousLePersonnage.getPositionH() + "," + caseSousLePersonnage.getPositionL() + ")";
 	}
 
 

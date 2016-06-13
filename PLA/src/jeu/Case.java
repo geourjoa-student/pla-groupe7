@@ -191,6 +191,11 @@ public class Case {
 		return (typeDeLaCase==Type.POLYTECH || typeDeLaCase==Type.CASERNE || typeDeLaCase==Type.EGLISE || typeDeLaCase==Type.FERME || typeDeLaCase==Type.HOPITAL);
 	}
 
+	public boolean estRecoltable() {
+		
+		return (typeDeLaCase==Type.CHAMPS || typeDeLaCase==Type.ARBRE);
+	}
+
 	
 	
 

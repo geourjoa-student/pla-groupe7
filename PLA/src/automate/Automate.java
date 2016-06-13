@@ -62,21 +62,22 @@ public class Automate {
 	}
 	
 	
-	public Action utiliserAutomate(Condition conditions[]){
+	public Action utiliserAutomate(List<Condition> conditions){
 		
 		int prioriteCourante = PAS_DE_PRIORITE;
 		int conditionRetenue=0; //Initialisation inutile mais sinon il y a un warning
 		
-		for (int i = 0; i < conditions.length; i++) {
-			if(priorite[conditions[i].getCodeCondition()][courant]>=PAS_DE_PRIORITE){
-				if(priorite[conditions[i].getCodeCondition()][courant]>=PAS_DE_PRIORITE){
+		for (Iterator<Condition> iterator = conditions.iterator(); iterator.hasNext();) {
+			Condition c = (Condition) iterator.next();
+			if(priorite[c.getCodeCondition()][courant]>=PAS_DE_PRIORITE){
+				if(priorite[c.getCodeCondition()][courant]>=PAS_DE_PRIORITE){
 					//TODO améliorer (si on a des priorité equivalentes on gardera toujours la premiere lue
 				}
-				prioriteCourante=priorite[conditions[i].getCodeCondition()][courant];
-				conditionRetenue=conditions[i].getCodeCondition();
+				prioriteCourante=priorite[c.getCodeCondition()][courant];
+				conditionRetenue=c.getCodeCondition();
 			} 
-			
 		}
+		
 		
 		//Pas de transition trouvée
 		if(prioriteCourante==PAS_DE_PRIORITE){
