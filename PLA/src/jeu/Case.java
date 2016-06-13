@@ -114,7 +114,12 @@ public class Case {
 			if(personnagePresent instanceof Heros)
 				s="H";
 			else 
-				s="P";
+				if( personnagePresent instanceof Guerrier)
+					s="G";
+				if( personnagePresent instanceof Moine)
+					s="M";
+				if( personnagePresent instanceof Paysan)
+					s="P";
 		}
 
 		switch (typeDeLaCase) {

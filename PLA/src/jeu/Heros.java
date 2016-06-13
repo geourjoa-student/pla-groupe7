@@ -14,7 +14,7 @@ public class Heros extends Personnage{
 		comportement=null;//TODO automate
 	}
 	
-	public void creerUnite(){
+	public Personnage creerUnite(){
 		//Ajouter reteait de ressource
 		
 		if (caseSousLePersonnage.estBatiment() && caseSousLePersonnage.caseAllie(proprietaire)) {
@@ -35,21 +35,21 @@ public class Heros extends Personnage{
 					p = new Guerrier(proprietaire, caseInsertion, proprietaire.getAutomateGuerrier());
 				} 
 				if(caseSousLePersonnage.getTypeDeLaCase()==Type.POLYTECH){
-					p = new Guerrier(proprietaire, caseInsertion, proprietaire.getAutomatePaysan());
+					p = new Paysan(proprietaire, caseInsertion, proprietaire.getAutomatePaysan());
 				}
 				if(caseSousLePersonnage.getTypeDeLaCase()==Type.EGLISE){
-					p = new Guerrier(proprietaire, caseInsertion, proprietaire.getAutomateMoine());
+					p = new Moine(proprietaire, caseInsertion, proprietaire.getAutomateMoine());
 				}
 				
-				if(p!=null){
-					proprietaire.getPartie().ajouterPersonnage(p);
-				}
+				return p;
 			}
 			
 			
 				
 				
 		}
+		
+		return null;
 		
 	}
 

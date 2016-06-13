@@ -47,8 +47,7 @@ public class Partie {
 		personnages.add(new Heros(joueur1, decor[2][(int)((LARGEUR-1)/2)]));
 		personnages.add(new Heros(joueur2, decor[HAUTEUR-3][(int)((LARGEUR-1)/2)]));
 		
-		decor[2][(int)((LARGEUR-1)/2)].setProprietaire(joueur1);
-		decor[HAUTEUR-3][(int)((LARGEUR-1)/2)].setProprietaire(joueur2);
+		
 	}
 	
 	
@@ -231,6 +230,11 @@ public class Partie {
 		
 		decor[1][(int)((LARGEUR-1)/2)].setTypeDeLaCase(Type.POLYTECH);
 		decor[HAUTEUR-2][(int)((LARGEUR-1)/2)].setTypeDeLaCase(Type.POLYTECH);
+		
+		decor[1][(int)((LARGEUR-1)/2)].setProprietaire(joueur1);
+		decor[HAUTEUR-2][(int)((LARGEUR-1)/2)].setProprietaire(joueur2);
+		
+		
 		//TODO completer
 		JDOM jdom = new JDOM();
 		inclureAutomates(jdom.xmlMain(nomFichierAutomates1), jdom.xmlMain(nomFichierAutomates2));
@@ -274,9 +278,9 @@ public class Partie {
 
 	public void jouerTour() {
 
+		System.out.println(personnages.size());
 
-		// On parcourt la liste des personnages et on fait effectuer une action
-		// à chacun
+		List<Personnage> tempo = new ArrayList<>();
 		for (Iterator<Personnage> iterator = personnages.iterator(); iterator.hasNext();) {
 			Personnage personnage = iterator.next();
 
@@ -332,7 +336,10 @@ public class Partie {
 						personnage.seDeplacer();
 						break;
 					case CREER_UNITE:
-						((Heros) personnage).creerUnite();
+						//On ne peut ajouter les personnages qu'après la fin de l'itération : err java.util.ConcurrentModificationException
+						Personnage p =((Heros) personnage).creerUnite();
+						if(p!=null)
+							tempo.add(p);
 						break;
 
 					case NE_RIEN_FAIRE:
@@ -352,14 +359,18 @@ public class Partie {
 			}
 
 		}
+		
+		//Je rajoute les nouveaux personnages
+		for (Iterator<Personnage> iterator = tempo.iterator(); iterator.hasNext();) {
+			personnages.add((Personnage) iterator.next());
+			
+		}
 	}
 
 	public boolean estTermine() {
 		return false;
 	}
 	
-	public void ajouterPersonnage(Personnage p){
-		personnages.add(p);
-	}
+	
 
 }
