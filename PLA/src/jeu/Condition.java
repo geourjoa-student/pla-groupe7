@@ -2,9 +2,6 @@ package jeu;
 
 public enum Condition {
 
-
-	//TODO Completer
-	
 	AUCUNE_CONDITION (0), 
 	ENNEMI_ADJACENT(1), 
 	ALLIE_ADJACENT(2), 

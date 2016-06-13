@@ -11,21 +11,20 @@ public class Heros extends Personnage{
 		recolte = 20;
 		soin = 50;
 		convertir = 20;
-		comportement=null;//TODO automate
 	}
 	
 	public Personnage creerUnite(){
-		//Ajouter reteait de ressource
+		//TODO Clément : prendre en compte le cout de création et retiré ce prix aux joueurs
 		
 		if (caseSousLePersonnage.estBatiment() && caseSousLePersonnage.caseAllie(proprietaire)) {
 			Case caseInsertion = null;;
-			if(caseSousLePersonnage.getCaseADroite().getPersonnagePresent()==null){
+			if(caseSousLePersonnage.getCaseADroite().estAccessible()){
 				caseInsertion=caseSousLePersonnage.getCaseADroite();
-			} else if(caseSousLePersonnage.getCaseAGauche().getPersonnagePresent()==null){
+			} else if(caseSousLePersonnage.getCaseAGauche().estAccessible()){
 				caseInsertion=caseSousLePersonnage.getCaseAGauche();
-			} else if(caseSousLePersonnage.getCaseEnBas().getPersonnagePresent()==null){
+			} else if(caseSousLePersonnage.getCaseEnBas().estAccessible()){
 				caseInsertion=caseSousLePersonnage.getCaseEnBas();
-			} else if(caseSousLePersonnage.getCaseEnHaut().getPersonnagePresent()==null){
+			} else if(caseSousLePersonnage.getCaseEnHaut().estAccessible()){
 				caseInsertion=caseSousLePersonnage.getCaseEnHaut();
 			}
 			

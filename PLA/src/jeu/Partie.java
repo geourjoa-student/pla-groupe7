@@ -42,8 +42,6 @@ public class Partie {
 
 		creerDecor(joueur1.getNomFichierAutomate(), joueur2.getNomFichierAutomate());
 
-		// TODO verifier si la case est vraiment accessible, pour l'instant on
-		// n'en tiens pas encore compte
 		personnages.add(new Heros(joueur1, decor[2][(int)((LARGEUR-1)/2)]));
 		personnages.add(new Heros(joueur2, decor[HAUTEUR-3][(int)((LARGEUR-1)/2)]));
 		
@@ -234,8 +232,6 @@ public class Partie {
 		decor[1][(int)((LARGEUR-1)/2)].setProprietaire(joueur1);
 		decor[HAUTEUR-2][(int)((LARGEUR-1)/2)].setProprietaire(joueur2);
 		
-		
-		//TODO completer
 		JDOM jdom = new JDOM();
 		inclureAutomates(jdom.xmlMain(nomFichierAutomates1), jdom.xmlMain(nomFichierAutomates2));
 		
@@ -306,7 +302,7 @@ public class Partie {
 				}
 					 
 
-				// TODO Completer avec toute les actions
+				// TODO Rajouter ici aussi quand on ajoute de nouvelles actions
 				switch (actionAfaire) {
 					case ALLER_A_DROITE:
 						personnage.allerADroite();
@@ -353,7 +349,6 @@ public class Partie {
 
 		// Je supprime les morts de la liste
 		for (int i = 0; i < personnages.size(); i++) {
-			// TODO Peut buguer, mais fonctionne à priori
 			if (!personnages.get(i).estVivant()) {
 				personnages.remove(i);
 			}

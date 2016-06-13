@@ -101,7 +101,6 @@ public class Case {
 	}
 	
 	public boolean estAccessible(){
-		//TODO rajouter cas d'une pierre  par exemple
 		return (typeDeLaCase!= Type.ROCHER &&  personnagePresent==null);
 	}
 

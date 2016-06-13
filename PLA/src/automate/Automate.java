@@ -71,7 +71,6 @@ public class Automate {
 			Condition c = (Condition) iterator.next();
 			if(priorite[c.getCodeCondition()][courant]>=PAS_DE_PRIORITE){
 				if(priorite[c.getCodeCondition()][courant]>=PAS_DE_PRIORITE){
-					//TODO améliorer (si on a des priorité equivalentes on gardera toujours la premiere lue
 				}
 				prioriteCourante=priorite[c.getCodeCondition()][courant];
 				conditionRetenue=c.getCodeCondition();

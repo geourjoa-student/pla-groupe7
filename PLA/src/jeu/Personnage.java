@@ -28,7 +28,7 @@ public abstract class Personnage {
 
 	protected Joueur proprietaire;
 
-	protected Automate comportement;
+	
 
 	public Joueur getProprietaire() {
 		return proprietaire;

@@ -11,11 +11,13 @@ public abstract class Homme extends Personnage{
 	public final static int CODE_MOINE = 2; 
 	public final static int CODE_PAYSAN = 3; 
 	
+	protected Automate comportement;
+	
 	public Homme(Joueur joueur, Case caseSousLePersonnage, Automate comportement) {
 		this.caseSousLePersonnage=caseSousLePersonnage;
 		caseSousLePersonnage.placerPersonnage(this);
 		proprietaire=joueur;	
-		this.comportement=comportement;//TODO automate
+		this.comportement=comportement;
 	}
 
 	public Action getAction() {
