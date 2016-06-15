@@ -25,7 +25,7 @@ public abstract class Homme extends Personnage{
 		
 		conditions.add(Condition.AUCUNE_CONDITION);
 		
-		if(caseSousLePersonnage.estRecoltable())
+		if(caseSousLePersonnage.estRecoltable()&& !caseSousLePersonnage.caseAllie(proprietaire))
 			conditions.add(Condition.RESSOURCE_SOUS_CASE);
 		
 		if(caseSousLePersonnage.getTypeDeLaCase()==Type.CASERNE && caseSousLePersonnage.caseAllie(proprietaire))
