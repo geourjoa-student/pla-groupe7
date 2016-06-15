@@ -226,7 +226,7 @@ public abstract class Personnage {
 			}
 		}
 		
-		if(personnageAAConvertir!=null && convertir >= rand.nextInt(100))
+		if(personnageAAConvertir!=null && !(personnageAAConvertir instanceof Heros) && convertir >= rand.nextInt(100))
 			personnageAAConvertir.etreConvertie(proprietaire);
 		
 	}

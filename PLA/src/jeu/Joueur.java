@@ -33,6 +33,10 @@ public abstract class Joueur {
 	public int getBois() {
 		return bois;
 	}
+	
+	public void retirerBois(int quantite) {
+		bois-=quantite;
+	}
 
 	public int getNourriture() {
 		return nourriture;

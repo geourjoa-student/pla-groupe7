@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Case {
 
-	private static final int CAPACITE_VIE_STANDARD = 50;
+	private static final int CAPACITE_VIE_STANDARD = 100;
 
 	private static final int CAPACITE_RESSOURCE_STANDARD = 50;
 
@@ -13,6 +13,8 @@ public class Case {
 	private Joueur proprietaire;
 
 	private Type typeDeLaCase;
+	
+	private Type typeOriginal;
 	
 	private Case caseADroite;
 	
@@ -32,15 +34,12 @@ public class Case {
 
 	public Case(Type typeDeLaCase, int h, int l) {
 		this.setTypeDeLaCase(typeDeLaCase);
+	
 		personnagePresent=null;
 		positionH=h;
 		positionL=l;
 		
-		if(this.typeDeLaCase==Type.ARBRE || this.typeDeLaCase==Type.CHAMPS){
-			niveauDeResssource=CAPACITE_RESSOURCE_STANDARD;
-		} else {
-			niveauDeResssource=0;
-		}
+		
 		
 		if(estBatiment()){
 			vie=CAPACITE_VIE_STANDARD;
@@ -55,8 +54,11 @@ public class Case {
 
 	public void setTypeDeLaCase(Type typeDeLaCase) {
 		this.typeDeLaCase = typeDeLaCase;
+		typeOriginal=typeDeLaCase;
 		if(this.typeDeLaCase==Type.ARBRE || this.typeDeLaCase==Type.CHAMPS){
-			niveauDeResssource=50;
+			niveauDeResssource=CAPACITE_RESSOURCE_STANDARD;
+		}else{
+			niveauDeResssource=0;
 		}
 	}
 	
@@ -187,7 +189,7 @@ public class Case {
 			if(recolte>niveauDeResssource){
 				recolte=niveauDeResssource;
 				niveauDeResssource=0;
-				typeDeLaCase=Type.HERBE;		
+				typeDeLaCase=Type.SOUCHE;		
 			} else {
 				niveauDeResssource-=recolte;
 			}
@@ -225,6 +227,39 @@ public class Case {
 				vie=0;
 				typeDeLaCase=Type.RUINES;
 			}
+		
+	}
+	
+	public void reparer(){
+		switch (typeOriginal){
+			
+			case ARBRE:
+				typeDeLaCase=Type.ARBRE;
+				niveauDeResssource=CAPACITE_RESSOURCE_STANDARD;
+				break;
+			case CASERNE:
+				typeDeLaCase=Type.CASERNE;
+				vie=CAPACITE_VIE_STANDARD;
+				break;
+			case CHAMPS:
+				typeDeLaCase=Type.CHAMPS;
+				niveauDeResssource=CAPACITE_RESSOURCE_STANDARD;
+				break;
+			case EGLISE:
+				typeDeLaCase=Type.EGLISE;
+				vie=CAPACITE_VIE_STANDARD;
+				break;
+			case FERME:
+				typeDeLaCase=Type.FERME;
+				vie=CAPACITE_VIE_STANDARD;
+				break;
+			case HOPITAL:
+				typeDeLaCase=Type.HOPITAL;
+				vie=CAPACITE_VIE_STANDARD;
+				break;
+			default :
+				break;
+		}
 		
 	}
 	

@@ -73,6 +73,10 @@ public class JoueurConsoleZQSD extends JoueurConsole {
 			case '6':
 				return Action.ATTAQUER_BATIMENT;
 				
+				
+			case '7':
+				return Action.REPARER;
+				
 			case ' ':
 				return Action.NE_RIEN_FAIRE;
 			default:
@@ -85,6 +89,7 @@ public class JoueurConsoleZQSD extends JoueurConsole {
 				System.out.println("4 -> convertir");
 				System.out.println("5 -> créer unité");
 				System.out.println("6 -> attaquer batiment");
+				System.out.println("7 -> Réparer, replanter");
 				System.out.println("? ou n'importe quelles autres touches -> afficher ce manuel puis saisir une action correcte.");
 				return getNouvelleAction();
 			}

@@ -10,6 +10,7 @@ public class Heros extends Personnage {
 	private static final int CAPACITE_RECOLTE_STANDARD = 20;
 	private static final int CAPACITE_SOIN_STANDARD = 50;
 	private static final int TAUX_DE_REUSSITE_DE_CONVERSION_STANDARD = 20;
+	private static final int COUT_REPARATION = 100;
 
 	public Heros(Joueur joueur, Case caseSousLeJoueur) {
 		this.caseSousLePersonnage = caseSousLeJoueur;
@@ -75,6 +76,14 @@ public class Heros extends Personnage {
 
 		return p;
 
+	}
+	
+	public void reparer () {
+		if(proprietaire.getBois()>=COUT_REPARATION){
+			caseSousLePersonnage.reparer();
+			proprietaire.retirerBois(COUT_REPARATION);
+		}
+		
 	}
 
 }
