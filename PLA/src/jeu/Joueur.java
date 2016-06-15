@@ -30,6 +30,8 @@ public abstract class Joueur {
 	
 	protected Case base;
 	
+	private Heros heros;
+	
 	public int getBois() {
 		return bois;
 	}
@@ -134,5 +136,12 @@ public abstract class Joueur {
 	}
 	
 	
-	
+	public boolean estMort(){
+		return (base.getTypeDeLaCase()==Type.RUINES || heros==null || !heros.estVivant());
+	}
+
+	public void setHeros(Heros heros) {
+		this.heros=heros;
+		
+	}
 }

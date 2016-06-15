@@ -381,21 +381,21 @@ public class Partie {
 
 
 	public boolean estTermine() {
-		if(joueur1.getBase().getTypeDeLaCase()==Type.RUINES && joueur2.getBase().getTypeDeLaCase()==Type.RUINES){
+		if(joueur1.estMort() && joueur2.estMort()){
 			interfaceUtilisateur.afficherJoueur(joueur1, joueur2);
 			interfaceUtilisateur.afficherMap(decor);
 			interfaceUtilisateur.afficherPersonnages(personnages);
 			interfaceUtilisateur.afficherFinDePartie(joueur1, joueur2, EGALITE);
 			return true;
 		}
-		if(joueur2.getBase().getTypeDeLaCase()==Type.RUINES ){
+		if(joueur2.estMort() ){
 			interfaceUtilisateur.afficherJoueur(joueur1, joueur2);
 			interfaceUtilisateur.afficherMap(decor);
 			interfaceUtilisateur.afficherPersonnages(personnages);
 			interfaceUtilisateur.afficherFinDePartie(joueur1, joueur2, JOUEUR_1_GAGNE);
 			return true;
 		}
-		if(joueur1.getBase().getTypeDeLaCase()==Type.RUINES ){
+		if(joueur1.estMort() ){
 			interfaceUtilisateur.afficherJoueur(joueur1, joueur2);
 			interfaceUtilisateur.afficherMap(decor);
 			interfaceUtilisateur.afficherPersonnages(personnages);

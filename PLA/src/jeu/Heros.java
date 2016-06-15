@@ -21,6 +21,8 @@ public class Heros extends Personnage {
 		recolte = CAPACITE_RECOLTE_STANDARD;
 		soin = CAPACITE_SOIN_STANDARD;
 		convertir = TAUX_DE_REUSSITE_DE_CONVERSION_STANDARD;
+		
+		proprietaire.setHeros(this);
 	}
 
 	public Personnage creerUnite() {
