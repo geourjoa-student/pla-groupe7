@@ -113,7 +113,7 @@ public class Case {
 	}
 	
 	public boolean estAccessible(){
-		return (typeDeLaCase!= Type.ROCHER &&  personnagePresent==null);
+		return (typeDeLaCase!= Type.ROCHER &&  personnagePresent==null && !estBatiment());
 	}
 
 	@Override
