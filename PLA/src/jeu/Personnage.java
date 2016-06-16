@@ -280,7 +280,7 @@ public abstract class Personnage {
 					break;
 				case 2:
 					if(caseSousLePersonnage.getCaseAGauche().estBatiment() &&  !caseSousLePersonnage.getCaseAGauche().caseAllie(proprietaire))
-						caseAAttaquer=caseSousLePersonnage.getCaseEnHaut();
+						caseAAttaquer=caseSousLePersonnage.getCaseAGauche();
 					break;
 				case 3:
 					if(caseSousLePersonnage.getCaseADroite().estBatiment() &&  !caseSousLePersonnage.getCaseADroite().caseAllie(proprietaire))
