@@ -6,6 +6,7 @@ type cellule =
 type action =
   | Ne_rien_faire
   | Deplacer of cellule
+  | Deplacer_Aleatoire
   | Attaquer
   | Recolter
   | Soigner
@@ -71,6 +72,7 @@ let action_to_int action = match action with
   | Deplacer(E) -> 2
   | Deplacer(N) -> 3
   | Deplacer(S) -> 4
+  | Deplacer_Aleatoire -> 5
   | Attaquer -> 6
   | Recolter -> 7
   | Soigner -> 9
@@ -129,10 +131,8 @@ let paysan_joueur1 =
 
 	[(1, Ressource_adjacente, 1, Recolter, 1); (* la liste des transitions *)
 	(1, Ressource_sous_case, 2, Recolter, 1);
-	(1, Aucune_condition, 1, Deplacer(N), 1); (* déplacement dans une direction aléatoire *)
-	(1, Aucune_condition, 1,  Deplacer(S), 1);
-	(1, Aucune_condition, 1, Deplacer(O), 1);
-	(1, Aucune_condition, 1, Deplacer(E), 1);],
+	(1, Aucune_condition, 1, Deplacer_Aleatoire, 1); (* déplacement dans une direction aléatoire *)
+	],
 
     1) (*l'état final*);;
 
@@ -140,10 +140,7 @@ let guerrier_joueur1 =
 	(JOUEUR1,
 	Guerrier,
 	[(1, Ennemi_adjacent, 1, Attaquer, 1);
-	(1, Aucune_condition, 1, Deplacer(N), 1); 
-	(1, Aucune_condition, 1,  Deplacer(S), 1);
-	(1, Aucune_condition, 1, Deplacer(O), 1);
-	(1, Aucune_condition, 1, Deplacer(E), 1);],
+	(1, Aucune_condition, 1, Deplacer_Aleatoire, 1);],
     1);;
 
 let moine_joueur1 = 
@@ -151,43 +148,34 @@ let moine_joueur1 =
 	Moine,
 	[(1, Ennemi_adjacent, 1, Convertir, 1);
 	(1, Allie_adjacent, 1, Soigner, 1);
-	(1, Aucune_condition, 1, Deplacer(N), 1); 
-	(1, Aucune_condition, 1,  Deplacer(S), 1);
-	(1, Aucune_condition, 1, Deplacer(O), 1);
-	(1, Aucune_condition, 1, Deplacer(E), 1);],
+	(1, Aucune_condition, 1, Deplacer_Aleatoire, 1); 
+],
     1);;
 
 let paysan_joueur2 = 
-	(JOUEUR1,
+	(JOUEUR2,
 	Paysan,
 	[(1, Ressource_adjacente, 1, Recolter, 1);
 	(1, Ressource_sous_case, 2, Recolter, 1);
-	(1, Aucune_condition, 1, Deplacer(N), 1); 
-	(1, Aucune_condition, 1,  Deplacer(S), 1);
-	(1, Aucune_condition, 1, Deplacer(O), 1);
-	(1, Aucune_condition, 1, Deplacer(E), 1);],
+	(1, Aucune_condition, 1, Deplacer_Aleatoire, 1); 
+	],
     1);;
 
 
 let guerrier_joueur2 = 
-	(JOUEUR1,
+	(JOUEUR2,
 	Guerrier,
 	[(1, Ennemi_adjacent, 1, Attaquer, 1);
-	(1, Aucune_condition, 1, Deplacer(N), 1); 
-	(1, Aucune_condition, 1,  Deplacer(S), 1);
-	(1, Aucune_condition, 1, Deplacer(O), 1);
-	(1, Aucune_condition, 1, Deplacer(E), 1);],
+	(1, Aucune_condition, 1, Deplacer_Aleatoire, 1);],
     1);;
 
 let moine_joueur2 = 
-	(JOUEUR1,
+	(JOUEUR2,
 	Moine,
 	[(1, Ennemi_adjacent, 1, Convertir, 1);
 	(1, Allie_adjacent, 1, Soigner, 1);
-	(1, Aucune_condition, 1, Deplacer(N), 1); 
-	(1, Aucune_condition, 1,  Deplacer(S), 1);
-	(1, Aucune_condition, 1, Deplacer(O), 1);
-	(1, Aucune_condition, 1, Deplacer(E), 1);],
+	(1, Aucune_condition, 1, Deplacer_Aleatoire, 1); 
+],
     1);;
 
 (* Traduction vers un fichier xml *)
