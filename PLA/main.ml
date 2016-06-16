@@ -134,14 +134,14 @@ let paysan_joueur1 =
 	(0, Aucune_condition, 1, Deplacer_Aleatoire, 0); (* déplacement dans une direction aléatoire *)
 	],
 
-    1) (*l'état final*);;
+    0) (*l'état final*);;
 
 let guerrier_joueur1 = 
 	(JOUEUR1,
 	Guerrier,
 	[(0, Ennemi_adjacent, 2, Attaquer, 0);
 	(0, Aucune_condition, 1, Deplacer_Aleatoire, 0);],
-    1);;
+    0);;
 
 let moine_joueur1 = 
 	(JOUEUR1,
@@ -150,7 +150,7 @@ let moine_joueur1 =
 	(0, Allie_adjacent, 3, Soigner, 0);
 	(0, Aucune_condition, 1, Deplacer_Aleatoire, 0); 
 ],
-    1);;
+    0);;
 
 let paysan_joueur2 = 
 	(JOUEUR2,
@@ -158,7 +158,7 @@ let paysan_joueur2 =
 	[(0, Ressource_sous_case, 2, Recolter, 0);
 	(0, Aucune_condition, 1, Deplacer_Aleatoire, 0); 
 	],
-    1);;
+    0);;
 
 
 let guerrier_joueur2 = 
@@ -166,7 +166,7 @@ let guerrier_joueur2 =
 	Guerrier,
 	[(0, Ennemi_adjacent, 2, Attaquer, 0);
 	(0, Aucune_condition, 1, Deplacer_Aleatoire, 0);],
-    1);;
+    0);;
 
 let moine_joueur2 = 
 	(JOUEUR2,
@@ -175,7 +175,7 @@ let moine_joueur2 =
 	(0, Allie_adjacent, 3, Soigner, 0);
 	(0, Aucune_condition, 1, Deplacer_Aleatoire, 0); 
 ],
-    1);;
+    0);;
 
 (* Traduction vers un fichier xml *)
 
