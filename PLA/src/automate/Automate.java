@@ -41,8 +41,10 @@ public class Automate {
 			//Pour chaque état de l'automate
 			for (int l = 0; l < etats.length; l++) {
 				int i=0; 
-				while(i<transitionsAutomate.size() && transitionsAutomate.get(i).getDepart()!=etats[l] && transitionsAutomate.get(i).getCondition()!=Condition.values()[h])
+				while(i<transitionsAutomate.size() && (transitionsAutomate.get(i).getDepart()!=etats[l] || transitionsAutomate.get(i).getCondition()!=Condition.values()[h])){
 					i++;
+				}
+					
 				//Il n'y a pas de transition pour cet état
 				if(i==transitionsAutomate.size()){
 					//On remplit avec une boucle sur soi meme et pas d'actions
