@@ -220,13 +220,17 @@ public class Case {
 
 	public void recevoirDegat(int degat) {
 		
-	
+		if (estBatiment()) {
 			vie-=degat;
 			
 			if(vie<=0){
 				vie=0;
 				typeDeLaCase=Type.RUINES;
 			}
+		}
+		
+	
+			
 		
 	}
 	
