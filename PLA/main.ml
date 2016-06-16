@@ -139,15 +139,15 @@ let paysan_joueur1 =
 let guerrier_joueur1 = 
 	(JOUEUR1,
 	Guerrier,
-	[(1, Ennemi_adjacent, 1, Attaquer, 1);
+	[(1, Ennemi_adjacent, 2, Attaquer, 1);
 	(1, Aucune_condition, 1, Deplacer_Aleatoire, 1);],
     1);;
 
 let moine_joueur1 = 
 	(JOUEUR1,
 	Moine,
-	[(1, Ennemi_adjacent, 1, Convertir, 1);
-	(1, Allie_adjacent, 1, Soigner, 1);
+	[(1, Ennemi_adjacent, 2, Convertir, 1);
+	(1, Allie_adjacent, 3, Soigner, 1);
 	(1, Aucune_condition, 1, Deplacer_Aleatoire, 1); 
 ],
     1);;
@@ -155,8 +155,7 @@ let moine_joueur1 =
 let paysan_joueur2 = 
 	(JOUEUR2,
 	Paysan,
-	[(1, Ressource_adjacente, 1, Recolter, 1);
-	(1, Ressource_sous_case, 2, Recolter, 1);
+	[(1, Ressource_sous_case, 2, Recolter, 1);
 	(1, Aucune_condition, 1, Deplacer_Aleatoire, 1); 
 	],
     1);;
@@ -165,15 +164,15 @@ let paysan_joueur2 =
 let guerrier_joueur2 = 
 	(JOUEUR2,
 	Guerrier,
-	[(1, Ennemi_adjacent, 1, Attaquer, 1);
+	[(1, Ennemi_adjacent, 2, Attaquer, 1);
 	(1, Aucune_condition, 1, Deplacer_Aleatoire, 1);],
     1);;
 
 let moine_joueur2 = 
 	(JOUEUR2,
 	Moine,
-	[(1, Ennemi_adjacent, 1, Convertir, 1);
-	(1, Allie_adjacent, 1, Soigner, 1);
+	[(1, Ennemi_adjacent, 2, Convertir, 1);
+	(1, Allie_adjacent, 3, Soigner, 1);
 	(1, Aucune_condition, 1, Deplacer_Aleatoire, 1); 
 ],
     1);;
